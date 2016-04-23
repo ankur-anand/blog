@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://ankuranand.com/"/>
+  <link href="http://ankuranand.xyz/"/>
   <updated>2016-04-23T13:27:23.013Z</updated>
-  <id>http://ankuranand.com/</id>
+  <id>http://ankuranand.xyz/</id>
   
   <author>
     <name>Ankur Anand</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Understanding Object Mechanism in Python. Part - 1</title>
-    <link href="http://ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/"/>
-    <id>http://ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/</id>
+    <link href="http://ankuranand.xyz/2016/04/23/Object-Mechanism-in-Python-part1/"/>
+    <id>http://ankuranand.xyz/2016/04/23/Object-Mechanism-in-Python-part1/</id>
     <published>2016-04-23T11:34:45.000Z</published>
     <updated>2016-04-23T13:27:23.013Z</updated>
     
@@ -52,19 +52,19 @@
     
     </summary>
     
-      <category term="Python Object Mechanism" scheme="http://ankuranand.com/categories/Python-Object-Mechanism/"/>
+      <category term="Python Object Mechanism" scheme="http://ankuranand.xyz/categories/Python-Object-Mechanism/"/>
     
     
-      <category term="python" scheme="http://ankuranand.com/tags/python/"/>
+      <category term="python" scheme="http://ankuranand.xyz/tags/python/"/>
     
-      <category term="Object" scheme="http://ankuranand.com/tags/Object/"/>
+      <category term="Object" scheme="http://ankuranand.xyz/tags/Object/"/>
     
   </entry>
   
   <entry>
     <title>Private members are not private to instance in Java</title>
-    <link href="http://ankuranand.com/2016/04/23/private-access-in-java/"/>
-    <id>http://ankuranand.com/2016/04/23/private-access-in-java/</id>
+    <link href="http://ankuranand.xyz/2016/04/23/private-access-in-java/"/>
+    <id>http://ankuranand.xyz/2016/04/23/private-access-in-java/</id>
     <published>2016-04-23T10:49:54.000Z</published>
     <updated>2016-04-23T11:23:21.789Z</updated>
     
@@ -86,21 +86,21 @@
     
     </summary>
     
-      <category term="Java" scheme="http://ankuranand.com/categories/Java/"/>
+      <category term="Java" scheme="http://ankuranand.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="http://ankuranand.com/tags/Java/"/>
+      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
     
-      <category term="OOP" scheme="http://ankuranand.com/tags/OOP/"/>
+      <category term="OOP" scheme="http://ankuranand.xyz/tags/OOP/"/>
     
-      <category term="Encapsulation" scheme="http://ankuranand.com/tags/Encapsulation/"/>
+      <category term="Encapsulation" scheme="http://ankuranand.xyz/tags/Encapsulation/"/>
     
   </entry>
   
   <entry>
     <title>Self Note on Eulerian Path</title>
-    <link href="http://ankuranand.com/2016/04/21/eulerian-path/"/>
-    <id>http://ankuranand.com/2016/04/21/eulerian-path/</id>
+    <link href="http://ankuranand.xyz/2016/04/21/eulerian-path/"/>
+    <id>http://ankuranand.xyz/2016/04/21/eulerian-path/</id>
     <published>2016-04-21T15:51:19.000Z</published>
     <updated>2016-04-23T10:48:37.645Z</updated>
     
@@ -140,19 +140,19 @@
     
     </summary>
     
-      <category term="Algorithms" scheme="http://ankuranand.com/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
-      <category term="graph" scheme="http://ankuranand.com/tags/graph/"/>
+      <category term="graph" scheme="http://ankuranand.xyz/tags/graph/"/>
     
   </entry>
   
   <entry>
     <title>Efficient Factorial Algorithm</title>
-    <link href="http://ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
-    <id>http://ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
+    <link href="http://ankuranand.xyz/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
+    <id>http://ankuranand.xyz/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
     <published>2016-04-19T18:15:39.000Z</published>
     <updated>2016-04-23T10:12:22.433Z</updated>
     
@@ -183,16 +183,16 @@
     
     </summary>
     
-      <category term="Algorithms" scheme="http://ankuranand.com/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
     
     
-      <category term="Factorial" scheme="http://ankuranand.com/tags/Factorial/"/>
+      <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
     
-      <category term="Efficiency" scheme="http://ankuranand.com/tags/Efficiency/"/>
+      <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
     
-      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
-      <category term="Java" scheme="http://ankuranand.com/tags/Java/"/>
+      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
     
   </entry>
   
