@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ankuranand.xyz/"/>
-  <updated>2016-04-24T07:53:17.904Z</updated>
+  <updated>2016-04-24T10:15:30.568Z</updated>
   <id>http://ankuranand.xyz/</id>
   
   <author>
@@ -16,11 +16,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Understanding JavaScript. Part-1</title>
+    <link href="http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/"/>
+    <id>http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/</id>
+    <published>2016-04-24T10:12:27.000Z</published>
+    <updated>2016-04-24T10:15:30.568Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;This is first part in the series of &lt;a href=&quot;/categories/Understanding-JavaScript/&quot;&gt;Understanding JavaScript&lt;/a&gt; and assumes that people reading this are familiar with the Some JavaScript&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;This is first par
+    
+    </summary>
+    
+      <category term="Understanding JavaScript" scheme="http://ankuranand.xyz/categories/Understanding-JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://ankuranand.xyz/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Don&#39;t use Mutable as default Parameter in Python functions</title>
     <link href="http://ankuranand.xyz/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
     <id>http://ankuranand.xyz/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
     <published>2016-04-24T06:36:04.000Z</published>
-    <updated>2016-04-24T07:53:17.904Z</updated>
+    <updated>2016-04-24T08:15:19.696Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Examples use &lt;code&gt;python3&lt;/code&gt; for &lt;code&gt;python2&lt;/code&gt; use &lt;code&gt;func_defaults&lt;/code&gt;&lt;/p&gt;
@@ -284,11 +310,11 @@
     
       <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
-      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
-    
       <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
     
       <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
+    
+      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
     
   </entry>
   
