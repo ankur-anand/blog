@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ankuranand.xyz/"/>
-  <updated>2016-04-24T10:15:30.568Z</updated>
+  <updated>2016-04-24T13:20:25.740Z</updated>
   <id>http://ankuranand.xyz/</id>
   
   <author>
@@ -20,11 +20,25 @@
     <link href="http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/"/>
     <id>http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/</id>
     <published>2016-04-24T10:12:27.000Z</published>
-    <updated>2016-04-24T10:15:30.568Z</updated>
+    <updated>2016-04-24T13:20:25.740Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;This is first part in the series of &lt;a href=&quot;/categories/Understanding-JavaScript/&quot;&gt;Understanding JavaScript&lt;/a&gt; and assumes that people reading this are familiar with the Some JavaScript&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Whenever Code is run in JavaScript it is run inside an &lt;code&gt;Execution Context&lt;/code&gt; and the base &lt;code&gt;Execution Context&lt;/code&gt; is the &lt;code&gt;Global Execution Context&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Execution-Context&quot;&gt;&lt;a href=&quot;#Execution-Context&quot; class=&quot;headerlink&quot; title=&quot;Execution Context&quot;&gt;&lt;/a&gt;Execution Context&lt;/h2&gt;&lt;p&gt;The &lt;em&gt;Global Execution Context&lt;/em&gt; creates two things for you&lt;br&gt;    &lt;em&gt;Global Object (Object is just a collection of name value pair)
+    &lt;/em&gt;&lt;code&gt;this&lt;/code&gt; (a special variable)&lt;/p&gt;
+&lt;p&gt;and these two things are created by the JavaScript Engine&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Window &amp;#123;external: &lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;, chrome: &lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;, digits: &lt;span class=&quot;string&quot;&gt;&quot;0123456789&quot;&lt;/span&gt;, phoneNumberDelimiters: &lt;span class=&quot;string&quot;&gt;&quot;()- &quot;&lt;/span&gt;…&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;The Output from the console of browser and here the global object is &lt;code&gt;Window&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;Node.js&lt;/em&gt; environment the global object is different &lt;code&gt;{ global: [Circular],
+  process:..................&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Note:- there is always a &lt;code&gt;Global Object&lt;/code&gt; created by the JavaScript Engine created for you along with special variable &lt;code&gt;this&lt;/code&gt; and at the Global Level these two things are equals&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Remember Global in JavaScript just means “Not Inside a Function”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Suppose we have these lines of code in js file&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &lt;span class=&quot;string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; b = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;When the js file is executed the &lt;code&gt;window.a&lt;/code&gt; will print “Hello World”. &lt;em&gt;So the variable and function when lexically not sitting inside a function they are just sitting inside the Global Object&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So When the code is executed the Execution Context is Created and here the things that are created&lt;br&gt;&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Outer Environment&lt;/code&gt; refers to null for Global Objects&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -308,11 +322,11 @@
       <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
-    
       <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
     
       <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
+    
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
       <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
     

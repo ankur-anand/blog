@@ -16,18 +16,24 @@
   
 
   <meta name="description" content="Introduction
-This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript">
+This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
+
+Whenever Code is run in JavaScript it is run insid">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding JavaScript. Part-1">
 <meta property="og:url" content="http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/index.html">
 <meta property="og:site_name" content="Ankur Anand">
 <meta property="og:description" content="Introduction
-This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript">
-<meta property="og:updated_time" content="2016-04-24T10:15:30.568Z">
+This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
+
+Whenever Code is run in JavaScript it is run insid">
+<meta property="og:updated_time" content="2016-04-24T13:20:25.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding JavaScript. Part-1">
 <meta name="twitter:description" content="Introduction
-This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript">
+This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
+
+Whenever Code is run in JavaScript it is run insid">
 
   
 
@@ -136,7 +142,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Context"><span class="toc-text">Execution Context</span></a></li></ol>
   </div>
 
 
@@ -182,6 +188,20 @@ ga('send', 'pageview');
       <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
 <p>This is first part in the series of <a href="/categories/Understanding-JavaScript/">Understanding JavaScript</a> and assumes that people reading this are familiar with the Some JavaScript</p>
 </blockquote>
+<p>Whenever Code is run in JavaScript it is run inside an <code>Execution Context</code> and the base <code>Execution Context</code> is the <code>Global Execution Context</code>.</p>
+<h2 id="Execution-Context"><a href="#Execution-Context" class="headerlink" title="Execution Context"></a>Execution Context</h2><p>The <em>Global Execution Context</em> creates two things for you<br>    <em>Global Object (Object is just a collection of name value pair)
+    </em><code>this</code> (a special variable)</p>
+<p>and these two things are created by the JavaScript Engine</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">this</span></span><br><span class="line">Window &#123;external: <span class="built_in">Object</span>, chrome: <span class="built_in">Object</span>, <span class="built_in">document</span>: <span class="built_in">document</span>, digits: <span class="string">"0123456789"</span>, phoneNumberDelimiters: <span class="string">"()- "</span>…&#125;</span><br></pre></td></tr></table></figure>
+<p>The Output from the console of browser and here the global object is <code>Window</code></p>
+<p>In <em>Node.js</em> environment the global object is different <code>{ global: [Circular],
+  process:..................</code></p>
+<p>Note:- there is always a <code>Global Object</code> created by the JavaScript Engine created for you along with special variable <code>this</code> and at the Global Level these two things are equals</p>
+<p><strong>Remember Global in JavaScript just means “Not Inside a Function”</strong></p>
+<p>Suppose we have these lines of code in js file<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello World"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>When the js file is executed the <code>window.a</code> will print “Hello World”. <em>So the variable and function when lexically not sitting inside a function they are just sitting inside the Global Object</em></p>
+<p>So When the code is executed the Execution Context is Created and here the things that are created<br><img src="" alt=""></p>
+<p>The <code>Outer Environment</code> refers to null for Global Objects</p>
 
     
   </div>
