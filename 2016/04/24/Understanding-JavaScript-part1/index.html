@@ -18,7 +18,7 @@
   <meta name="description" content="Introduction
 This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
 
-Whenever Code is run in JavaScript it is run insid">
+Every time when control is transferred to ECMAScri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding JavaScript. Part-1">
 <meta property="og:url" content="http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/index.html">
@@ -26,14 +26,17 @@ Whenever Code is run in JavaScript it is run insid">
 <meta property="og:description" content="Introduction
 This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
 
-Whenever Code is run in JavaScript it is run insid">
-<meta property="og:updated_time" content="2016-04-24T13:20:25.740Z">
+Every time when control is transferred to ECMAScri">
+<meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/Execution%20Context.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/creationphase.png">
+<meta property="og:updated_time" content="2016-04-24T16:13:35.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding JavaScript. Part-1">
 <meta name="twitter:description" content="Introduction
 This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
 
-Whenever Code is run in JavaScript it is run insid">
+Every time when control is transferred to ECMAScri">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/Execution%20Context.png">
 
   
 
@@ -142,7 +145,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Context"><span class="toc-text">Execution Context</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Context"><span class="toc-text">Execution Context</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Creation-and-Hoisting"><span class="toc-text">Creation and Hoisting</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Creation-Phase"><span class="toc-text">Creation Phase:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Execution-Phase"><span class="toc-text">Execution Phase</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -188,7 +191,11 @@ ga('send', 'pageview');
       <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
 <p>This is first part in the series of <a href="/categories/Understanding-JavaScript/">Understanding JavaScript</a> and assumes that people reading this are familiar with the Some JavaScript</p>
 </blockquote>
-<p>Whenever Code is run in JavaScript it is run inside an <code>Execution Context</code> and the base <code>Execution Context</code> is the <code>Global Execution Context</code>.</p>
+<p>Every time when control is transferred to ECMAScript executable code, control is entered an execution context.</p>
+<blockquote>
+<p>Execution context (abbreviated form — EC) is the abstract concept used by ECMAspecification for typification and differentiation of an executable code.</p>
+</blockquote>
+<p>Whenever Code is run in JavaScript it is run inside an <code>Execution Context</code> and the base <code>Execution Context</code> is the <code>Global Execution Context</code>. On the top of <code>Global Execution Context</code> there may be more <code>Execution Context</code>, and all of them lives in the Execution Stack</p>
 <h2 id="Execution-Context"><a href="#Execution-Context" class="headerlink" title="Execution Context"></a>Execution Context</h2><p>The <em>Global Execution Context</em> creates two things for you<br>    <em>Global Object (Object is just a collection of name value pair)
     </em><code>this</code> (a special variable)</p>
 <p>and these two things are created by the JavaScript Engine</p>
@@ -196,12 +203,24 @@ ga('send', 'pageview');
 <p>The Output from the console of browser and here the global object is <code>Window</code></p>
 <p>In <em>Node.js</em> environment the global object is different <code>{ global: [Circular],
   process:..................</code></p>
-<p>Note:- there is always a <code>Global Object</code> created by the JavaScript Engine created for you along with special variable <code>this</code> and at the Global Level these two things are equals</p>
+<p>Note:- There is always a <code>Global Object</code> created by the JavaScript Engine for you along with special variable <code>this</code> and at the Global Level these two things are equals</p>
 <p><strong>Remember Global in JavaScript just means “Not Inside a Function”</strong></p>
 <p>Suppose we have these lines of code in js file<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello World"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>When the js file is executed the <code>window.a</code> will print “Hello World”. <em>So the variable and function when lexically not sitting inside a function they are just sitting inside the Global Object</em></p>
-<p>So When the code is executed the Execution Context is Created and here the things that are created<br><img src="" alt=""></p>
-<p>The <code>Outer Environment</code> refers to null for Global Objects</p>
+<p>So When the code is executed the Execution Context is Created and here the things that are created<br><img src="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/Execution%20Context.png" alt="Execution Context"></p>
+<p>The <code>Outer Environment</code> refers to <code>null</code> for Global Objects</p>
+<h3 id="Creation-and-Hoisting"><a href="#Creation-and-Hoisting" class="headerlink" title="Creation and Hoisting"></a>Creation and Hoisting</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">b(); <span class="comment">// called b</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// Undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello World"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'called b'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The above code doesn’t give any error and why it happen we are going to discuss that now</p>
+<p>In JavaScript Execution Context is Created in two phases</p>
+<h4 id="Creation-Phase"><a href="#Creation-Phase" class="headerlink" title="Creation Phase:"></a>Creation Phase:</h4><p>In Creation Phase it’s creates <em>Global Object</em>,<em>this</em>,<em>Outer Environment</em> and <em>Setup Memory Space for Variables and Functions that you have created in the entire code base</em> so that function and variables exist in the memory and when that code begin execute line by line it can excess them and it’s that step that somewhat is known as “Hoisting”</p>
+<p><img src="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/creationphase.png" alt="Execution Context Creation Phase"></p>
+<p>However when it comes <code>variable</code> it is little bit different, While whole functions always sits in the memory(means all the code that’s why we got output <code>called b</code> when function was called in the above code). For variable the JavaScript Engine doesn’t know what the value of the variable is going to be until it enter into the second phase i.e <a href="#Execution-Phase">Execution Phase</a>.So Instead it set is as <code>Undefined</code>.</p>
+<p><strong>All JavaScript Variables are initially set to undefined</strong></p>
+<h4 id="Execution-Phase"><a href="#Execution-Phase" class="headerlink" title="Execution Phase"></a>Execution Phase</h4><p>It’s is in this phase that the value to the names of variables are assigned. Rest of time it is undefined</p>
+<p>And this concept applies in all the Execution Context of JavaScript</p>
+<p>For Example<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'called b'</span>);</span><br><span class="line">    <span class="keyword">var</span> c = <span class="string">'Hello'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b();</span><br></pre></td></tr></table></figure></p>
+<p>The output is<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span></span><br><span class="line">called b</span><br></pre></td></tr></table></figure></p>
+<p><strong>Note : Never relies on Hoisting</strong></p>
 
     
   </div>
