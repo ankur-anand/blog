@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ankuranand.xyz/"/>
-  <updated>2016-04-23T13:27:23.013Z</updated>
+  <updated>2016-04-24T07:53:17.904Z</updated>
   <id>http://ankuranand.xyz/</id>
   
   <author>
@@ -16,11 +16,107 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Don&#39;t use Mutable as default Parameter in Python functions</title>
+    <link href="http://ankuranand.xyz/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
+    <id>http://ankuranand.xyz/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
+    <published>2016-04-24T06:36:04.000Z</published>
+    <updated>2016-04-24T07:53:17.904Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Examples use &lt;code&gt;python3&lt;/code&gt; for &lt;code&gt;python2&lt;/code&gt; use &lt;code&gt;func_defaults&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We frequently use &lt;code&gt;[]&lt;/code&gt; as default parameter.&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(a=[])&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt;  &lt;span class=&quot;keyword&quot;&gt;pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;foo.__defaults__&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;([],)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;But this is not a good practice as this lead to debugging &lt;a href=&quot;https://en.wikipedia.org/wiki/Rabbit_hole&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;rabbit hole&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Understanding-Why&quot;&gt;&lt;a href=&quot;#Understanding-Why&quot; class=&quot;headerlink&quot; title=&quot;Understanding Why ?&quot;&gt;&lt;/a&gt;Understanding Why ?&lt;/h2&gt;&lt;p&gt;&lt;em&gt;The Default parameters are initialized during function definition time&lt;/em&gt; which occur at either module load time or during program execution. As we can see in the above example the &lt;code&gt;foo&lt;/code&gt; function was defined and it’s default parameter shows the value of list which is empty &lt;code&gt;([],)&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(items, seq=[])&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; item &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; items:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; item &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      seq.append(item)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; seq&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Till now the only item in the &lt;code&gt;__defaults__&lt;/code&gt; is an empty list as can be seen&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;print(foo.__defaults__) &lt;span class=&quot;comment&quot;&gt;# ([],)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;After first Invocation&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;print(foo([&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;])) &lt;span class=&quot;comment&quot;&gt;# [2]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(foo.__defaults__) &lt;span class=&quot;comment&quot;&gt;# ([2],)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;From the output we can see that now the &lt;code&gt;__defaults__&lt;/code&gt; doesn’t shows that the default for seq which should be an empty list and this leads to &lt;code&gt;error&lt;/code&gt; on subsequent invocations&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;print(foo([&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;])) &lt;span class=&quot;comment&quot;&gt;# [2, 3]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(foo([&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;])) &lt;span class=&quot;comment&quot;&gt;# [2, 3]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Why this happens because the list, being a mutable type, is still the same instance defined during function creation, but it is now populated from the interaction of the previous invocation.&lt;/p&gt;
+&lt;h2 id=&quot;General-Solution&quot;&gt;&lt;a href=&quot;#General-Solution&quot; class=&quot;headerlink&quot; title=&quot;General Solution&quot;&gt;&lt;/a&gt;General Solution&lt;/h2&gt;&lt;p&gt;Shift the creation from definition time to runtime.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;A Common idiom is to have the parameter default to None then check for that value in the body of the function&lt;/em&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(items,seq = None)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  seq = seq &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; []&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; item &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; items:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; item &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      seq.append(item)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; seq&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(foo([&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;])) &lt;span class=&quot;comment&quot;&gt;#[2]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(foo([&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;])) &lt;span class=&quot;comment&quot;&gt;#[3]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(foo([&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;])) &lt;span class=&quot;comment&quot;&gt;#[]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;Point to Remember :&lt;/strong&gt; Don’t use mutable types as default parameters&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Examples use &lt;cod
+    
+    </summary>
+    
+      <category term="Python Fundamental" scheme="http://ankuranand.xyz/categories/Python-Fundamental/"/>
+    
+    
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+    
+      <category term="Function" scheme="http://ankuranand.xyz/tags/Function/"/>
+    
+      <category term="First-Class Function" scheme="http://ankuranand.xyz/tags/First-Class-Function/"/>
+    
+      <category term="Python Basic" scheme="http://ankuranand.xyz/tags/Python-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Understanding First Class Function in Python</title>
+    <link href="http://ankuranand.xyz/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
+    <id>http://ankuranand.xyz/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
+    <published>2016-04-24T04:13:22.000Z</published>
+    <updated>2016-04-24T04:37:24.333Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Function in Python are First- Class Objects. This means that they can be passed around and used just like any other data types. In Shorthand it’s also known as “First-class function”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Some of the characteristics of First Class Object Objects ?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Created at runtime&lt;/li&gt;
+&lt;li&gt;Assigned to a variable or element in a data structure&lt;/li&gt;
+&lt;li&gt;Passed as an arguments to a function&lt;/li&gt;
+&lt;li&gt;Returned as the result of a function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Integers, Strings and Dictionaries are other examples of first- class objects in Python.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Created-at-Runtime&quot;&gt;&lt;a href=&quot;#Created-at-Runtime&quot; class=&quot;headerlink&quot; title=&quot;Created at Runtime&quot;&gt;&lt;/a&gt;Created at Runtime&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; def factorial(n): &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...  &quot;&quot;&quot;return n!&quot;&quot;&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...  return 1 if n &amp;lt; 2 else n * factorial(n - 1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;... &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; factorial(5)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;120&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; factorial.__doc__&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&#39;return n!&#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; type(factorial)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;class &#39;function&#39;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;In The above example we created a function at the runtime, &lt;strong&gt;doc&lt;/strong&gt; is one of several attribute of the function objects, and factorial is an instance of function class&lt;/p&gt;
+&lt;h2 id=&quot;Assigned-to-a-variable-or-element-in-a-data-structure&quot;&gt;&lt;a href=&quot;#Assigned-to-a-variable-or-element-in-a-data-structure&quot; class=&quot;headerlink&quot; title=&quot;Assigned to a variable or element in a data structure&quot;&gt;&lt;/a&gt;Assigned to a variable or element in a data structure&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;fact = factorial&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;fact&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;function factorial at &lt;span class=&quot;number&quot;&gt;0x7fdfb7f7fbf8&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;fact(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;24&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;We can assign it a variable fact and call it through that name&lt;/p&gt;
+&lt;h2 id=&quot;Returned-as-the-result-of-a-function&quot;&gt;&lt;a href=&quot;#Returned-as-the-result-of-a-function&quot; class=&quot;headerlink&quot; title=&quot;Returned as the result of a function&quot;&gt;&lt;/a&gt;Returned as the result of a function&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;map(factorial, range(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;map object at &lt;span class=&quot;number&quot;&gt;0x7fdfb7e93390&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;In the above example we passed it to the map and it also returns a function as result, Which produces a below result when passed to list&lt;/p&gt;
+&lt;h2 id=&quot;Passed-as-an-arguments-to-a-function&quot;&gt;&lt;a href=&quot;#Passed-as-an-arguments-to-a-function&quot; class=&quot;headerlink&quot; title=&quot;Passed as an arguments to a function&quot;&gt;&lt;/a&gt;Passed as an arguments to a function&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;list(map(factorial, range(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;24&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Another example is the sorted built-in function: an optional key arguments lets you provide a function to be applied to each item for sorting.&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;name = [&lt;span class=&quot;string&quot;&gt;&#39;Ankur&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Anand&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Sam&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;John&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;KK&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;I&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(name, key=len)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&#39;I&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;KK&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Sam&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;John&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Ankur&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Anand&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Custom Reverse Function used for Sorting.&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverse_sort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(word)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39; reverse the word &#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; word[::&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;reverse_sort(&lt;span class=&quot;string&quot;&gt;&#39;Ankur&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;ruknA&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(name, key=reverse_sort)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&#39;I&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;KK&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Anand&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Sam&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;John&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Ankur&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Function in Python are First- 
+    
+    </summary>
+    
+      <category term="Python Fundamental" scheme="http://ankuranand.xyz/categories/Python-Fundamental/"/>
+    
+    
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+    
+      <category term="Function" scheme="http://ankuranand.xyz/tags/Function/"/>
+    
+      <category term="First-Class Function" scheme="http://ankuranand.xyz/tags/First-Class-Function/"/>
+    
+      <category term="Python Basic" scheme="http://ankuranand.xyz/tags/Python-Basic/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Understanding Object Mechanism in Python. Part - 1</title>
     <link href="http://ankuranand.xyz/2016/04/23/Object-Mechanism-in-Python-part1/"/>
     <id>http://ankuranand.xyz/2016/04/23/Object-Mechanism-in-Python-part1/</id>
     <published>2016-04-23T11:34:45.000Z</published>
-    <updated>2016-04-23T13:27:23.013Z</updated>
+    <updated>2016-04-23T16:27:11.755Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;This is first part in the series of &lt;a href=&quot;/categories/Python-Object-Mechanism/&quot;&gt;object mechanism in python&lt;/a&gt; and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code&lt;/p&gt;
@@ -55,7 +151,7 @@
       <category term="Python Object Mechanism" scheme="http://ankuranand.xyz/categories/Python-Object-Mechanism/"/>
     
     
-      <category term="python" scheme="http://ankuranand.xyz/tags/python/"/>
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
       <category term="Object" scheme="http://ankuranand.xyz/tags/Object/"/>
     
@@ -186,13 +282,13 @@
       <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
     
     
-      <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
-    
-      <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
-    
       <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
       <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
+    
+      <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
+    
+      <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
     
   </entry>
   
