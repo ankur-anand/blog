@@ -16,26 +16,26 @@
   
 
   <meta name="description" content="Introduction
-This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
+This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with Some JavaScript
 
-Every time when control is transferred to ECMAScri">
+Every time when control is transferred to ECMAScript e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding JavaScript. Part-1">
 <meta property="og:url" content="http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/index.html">
 <meta property="og:site_name" content="Ankur Anand">
 <meta property="og:description" content="Introduction
-This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
+This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with Some JavaScript
 
-Every time when control is transferred to ECMAScri">
+Every time when control is transferred to ECMAScript e">
 <meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/Execution%20Context.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/creationphase.png">
-<meta property="og:updated_time" content="2016-04-24T16:13:35.720Z">
+<meta property="og:updated_time" content="2016-05-10T13:20:40.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding JavaScript. Part-1">
 <meta name="twitter:description" content="Introduction
-This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with the Some JavaScript
+This is first part in the series of Understanding JavaScript and assumes that people reading this are familiar with Some JavaScript
 
-Every time when control is transferred to ECMAScri">
+Every time when control is transferred to ECMAScript e">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/Execution%20Context.png">
 
   
@@ -189,7 +189,7 @@ ga('send', 'pageview');
   <div class="article-content">
     
       <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
-<p>This is first part in the series of <a href="/categories/Understanding-JavaScript/">Understanding JavaScript</a> and assumes that people reading this are familiar with the Some JavaScript</p>
+<p>This is first part in the series of <a href="/categories/Understanding-JavaScript/">Understanding JavaScript</a> and assumes that people reading this are familiar with Some JavaScript</p>
 </blockquote>
 <p>Every time when control is transferred to ECMAScript executable code, control is entered an execution context.</p>
 <blockquote>
@@ -221,6 +221,7 @@ ga('send', 'pageview');
 <p>For Example<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'called b'</span>);</span><br><span class="line">    <span class="keyword">var</span> c = <span class="string">'Hello'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b();</span><br></pre></td></tr></table></figure></p>
 <p>The output is<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span></span><br><span class="line">called b</span><br></pre></td></tr></table></figure></p>
 <p><strong>Note : Never relies on Hoisting</strong></p>
+<p>In <a href="/2016/05/04/Understanding-JavaScript-part2/">Part-2</a> we will be discussing about <code>this</code> variable.</p>
 
     
   </div>
@@ -368,38 +369,6 @@ ga('send', 'pageview');
       // load success
     });
   }
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

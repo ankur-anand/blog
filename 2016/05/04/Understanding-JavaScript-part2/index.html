@@ -7,48 +7,33 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Self Note on Eulerian Path | Ankur Anand</title>
+  <title>Understanding JavaScript. Part-2 | Ankur Anand</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Python,graph," />
+    <meta name="keywords" content="JavaScript," />
   
 
-  <meta name="description" content="IntroductionEulerian Path are paths that
+  <meta name="description" content="Introduction
+This is Second part in the series of Understanding JavaScript and assumes that people reading this are familiar with Some JavaScript.
 
-Start at some node
-Visit every node exactly once
-And ends
-
-
-For the above Diagram We can start at some node for example sayWe starts at node DThe next criteri">
+In the first part we talked about the Execution Cont">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Self Note on Eulerian Path">
-<meta property="og:url" content="http://ankuranand.xyz/2016/04/21/eulerian-path/index.html">
+<meta property="og:title" content="Understanding JavaScript. Part-2">
+<meta property="og:url" content="http://ankuranand.xyz/2016/05/04/Understanding-JavaScript-part2/index.html">
 <meta property="og:site_name" content="Ankur Anand">
-<meta property="og:description" content="IntroductionEulerian Path are paths that
+<meta property="og:description" content="Introduction
+This is Second part in the series of Understanding JavaScript and assumes that people reading this are familiar with Some JavaScript.
 
-Start at some node
-Visit every node exactly once
-And ends
-
-
-For the above Diagram We can start at some node for example sayWe starts at node DThe next criteri">
-<meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/eulerian1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/even%20eulerian.png">
-<meta property="og:updated_time" content="2016-04-23T10:48:37.645Z">
+In the first part we talked about the Execution Cont">
+<meta property="og:updated_time" content="2016-05-04T03:24:21.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Self Note on Eulerian Path">
-<meta name="twitter:description" content="IntroductionEulerian Path are paths that
+<meta name="twitter:title" content="Understanding JavaScript. Part-2">
+<meta name="twitter:description" content="Introduction
+This is Second part in the series of Understanding JavaScript and assumes that people reading this are familiar with Some JavaScript.
 
-Start at some node
-Visit every node exactly once
-And ends
-
-
-For the above Diagram We can start at some node for example sayWe starts at node DThe next criteri">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/eulerian1.png">
+In the first part we talked about the Execution Cont">
 
   
 
@@ -157,20 +142,20 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">Content</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Condition"><span class="toc-text">Condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception"><span class="toc-text">Exception</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-it-is-important"><span class="toc-text">Why it is important ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this"><span class="toc-text">this</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-eulerian-path" class="article article-type-post" itemprop="blogPost">
+   <article id="post-Understanding-JavaScript-part2" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Self Note on Eulerian Path</h1>
+    <h1 class="post-title">Understanding JavaScript. Part-2</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.04.21</span>
+        <span>2016.05.04</span>
       </span>
 
       
@@ -183,7 +168,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+    <a class="article-category-link" href="/categories/Understanding-JavaScript/">Understanding JavaScript</a>
   </span>
 
 
@@ -191,7 +176,7 @@ ga('send', 'pageview');
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.ankuranand.com/2016/04/21/eulerian-path/#disqus_thread"></a>
+          <a href="http://www.ankuranand.com/2016/05/04/Understanding-JavaScript-part2/#disqus_thread"></a>
         </span>
       
 
@@ -200,34 +185,12 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Eulerian Path are paths that</p>
-<ol>
-<li>Start at some node</li>
-<li>Visit every node exactly once</li>
-<li>And ends</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/eulerian1.png" alt="Eulerian paths"></p>
-<p>For the above Diagram We can start at some node for example say<br>We starts at node <strong>D</strong><br>The next criteria is Visit every node exactly once</p>
-<p>In the above graph we can transverse in any manner. I’m transversing in following manner.</p>
-<blockquote>
-<p>D -&gt; B -&gt; A -&gt; D -&gt; C -&gt; A</p>
+      <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>This is Second part in the series of <a href="/categories/Understanding-JavaScript/">Understanding JavaScript</a> and assumes that people reading this are familiar with Some JavaScript.</p>
 </blockquote>
-<p>So in the above we have an Eulerian path that started at D and ended at A</p>
-<h3 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h3><blockquote>
-<p>If a graph is connected and have a two node with even degree, than it has an<br>Eulerian path.</p>
-</blockquote>
-<p>As seen from above example the starting and ending node D and A has an odd degree.</p>
-<p>If Graph has all odd degree that graph can’t have a Eulerian Path</p>
-<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h3><blockquote>
-<p>If all the node is of even degree</p>
-</blockquote>
-<p>For example<br>The below graph has an Eulerian Path even when all of it’s node is even</p>
-<p><img src="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/even%20eulerian.png" alt="Even Eulerian"></p>
-<p>Transverse</p>
-<blockquote>
-<p>A -&gt; B -&gt; C -&gt; E -&gt; B -&gt; D -&gt; C -&gt; A </p>
-</blockquote>
-<p>We start and end up at the same node so the node should have a even degree<br>This is special kind of the Eulerian Path and this is known as <strong>Eulerian Tour</strong></p>
+<p>In the <a href="/2016/04/24/Understanding-JavaScript-part1/">first part</a> we talked about the <code>Execution Context</code> and how every time a function is invoked a new <code>Execution Context</code> is Created. In this post we are going to see how this execution context affects the <code>this</code> keyword in JavaScript.</p>
+<h2 id="Why-it-is-important"><a href="#Why-it-is-important" class="headerlink" title="Why it is important ?"></a>Why it is important ?</h2><p>We have seen in the <a href="/2016/04/24/Understanding-JavaScript-part1/">first part</a> that whenever a new <code>Execution Context</code> is created the JavaScript Engine creates certain things for us, like <em>Variable Environment</em>, <em>Reference to outer Lexical Environment</em> (Lexical Environment is the Environment Where it sits physically in the code and as this tailors the variable lookup Scope chain, i.e if i ask for a variable and it is not there it will go out to next Lexical Environment till the <code>Global Execution Environment</code> looking for that variable) and also gives us this variable called <code>this</code> and <code>this</code> will be pointing at different <em>Object</em> depending on how the function is invoked.</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a><code>this</code></h2><p>In the below code the <code>this</code> keyword which is immediately available will point to global Object i.e inside browser it will be <code>window</code> Object.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure></p>
 
     
   </div>
@@ -323,7 +286,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'ankuranand';
     
-    var disqus_url = 'http://ankuranand.xyz/2016/04/21/eulerian-path/';
+    var disqus_url = 'http://ankuranand.xyz/2016/05/04/Understanding-JavaScript-part2/';
     
     (function(){
       var dsq = document.createElement('script');
