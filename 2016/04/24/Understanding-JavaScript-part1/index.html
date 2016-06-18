@@ -29,7 +29,7 @@ This is first part in the series of Understanding JavaScript and assumes that pe
 Every time when control is transferred to ECMAScript e">
 <meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/Execution%20Context.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/creationphase.png">
-<meta property="og:updated_time" content="2016-05-10T13:20:40.705Z">
+<meta property="og:updated_time" content="2016-05-11T05:29:14.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding JavaScript. Part-1">
 <meta name="twitter:description" content="Introduction
@@ -215,8 +215,11 @@ ga('send', 'pageview');
 <h4 id="Creation-Phase"><a href="#Creation-Phase" class="headerlink" title="Creation Phase:"></a>Creation Phase:</h4><p>In Creation Phase it’s creates <em>Global Object</em>,<em>this</em>,<em>Outer Environment</em> and <em>Setup Memory Space for Variables and Functions that you have created in the entire code base</em> so that function and variables exist in the memory and when that code begin execute line by line it can excess them and it’s that step that somewhat is known as “Hoisting”</p>
 <p><img src="https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/creationphase.png" alt="Execution Context Creation Phase"></p>
 <p>However when it comes <code>variable</code> it is little bit different, While whole functions always sits in the memory(means all the code that’s why we got output <code>called b</code> when function was called in the above code). For variable the JavaScript Engine doesn’t know what the value of the variable is going to be until it enter into the second phase i.e <a href="#Execution-Phase">Execution Phase</a>.So Instead it set is as <code>Undefined</code>.</p>
-<p><strong>All JavaScript Variables are initially set to undefined</strong></p>
-<h4 id="Execution-Phase"><a href="#Execution-Phase" class="headerlink" title="Execution Phase"></a>Execution Phase</h4><p>It’s is in this phase that the value to the names of variables are assigned. Rest of time it is undefined</p>
+<p><strong>All JavaScript Variables are initially set to undefined</strong><br>For Example:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">10</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>On Entering the test function execution context:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AO(text):</span><br><span class="line">a : 1  // a property of the variable object with a value of formal parameter </span><br><span class="line">       // is created. If no value is passed to the formal parameter undefined is assigned</span><br><span class="line">b : undefined</span><br><span class="line">c : undefined</span><br><span class="line">d :  &lt; reference to functionDeclaration D&gt;</span><br><span class="line">e : undefined</span><br></pre></td></tr></table></figure></p>
+<p>The AO Does not contain function f, because Function Expression does not affect Objects. However the anonymous function expression becomes accessible via name e.</p>
+<h4 id="Execution-Phase"><a href="#Execution-Phase" class="headerlink" title="Execution Phase"></a>Execution Phase</h4><p>By this moment, AO/VO is  the It’s is in this phase that the value to the names of variables are assigned. Rest of time it is undefined</p>
 <p>And this concept applies in all the Execution Context of JavaScript</p>
 <p>For Example<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'called b'</span>);</span><br><span class="line">    <span class="keyword">var</span> c = <span class="string">'Hello'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b();</span><br></pre></td></tr></table></figure></p>
 <p>The output is<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span></span><br><span class="line">called b</span><br></pre></td></tr></table></figure></p>
@@ -369,6 +372,38 @@ ga('send', 'pageview');
       // load success
     });
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

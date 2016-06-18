@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ankuranand.xyz/"/>
-  <updated>2016-05-10T18:49:29.667Z</updated>
+  <updated>2016-06-18T11:34:56.277Z</updated>
   <id>http://ankuranand.xyz/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Basic Mathematics of SQL</title>
+    <link href="http://ankuranand.xyz/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
+    <id>http://ankuranand.xyz/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
+    <published>2016-06-18T09:54:59.000Z</published>
+    <updated>2016-06-18T11:34:56.277Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Formally, we know a &lt;strong&gt;relation&lt;/strong&gt; is a subset of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Cartesian_product&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cartesian Products&lt;/a&gt; of sets. i.e $ R \in ( A X B ) $&lt;br&gt;For Example.&lt;br&gt;$$ A = \{ 1, 3 \} , B = \{ 2, 5 \} $$&lt;br&gt;Cartesian Product of set A and B will be&lt;br&gt;$$ P = \{ (1,2),(3,2),(1,5),(3,5)\} $$&lt;/p&gt;
+&lt;p&gt;Out of that there are three pair that observe the $ &amp;lt; $ relationship&lt;br&gt;$$ R = \{ (1,2), (1,5), (3,5)\} $$&lt;br&gt;Or we can 1 is related to 5 by relation R ($&amp;lt;$)&lt;/p&gt;
+&lt;p&gt;In real world we name each relation by name which makes sense for others,&lt;br&gt;and with each relation name we associate its schema - which is a sequence of&lt;br&gt;attributes(i.e a column in Table)&lt;/p&gt;
+&lt;p&gt;For Example for above set we have a relation of $ R (A,B) $ which we can write more as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lessthan(A,B)&lt;br&gt;In Real world we represent the relation in Table with attributes as column&lt;/li&gt;
+&lt;li&gt;Student(Id, FirstN, LastN)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;FirstN&lt;/th&gt;
+&lt;th&gt;LastN&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;101&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;John&lt;/td&gt;
+&lt;td&gt;Deo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;102&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Jane&lt;/td&gt;
+&lt;td&gt;Deo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;103&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;Jhonny&lt;/td&gt;
+&lt;td&gt;Deo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Note : Attributes names in relation schema must be different&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Formally, we know a &lt;strong&gt;re
+    
+    </summary>
+    
+      <category term="Programming Paradigms" scheme="http://ankuranand.xyz/categories/Programming-Paradigms/"/>
+    
+    
+      <category term="SQL" scheme="http://ankuranand.xyz/tags/SQL/"/>
+    
+      <category term="Mathematics" scheme="http://ankuranand.xyz/tags/Mathematics/"/>
+    
+      <category term="Self Note" scheme="http://ankuranand.xyz/tags/Self-Note/"/>
+    
+  </entry>
   
   <entry>
     <title>Call By Sharing</title>
@@ -119,7 +180,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/"/>
     <id>http://ankuranand.xyz/2016/04/24/Understanding-JavaScript-part1/</id>
     <published>2016-04-24T10:12:27.000Z</published>
-    <updated>2016-05-10T13:20:40.705Z</updated>
+    <updated>2016-05-11T05:29:14.542Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;This is first part in the series of &lt;a href=&quot;/categories/Understanding-JavaScript/&quot;&gt;Understanding JavaScript&lt;/a&gt; and assumes that people reading this are familiar with Some JavaScript&lt;/p&gt;
@@ -148,8 +209,11 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
 &lt;h4 id=&quot;Creation-Phase&quot;&gt;&lt;a href=&quot;#Creation-Phase&quot; class=&quot;headerlink&quot; title=&quot;Creation Phase:&quot;&gt;&lt;/a&gt;Creation Phase:&lt;/h4&gt;&lt;p&gt;In Creation Phase it’s creates &lt;em&gt;Global Object&lt;/em&gt;,&lt;em&gt;this&lt;/em&gt;,&lt;em&gt;Outer Environment&lt;/em&gt; and &lt;em&gt;Setup Memory Space for Variables and Functions that you have created in the entire code base&lt;/em&gt; so that function and variables exist in the memory and when that code begin execute line by line it can excess them and it’s that step that somewhat is known as “Hoisting”&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ankuanand/Blogs-Image/master/creationphase.png&quot; alt=&quot;Execution Context Creation Phase&quot;&gt;&lt;/p&gt;
 &lt;p&gt;However when it comes &lt;code&gt;variable&lt;/code&gt; it is little bit different, While whole functions always sits in the memory(means all the code that’s why we got output &lt;code&gt;called b&lt;/code&gt; when function was called in the above code). For variable the JavaScript Engine doesn’t know what the value of the variable is going to be until it enter into the second phase i.e &lt;a href=&quot;#Execution-Phase&quot;&gt;Execution Phase&lt;/a&gt;.So Instead it set is as &lt;code&gt;Undefined&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;All JavaScript Variables are initially set to undefined&lt;/strong&gt;&lt;/p&gt;
-&lt;h4 id=&quot;Execution-Phase&quot;&gt;&lt;a href=&quot;#Execution-Phase&quot; class=&quot;headerlink&quot; title=&quot;Execution Phase&quot;&gt;&lt;/a&gt;Execution Phase&lt;/h4&gt;&lt;p&gt;It’s is in this phase that the value to the names of variables are assigned. Rest of time it is undefined&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;All JavaScript Variables are initially set to undefined&lt;/strong&gt;&lt;br&gt;For Example:&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;a,b&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; c = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;d&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;On Entering the test function execution context:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;AO(text):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a : 1  // a property of the variable object with a value of formal parameter &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       // is created. If no value is passed to the formal parameter undefined is assigned&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b : undefined&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c : undefined&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;d :  &amp;lt; reference to functionDeclaration D&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;e : undefined&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The AO Does not contain function f, because Function Expression does not affect Objects. However the anonymous function expression becomes accessible via name e.&lt;/p&gt;
+&lt;h4 id=&quot;Execution-Phase&quot;&gt;&lt;a href=&quot;#Execution-Phase&quot; class=&quot;headerlink&quot; title=&quot;Execution Phase&quot;&gt;&lt;/a&gt;Execution Phase&lt;/h4&gt;&lt;p&gt;By this moment, AO/VO is  the It’s is in this phase that the value to the names of variables are assigned. Rest of time it is undefined&lt;/p&gt;
 &lt;p&gt;And this concept applies in all the Execution Context of JavaScript&lt;/p&gt;
 &lt;p&gt;For Example&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;b&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(c);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;called b&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; c = &lt;span class=&quot;string&quot;&gt;&#39;Hello&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;The output is&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;called b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -406,7 +470,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.xyz/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
     <id>http://ankuranand.xyz/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
     <published>2016-04-19T18:15:39.000Z</published>
-    <updated>2016-04-23T10:12:22.433Z</updated>
+    <updated>2016-06-18T10:10:32.996Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Factorial&quot;&gt;&lt;a href=&quot;#Factorial&quot; class=&quot;headerlink&quot; title=&quot;Factorial -&quot;&gt;&lt;/a&gt;Factorial -&lt;/h2&gt;&lt;p&gt;In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers&lt;br&gt;less than or equal to n. For example,&lt;/p&gt;
 &lt;p&gt;$$ 5! = 5 \ast 4 \ast 3 \ast 2 \ast 1 = 120 $$&lt;/p&gt;
@@ -438,11 +502,11 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
       <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
-    
       <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
     
       <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
+    
+      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
     
       <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
     
