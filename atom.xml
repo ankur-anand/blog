@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://ankuranand.xyz/"/>
-  <updated>2017-06-03T11:21:47.673Z</updated>
-  <id>http://ankuranand.xyz/</id>
+  <link href="http://ankuranand.com/"/>
+  <updated>2017-08-30T18:13:39.790Z</updated>
+  <id>http://ankuranand.com/</id>
   
   <author>
     <name>Ankur Anand</name>
@@ -17,15 +17,15 @@
   
   <entry>
     <title>Understanding Non-deterministic order of execution of setTimeout vs setImmediate in node.js event-loop</title>
-    <link href="http://ankuranand.xyz/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
-    <id>http://ankuranand.xyz/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
+    <link href="http://ankuranand.com/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
+    <id>http://ankuranand.com/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
     <published>2017-06-03T11:08:34.000Z</published>
-    <updated>2017-06-03T11:21:47.673Z</updated>
+    <updated>2017-08-30T18:13:39.790Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;The Nodejs docs on &lt;a href=&quot;https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The Node.js Event Loop, Timers, and process.nextTick&lt;/a&gt; explains the concept well on the&lt;br&gt;event loop.&lt;/p&gt;
 &lt;p&gt;But at the end of the doc while explaning  &lt;a href=&quot;https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;setImmediate() vs setTimeout()&lt;/a&gt; it gave an example code, &lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// timeout_vs_immediate.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setTimeout(function timeout () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  console.log(&amp;apos;timeout&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,0);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setImmediate(function immediate () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  console.log(&amp;apos;immediate&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ node timeout_vs_immediate.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timeout&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;immediate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ node timeout_vs_immediate.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;immediate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timeout&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// timeout_vs_immediate.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;timeout&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;timeout&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setImmediate(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;immediate&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;immediate&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ node timeout_vs_immediate.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timeout&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;immediate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ node timeout_vs_immediate.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;immediate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timeout&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;and left with this line &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process:”.&lt;/p&gt;
@@ -33,7 +33,7 @@
 &lt;p&gt;This post is an attempt to trying to figure out what it is meant by “bound by the performance of the process.”&lt;/p&gt;
 &lt;h3 id=&quot;Event-loop-and-phases-once-again&quot;&gt;&lt;a href=&quot;#Event-loop-and-phases-once-again&quot; class=&quot;headerlink&quot; title=&quot;Event-loop and phases once again&quot;&gt;&lt;/a&gt;Event-loop and phases once again&lt;/h3&gt;&lt;p&gt;Oh no Again? Bear with me i’m not repating things that has already been covered in much more details on many post. &lt;/p&gt;
 &lt;p&gt;Every event in node.js is driven by &lt;code&gt;uv_run()&lt;/code&gt; function of libuv. Partial Code&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int uv_run(uv_loop_t* loop, uv_run_mode mode) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  int timeout;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  int r;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  int ran_pending;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  r = uv__loop_alive(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  if (!r)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__update_time(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  while (r != 0 &amp;amp;&amp;amp; loop-&amp;gt;stop_flag == 0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__update_time(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_timers(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ran_pending = uv__run_pending(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_idle(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_prepare(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__io_poll(loop, timeout);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_check(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_closing_handles(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ............&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;uv_run&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(uv_loop_t* loop, uv_run_mode mode)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; timeout;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; r;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; ran_pending;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  r = uv__loop_alive(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!r)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__update_time(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (r != &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; loop-&amp;gt;stop_flag == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__update_time(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_timers(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ran_pending = uv__run_pending(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_idle(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_prepare(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ......&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__io_poll(loop, timeout);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_check(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv__run_closing_handles(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ............&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;So As explained by the node.js Doc, we can match each Phase of the event loop in the code.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Timer Phase&lt;/strong&gt; &lt;code&gt;uv__run_timers(loop);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;I/O Callback&lt;/strong&gt; &lt;code&gt;ran_pending = uv__run_pending(loop);&lt;/code&gt;&lt;/p&gt;
@@ -42,13 +42,13 @@
 &lt;p&gt;&lt;strong&gt;check&lt;/strong&gt; &lt;code&gt;uv__run_check(loop);&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;close callbacks&lt;/strong&gt;  &lt;code&gt;uv__run_closing_handles(loop);&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&quot;More-than-phase&quot;&gt;&lt;a href=&quot;#More-than-phase&quot; class=&quot;headerlink&quot; title=&quot;More than phase&quot;&gt;&lt;/a&gt;More than phase&lt;/h3&gt;&lt;p&gt;But if we see the code closely before the loop goes to timer phase, it calls&lt;br&gt;&lt;code&gt;uv__update_time(loop);&lt;/code&gt;  to initialize the loop time.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void uv_update_time(uv_loop_t* loop) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   uv__update_time(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;uv_update_time&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(uv_loop_t* loop)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   uv__update_time(loop);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;What happens is &lt;code&gt;uv__update_time(loop)&lt;/code&gt; calls an function &lt;code&gt;uv__hrtime&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;UV_UNUSED(static void uv__update_time(uv_loop_t* loop)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  /* Use a fast time source if available.  We only need millisecond precision.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  loop-&amp;gt;time = uv__hrtime(UV_CLOCK_FAST) / 1000000;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;UV_UNUSED(&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; uv__update_time(&lt;span class=&quot;keyword&quot;&gt;uv_loop_t&lt;/span&gt;* loop)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;/* Use a fast time source if available.  We only need millisecond precision.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  loop-&amp;gt;time = uv__hrtime(UV_CLOCK_FAST) / &lt;span class=&quot;number&quot;&gt;1000000&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;This call to &lt;code&gt;uv__hrtime&lt;/code&gt; is platform dependent and is cpu-time-consuming work as it makes system&lt;br&gt;call to &lt;a href=&quot;https://linux.die.net/man/3/clock_gettime&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;clock_gettime&lt;/a&gt;. It’s is impacted by other application running on the machine.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#define NANOSEC ((uint64_t) 1e9)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;uint64_t uv__hrtime(uv_clocktype_t type) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  struct timespec ts;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  clock_gettime(CLOCK_MONOTONIC, &amp;amp;ts);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return (((uint64_t) ts.tv_sec) * NANOSEC + ts.tv_nsec);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; NANOSEC ((uint64_t) 1e9)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;uint64_t&lt;/span&gt; uv__hrtime(&lt;span class=&quot;keyword&quot;&gt;uv_clocktype_t&lt;/span&gt; type) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; timespec ts;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  clock_gettime(CLOCK_MONOTONIC, &amp;amp;ts);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return (((&lt;span class=&quot;keyword&quot;&gt;uint64_t&lt;/span&gt;) ts.tv_sec) * NANOSEC + ts.tv_nsec);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;Once this is returned Timer phase is called in the event loop.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void uv__run_timers(uv_loop_t* loop) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  for (;;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ....&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    handle = container_of(heap_node, uv_timer_t, heap_node);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (handle-&amp;gt;timeout &amp;gt; loop-&amp;gt;time)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ....&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv_timer_again(handle);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    handle-&amp;gt;timer_cb(handle);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;uv__run_timers&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(uv_loop_t* loop)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (;;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ....&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    handle = container_of(heap_node, &lt;span class=&quot;keyword&quot;&gt;uv_timer_t&lt;/span&gt;, heap_node);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (handle-&amp;gt;timeout &amp;gt; loop-&amp;gt;time)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ....&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uv_timer_again(handle);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    handle-&amp;gt;timer_cb(handle);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;The callback in the Timer phase is run if the current time of loop is greater than the timeout.&lt;br&gt;One more important things to note is &lt;code&gt;setTimeout&lt;/code&gt; when set to &lt;code&gt;0&lt;/code&gt; is internally converted to &lt;code&gt;1&lt;/code&gt;.&lt;br&gt;Also as the &lt;code&gt;hr_time&lt;/code&gt; return time in Nanoseconds, this behaviour as shown by the &lt;code&gt;timeout_vs_immediate.js&lt;/code&gt; becomes more explanatory now.&lt;/p&gt;
 &lt;p&gt;If the preparation before the first loop took more than &lt;code&gt;1ms&lt;/code&gt; then the &lt;code&gt;Timer&lt;/code&gt; Phase calls the callback associated with it. If it’s is less than &lt;code&gt;1ms&lt;/code&gt; Event-loop continues to next phase and runs the &lt;code&gt;setImmediate&lt;/code&gt; callback in check phase of the loop and &lt;code&gt;setTimeout&lt;/code&gt; in the&lt;br&gt;next tick of the loop.&lt;/p&gt;
 &lt;p&gt;Hopefully this clarifies the way around the non-deterministic behaviour of &lt;code&gt;setTimeout&lt;/code&gt; and &lt;code&gt;setImmediate&lt;/code&gt; when both are called from within the main module.&lt;/p&gt;
@@ -60,27 +60,27 @@
     
     </summary>
     
-      <category term="Nodejs" scheme="http://ankuranand.xyz/categories/Nodejs/"/>
+      <category term="Nodejs" scheme="http://ankuranand.com/categories/Nodejs/"/>
     
     
-      <category term="JavaScript" scheme="http://ankuranand.xyz/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://ankuranand.com/tags/JavaScript/"/>
     
-      <category term="event-loop" scheme="http://ankuranand.xyz/tags/event-loop/"/>
+      <category term="event-loop" scheme="http://ankuranand.com/tags/event-loop/"/>
     
-      <category term="nodejs" scheme="http://ankuranand.xyz/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://ankuranand.com/tags/nodejs/"/>
     
-      <category term="libuv" scheme="http://ankuranand.xyz/tags/libuv/"/>
+      <category term="libuv" scheme="http://ankuranand.com/tags/libuv/"/>
     
-      <category term="setImmediate" scheme="http://ankuranand.xyz/tags/setImmediate/"/>
+      <category term="setImmediate" scheme="http://ankuranand.com/tags/setImmediate/"/>
     
-      <category term="setTimeout" scheme="http://ankuranand.xyz/tags/setTimeout/"/>
+      <category term="setTimeout" scheme="http://ankuranand.com/tags/setTimeout/"/>
     
   </entry>
   
   <entry>
     <title>The Basic Mathematics of SQL</title>
-    <link href="http://ankuranand.xyz/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
-    <id>http://ankuranand.xyz/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
+    <link href="http://ankuranand.com/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
+    <id>http://ankuranand.com/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
     <published>2016-06-18T09:54:59.000Z</published>
     <updated>2016-06-18T11:34:56.000Z</updated>
     
@@ -127,21 +127,21 @@
     
     </summary>
     
-      <category term="Programming Paradigms" scheme="http://ankuranand.xyz/categories/Programming-Paradigms/"/>
+      <category term="Programming Paradigms" scheme="http://ankuranand.com/categories/Programming-Paradigms/"/>
     
     
-      <category term="SQL" scheme="http://ankuranand.xyz/tags/SQL/"/>
+      <category term="SQL" scheme="http://ankuranand.com/tags/SQL/"/>
     
-      <category term="Mathematics" scheme="http://ankuranand.xyz/tags/Mathematics/"/>
+      <category term="Mathematics" scheme="http://ankuranand.com/tags/Mathematics/"/>
     
-      <category term="Self Note" scheme="http://ankuranand.xyz/tags/Self-Note/"/>
+      <category term="Self Note" scheme="http://ankuranand.com/tags/Self-Note/"/>
     
   </entry>
   
   <entry>
     <title>Call By Sharing</title>
-    <link href="http://ankuranand.xyz/2016/05/10/Understanding-Call-By-Sharing/"/>
-    <id>http://ankuranand.xyz/2016/05/10/Understanding-Call-By-Sharing/</id>
+    <link href="http://ankuranand.com/2016/05/10/Understanding-Call-By-Sharing/"/>
+    <id>http://ankuranand.com/2016/05/10/Understanding-Call-By-Sharing/</id>
     <published>2016-05-10T13:22:39.000Z</published>
     <updated>2016-05-10T18:47:57.000Z</updated>
     
@@ -197,21 +197,21 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Programming Paradigms" scheme="http://ankuranand.xyz/categories/Programming-Paradigms/"/>
+      <category term="Programming Paradigms" scheme="http://ankuranand.com/categories/Programming-Paradigms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
     
-      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
+      <category term="Java" scheme="http://ankuranand.com/tags/Java/"/>
     
-      <category term="JavaScript" scheme="http://ankuranand.xyz/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://ankuranand.com/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>Don&#39;t use Mutable as default Parameter in Python functions</title>
-    <link href="http://ankuranand.xyz/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
-    <id>http://ankuranand.xyz/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
+    <link href="http://ankuranand.com/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
+    <id>http://ankuranand.com/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
     <published>2016-04-24T06:36:04.000Z</published>
     <updated>2016-04-24T07:53:17.000Z</updated>
     
@@ -241,23 +241,23 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Fundamental" scheme="http://ankuranand.xyz/categories/Python-Fundamental/"/>
+      <category term="Python Fundamental" scheme="http://ankuranand.com/categories/Python-Fundamental/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
     
-      <category term="Function" scheme="http://ankuranand.xyz/tags/Function/"/>
+      <category term="Function" scheme="http://ankuranand.com/tags/Function/"/>
     
-      <category term="First-Class Function" scheme="http://ankuranand.xyz/tags/First-Class-Function/"/>
+      <category term="First-Class Function" scheme="http://ankuranand.com/tags/First-Class-Function/"/>
     
-      <category term="Python Basic" scheme="http://ankuranand.xyz/tags/Python-Basic/"/>
+      <category term="Python Basic" scheme="http://ankuranand.com/tags/Python-Basic/"/>
     
   </entry>
   
   <entry>
     <title>Understanding First Class Function in Python</title>
-    <link href="http://ankuranand.xyz/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
-    <id>http://ankuranand.xyz/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
+    <link href="http://ankuranand.com/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
+    <id>http://ankuranand.com/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
     <published>2016-04-24T04:13:22.000Z</published>
     <updated>2016-04-24T04:23:24.000Z</updated>
     
@@ -291,23 +291,23 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Fundamental" scheme="http://ankuranand.xyz/categories/Python-Fundamental/"/>
+      <category term="Python Fundamental" scheme="http://ankuranand.com/categories/Python-Fundamental/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
     
-      <category term="Function" scheme="http://ankuranand.xyz/tags/Function/"/>
+      <category term="Function" scheme="http://ankuranand.com/tags/Function/"/>
     
-      <category term="First-Class Function" scheme="http://ankuranand.xyz/tags/First-Class-Function/"/>
+      <category term="First-Class Function" scheme="http://ankuranand.com/tags/First-Class-Function/"/>
     
-      <category term="Python Basic" scheme="http://ankuranand.xyz/tags/Python-Basic/"/>
+      <category term="Python Basic" scheme="http://ankuranand.com/tags/Python-Basic/"/>
     
   </entry>
   
   <entry>
     <title>Understanding Object Mechanism in Python. Part - 1</title>
-    <link href="http://ankuranand.xyz/2016/04/23/Object-Mechanism-in-Python-part1/"/>
-    <id>http://ankuranand.xyz/2016/04/23/Object-Mechanism-in-Python-part1/</id>
+    <link href="http://ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/"/>
+    <id>http://ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/</id>
     <published>2016-04-23T11:34:45.000Z</published>
     <updated>2016-04-23T16:27:11.000Z</updated>
     
@@ -341,19 +341,19 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Object Mechanism" scheme="http://ankuranand.xyz/categories/Python-Object-Mechanism/"/>
+      <category term="Python Object Mechanism" scheme="http://ankuranand.com/categories/Python-Object-Mechanism/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
     
-      <category term="Object" scheme="http://ankuranand.xyz/tags/Object/"/>
+      <category term="Object" scheme="http://ankuranand.com/tags/Object/"/>
     
   </entry>
   
   <entry>
     <title>Private members are not private to instance in Java</title>
-    <link href="http://ankuranand.xyz/2016/04/23/private-access-in-java/"/>
-    <id>http://ankuranand.xyz/2016/04/23/private-access-in-java/</id>
+    <link href="http://ankuranand.com/2016/04/23/private-access-in-java/"/>
+    <id>http://ankuranand.com/2016/04/23/private-access-in-java/</id>
     <published>2016-04-23T10:49:54.000Z</published>
     <updated>2016-04-23T11:23:21.000Z</updated>
     
@@ -375,21 +375,21 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Java" scheme="http://ankuranand.xyz/categories/Java/"/>
+      <category term="Java" scheme="http://ankuranand.com/categories/Java/"/>
     
     
-      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
+      <category term="Java" scheme="http://ankuranand.com/tags/Java/"/>
     
-      <category term="OOP" scheme="http://ankuranand.xyz/tags/OOP/"/>
+      <category term="OOP" scheme="http://ankuranand.com/tags/OOP/"/>
     
-      <category term="Encapsulation" scheme="http://ankuranand.xyz/tags/Encapsulation/"/>
+      <category term="Encapsulation" scheme="http://ankuranand.com/tags/Encapsulation/"/>
     
   </entry>
   
   <entry>
     <title>Self Note on Eulerian Path</title>
-    <link href="http://ankuranand.xyz/2016/04/21/eulerian-path/"/>
-    <id>http://ankuranand.xyz/2016/04/21/eulerian-path/</id>
+    <link href="http://ankuranand.com/2016/04/21/eulerian-path/"/>
+    <id>http://ankuranand.com/2016/04/21/eulerian-path/</id>
     <published>2016-04-21T15:51:19.000Z</published>
     <updated>2016-04-23T10:48:34.000Z</updated>
     
@@ -429,19 +429,19 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://ankuranand.com/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
     
-      <category term="graph" scheme="http://ankuranand.xyz/tags/graph/"/>
+      <category term="graph" scheme="http://ankuranand.com/tags/graph/"/>
     
   </entry>
   
   <entry>
     <title>Efficient Factorial Algorithm</title>
-    <link href="http://ankuranand.xyz/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
-    <id>http://ankuranand.xyz/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
+    <link href="http://ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
+    <id>http://ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
     <published>2016-04-19T18:15:39.000Z</published>
     <updated>2016-06-18T10:10:32.000Z</updated>
     
@@ -472,16 +472,16 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Algorithms" scheme="http://ankuranand.xyz/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://ankuranand.com/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.xyz/tags/Python/"/>
+      <category term="Python" scheme="http://ankuranand.com/tags/Python/"/>
     
-      <category term="Factorial" scheme="http://ankuranand.xyz/tags/Factorial/"/>
+      <category term="Factorial" scheme="http://ankuranand.com/tags/Factorial/"/>
     
-      <category term="Efficiency" scheme="http://ankuranand.xyz/tags/Efficiency/"/>
+      <category term="Efficiency" scheme="http://ankuranand.com/tags/Efficiency/"/>
     
-      <category term="Java" scheme="http://ankuranand.xyz/tags/Java/"/>
+      <category term="Java" scheme="http://ankuranand.com/tags/Java/"/>
     
   </entry>
   
