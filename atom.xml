@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ankuranand.com/"/>
-  <updated>2017-08-30T21:07:48.844Z</updated>
+  <updated>2017-08-30T21:09:13.563Z</updated>
   <id>http://ankuranand.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
     <id>http://ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
     <published>2017-08-30T18:44:58.000Z</published>
-    <updated>2017-08-30T21:07:48.844Z</updated>
+    <updated>2017-08-30T21:09:13.563Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In &lt;code&gt;Node.js&lt;/code&gt; Buffer class is the core library. It brings a way for &lt;code&gt;Node.js&lt;/code&gt; to store raw data, allowing &lt;code&gt;Node.js&lt;/code&gt; to handle binary data. The raw data is stored in the instance of the buffer class. A buffer is similar to an array of integers, but it corresponds to a piece of raw memory other than the v8 heap memory.&lt;/p&gt;
 &lt;h2 id=&quot;Way-to-create-a-new-Buffer&quot;&gt;&lt;a href=&quot;#Way-to-create-a-new-Buffer&quot; class=&quot;headerlink&quot; title=&quot;Way to create a new Buffer&quot;&gt;&lt;/a&gt;Way to create a new Buffer&lt;/h2&gt;&lt;p&gt;At the start of the Node process &lt;code&gt;Buffer&lt;/code&gt; is put into the global object, so doesn’t need explicit require.&lt;/p&gt;
