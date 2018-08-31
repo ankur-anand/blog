@@ -65,9 +65,9 @@
     
       <category term="JavaScript" scheme="http://ankuranand.com/tags/JavaScript/"/>
     
-      <category term="Prototype" scheme="http://ankuranand.com/tags/Prototype/"/>
-    
       <category term="self-notes" scheme="http://ankuranand.com/tags/self-notes/"/>
+    
+      <category term="Prototype" scheme="http://ankuranand.com/tags/Prototype/"/>
     
   </entry>
   
@@ -147,7 +147,7 @@
     <link href="http://ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
     <id>http://ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
     <published>2017-08-30T18:44:58.000Z</published>
-    <updated>2017-08-30T21:09:13.563Z</updated>
+    <updated>2017-08-30T21:09:13.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In &lt;code&gt;Node.js&lt;/code&gt; Buffer class is the core library. It brings a way for &lt;code&gt;Node.js&lt;/code&gt; to store raw data, allowing &lt;code&gt;Node.js&lt;/code&gt; to handle binary data. The raw data is stored in the instance of the buffer class. A buffer is similar to an array of integers, but it corresponds to a piece of raw memory other than the v8 heap memory.&lt;/p&gt;
 &lt;h2 id=&quot;Way-to-create-a-new-Buffer&quot;&gt;&lt;a href=&quot;#Way-to-create-a-new-Buffer&quot; class=&quot;headerlink&quot; title=&quot;Way to create a new Buffer&quot;&gt;&lt;/a&gt;Way to create a new Buffer&lt;/h2&gt;&lt;p&gt;At the start of the Node process &lt;code&gt;Buffer&lt;/code&gt; is put into the global object, so doesn’t need explicit require.&lt;/p&gt;
@@ -215,13 +215,13 @@
     
       <category term="JavaScript" scheme="http://ankuranand.com/tags/JavaScript/"/>
     
-      <category term="self-notes" scheme="http://ankuranand.com/tags/self-notes/"/>
-    
       <category term="Buffer" scheme="http://ankuranand.com/tags/Buffer/"/>
     
       <category term="nodejs" scheme="http://ankuranand.com/tags/nodejs/"/>
     
       <category term="8k-pool" scheme="http://ankuranand.com/tags/8k-pool/"/>
+    
+      <category term="self-notes" scheme="http://ankuranand.com/tags/self-notes/"/>
     
   </entry>
   
@@ -230,7 +230,7 @@
     <link href="http://ankuranand.com/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
     <id>http://ankuranand.com/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
     <published>2017-06-03T11:08:34.000Z</published>
-    <updated>2017-08-30T18:13:39.790Z</updated>
+    <updated>2017-08-30T18:13:39.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;The Nodejs docs on &lt;a href=&quot;https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The Node.js Event Loop, Timers, and process.nextTick&lt;/a&gt; explains the concept well on the&lt;br&gt;event loop.&lt;/p&gt;
 &lt;p&gt;But at the end of the doc while explaning  &lt;a href=&quot;https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;setImmediate() vs setTimeout()&lt;/a&gt; it gave an example code, &lt;/p&gt;
