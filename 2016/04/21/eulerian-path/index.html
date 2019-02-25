@@ -7,7 +7,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Self Note on Eulerian Path | Ankur Anand</title>
+  <title>Self Note on Eulerian Path | Ankur Anand Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -26,7 +26,7 @@ For the above Diagram We can start at some node for example sayWe starts at node
 <meta property="og:type" content="article">
 <meta property="og:title" content="Self Note on Eulerian Path">
 <meta property="og:url" content="http://ankuranand.com/2016/04/21/eulerian-path/index.html">
-<meta property="og:site_name" content="Ankur Anand">
+<meta property="og:site_name" content="Ankur Anand Blog">
 <meta property="og:description" content="IntroductionEulerian Path are paths that
 
 Start at some node
@@ -53,10 +53,11 @@ For the above Diagram We can start at some node for example sayWe starts at node
   
 
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/images/favicon.png">
   
 
-  <link href="/css/styles.css?v=eaf5ab1e" rel="stylesheet">
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
 
   
     <link rel="stylesheet" href="/css/personal-style.css">
@@ -74,9 +75,17 @@ ga('create', 'UA-76643336-2', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- End Google Analytics -->
 
 
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -84,15 +93,15 @@ ga('send', 'pageview');
 <body>
 
 
+  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+  
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Nav</span>
-
-
-<div class="post-header CENTER">
+  <div class="post-header CENTER">
    
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
-      <span class="toolbox-entry-text">Menu</span>
+      <span class="toolbox-entry-text">Blog</span>
       <i class="icon-angle-down"></i>
       <i class="icon-home"></i>
     </a>
@@ -101,10 +110,33 @@ ga('send', 'pageview');
         <li class="item-toolbox">
           <a
             class="CIRCLE"
-            href="https://medium.com/@ankur_anand"
+            href="https://ankuranand.com"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            About
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
             target="_blank"
             >
-            Blog
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Search
           </a>
         </li>
       
@@ -116,7 +148,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Content</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Condition"><span class="toc-text">Condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception"><span class="toc-text">Exception</span></a></li></ol>
   </div>
 
@@ -149,9 +181,12 @@ ga('send', 'pageview');
 
 
       
-        <span>
-          <i class="icon-comment"></i>
-          <a href="http://www.ankuranand.com/2016/04/21/eulerian-path/#disqus_thread"></a>
+
+      
+      <i class="fa fa-eye"></i>
+        <span id="busuanzi_container_page_pv">
+            &nbsp <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
         </span>
       
 
@@ -191,7 +226,21 @@ ga('send', 'pageview');
 
     
   </div>
+
 </article>
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/04/23/private-access-in-java/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
 
 </div>
 
@@ -203,11 +252,11 @@ ga('send', 'pageview');
 
 
 
-<div class="modal" id="modal">
+  <div class="modal" id="modal">
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -216,10 +265,33 @@ ga('send', 'pageview');
           <li class="item-toolbox">
             <a
               class="CIRCLE"
-              href="https://medium.com/@ankur_anand"
+              href="https://ankuranand.com"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              About
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
               target="_blank"
               >
-              Blog
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Search
             </a>
           </li>
         
@@ -231,43 +303,52 @@ ga('send', 'pageview');
 
 
 
-
-  <div class="fexo-comments comments-post">
+  
+      <div class="fexo-comments comments-post">
     
-  <section class="disqus-comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-  </section>
-
-  <script>
-    var disqus_shortname = 'ankuranand';
-    
-    var disqus_url = 'http://ankuranand.com/2016/04/21/eulerian-path/';
-    
-    (function(){
-      var dsq = document.createElement('script');
-      dsq.type = 'text/javascript';
-      dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-
-  <script id="dsq-count-scr" src="//ankuranand.disqus.com/count.js" async></script>
-
-
 
     
 
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '6e027625688767870366',
+  clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
+  repo: 'blog',
+  owner: 'ankur-anand',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['ankur-anand'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
 
 
 
   </div>
 
+  
 
-
-<script type="text/javascript">
+  <script type="text/javascript">
   function loadScript(url, callback) {
     var script = document.createElement('script')
     script.type = 'text/javascript';
@@ -275,7 +356,7 @@ ga('send', 'pageview');
     if (script.readyState) { //IE
       script.onreadystatechange = function() {
         if (script.readyState == 'loaded' ||
-                script.readyState == 'complete') {
+          script.readyState == 'complete') {
           script.onreadystatechange = null;
           callback();
         }
@@ -296,6 +377,7 @@ ga('send', 'pageview');
     });
   }
 </script>
+
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

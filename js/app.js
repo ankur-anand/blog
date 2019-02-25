@@ -11,15 +11,22 @@
   var $close = document.getElementById('close');
   var $modalDialog = document.getElementById('modal-dialog');
   var scrollTop = 0;
-
+  var tocTop = 20;
 
   (function init() {
     if ($backTop) {
-      $body.scrollTop > 10 ? Util.addClass($backTop, 'show') : Util.removeClass($backTop, 'show');
+      scrollTop = $body.scrollTop || $html.scrollTop;
+      scrollTop > 10 ? Util.addClass($backTop, 'show') : Util.removeClass($backTop, 'show');
     }
 
     if ($toc) {
-      $body.scrollTop > 180 ? Util.addClass($toc, 'fixed') : Util.removeClass($toc, 'fixed');
+      var tocHeight = parseInt(window.getComputedStyle($toc)['height'], 10);
+      var winHeight = document.documentElement.clientHeight;
+      if (tocHeight + 20 > winHeight) {
+          return;
+      }
+      scrollTop = $body.scrollTop || $html.scrollTop;
+      scrollTop > 180 ? Util.addClass($toc, 'fixed') : Util.removeClass($toc, 'fixed');
     }
 
   }());
@@ -38,8 +45,14 @@
 
   // toc and backTop
   Util.bind(window, 'scroll', function() {
-    scrollTop = $body.scrollTop;
+    scrollTop = $body.scrollTop || $html.scrollTop;
     if ($toc) {
+      var tocHeight = parseInt(window.getComputedStyle($toc)['height'], 10);
+      var winHeight = document.documentElement.clientHeight;
+      if (tocHeight + 20 > winHeight) {
+          return;
+      }
+      
       scrollTop > 180 ? Util.addClass($toc, 'fixed') : Util.removeClass($toc, 'fixed');
     }
 

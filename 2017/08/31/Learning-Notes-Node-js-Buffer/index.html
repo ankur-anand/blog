@@ -7,19 +7,19 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Learning Notes: Node.js-Buffer | Ankur Anand</title>
+  <title>Learning Notes: Node.js-Buffer | Ankur Anand Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="JavaScript,Buffer,nodejs,8k-pool,self-notes," />
+    <meta name="keywords" content="JavaScript,self-notes,Buffer,nodejs,8k-pool," />
   
 
   <meta name="description" content="IntroductionIn Node.js Buffer class is the core library. It brings a way for Node.js to store raw data, allowing Node.js to handle binary data. The raw data is stored in the instance of the buffer cla">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning Notes: Node.js-Buffer">
 <meta property="og:url" content="http://ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/index.html">
-<meta property="og:site_name" content="Ankur Anand">
+<meta property="og:site_name" content="Ankur Anand Blog">
 <meta property="og:description" content="IntroductionIn Node.js Buffer class is the core library. It brings a way for Node.js to store raw data, allowing Node.js to handle binary data. The raw data is stored in the instance of the buffer cla">
 <meta property="og:image" content="http://ankuranand.com/StringAbTest.png">
 <meta property="og:image" content="http://ankuranand.com/BufferABTest.png">
@@ -32,10 +32,11 @@
   
 
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/images/favicon.png">
   
 
-  <link href="/css/styles.css?v=eaf5ab1e" rel="stylesheet">
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
 
   
     <link rel="stylesheet" href="/css/personal-style.css">
@@ -53,9 +54,17 @@ ga('create', 'UA-76643336-2', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- End Google Analytics -->
 
 
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -63,15 +72,15 @@ ga('send', 'pageview');
 <body>
 
 
+  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+  
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Nav</span>
-
-
-<div class="post-header CENTER">
+  <div class="post-header CENTER">
    
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
-      <span class="toolbox-entry-text">Menu</span>
+      <span class="toolbox-entry-text">Blog</span>
       <i class="icon-angle-down"></i>
       <i class="icon-home"></i>
     </a>
@@ -80,10 +89,33 @@ ga('send', 'pageview');
         <li class="item-toolbox">
           <a
             class="CIRCLE"
-            href="https://medium.com/@ankur_anand"
+            href="https://ankuranand.com"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            About
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
             target="_blank"
             >
-            Blog
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Search
           </a>
         </li>
       
@@ -95,7 +127,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Content</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Way-to-create-a-new-Buffer"><span class="toc-text">Way to create a new Buffer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer-from"><span class="toc-text">Buffer.from</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer-alloc"><span class="toc-text">Buffer.alloc</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-we-need-buffer"><span class="toc-text">Why we need buffer ?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Using-the-large-string-to-send-as-response"><span class="toc-text">1. Using the large string to send as response</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Using-the-buffer-transmission"><span class="toc-text">2. Using the buffer transmission</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer-8k-Pool-slab"><span class="toc-text">Buffer 8k Pool slab</span></a></li></ol>
   </div>
 
@@ -128,9 +160,12 @@ ga('send', 'pageview');
 
 
       
-        <span>
-          <i class="icon-comment"></i>
-          <a href="http://www.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/#disqus_thread"></a>
+
+      
+      <i class="fa fa-eye"></i>
+        <span id="busuanzi_container_page_pv">
+            &nbsp <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
         </span>
       
 
@@ -195,7 +230,21 @@ ga('send', 'pageview');
 
     
   </div>
+
 </article>
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/12/28/Learning-Notes-JavaScript-Prototype/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
 
 </div>
 
@@ -207,11 +256,11 @@ ga('send', 'pageview');
 
 
 
-<div class="modal" id="modal">
+  <div class="modal" id="modal">
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -220,10 +269,33 @@ ga('send', 'pageview');
           <li class="item-toolbox">
             <a
               class="CIRCLE"
-              href="https://medium.com/@ankur_anand"
+              href="https://ankuranand.com"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              About
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
               target="_blank"
               >
-              Blog
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Search
             </a>
           </li>
         
@@ -235,43 +307,52 @@ ga('send', 'pageview');
 
 
 
-
-  <div class="fexo-comments comments-post">
+  
+      <div class="fexo-comments comments-post">
     
-  <section class="disqus-comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-  </section>
-
-  <script>
-    var disqus_shortname = 'ankuranand';
-    
-    var disqus_url = 'http://ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/';
-    
-    (function(){
-      var dsq = document.createElement('script');
-      dsq.type = 'text/javascript';
-      dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-
-  <script id="dsq-count-scr" src="//ankuranand.disqus.com/count.js" async></script>
-
-
 
     
 
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '6e027625688767870366',
+  clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
+  repo: 'blog',
+  owner: 'ankur-anand',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['ankur-anand'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
 
 
 
   </div>
 
+  
 
-
-<script type="text/javascript">
+  <script type="text/javascript">
   function loadScript(url, callback) {
     var script = document.createElement('script')
     script.type = 'text/javascript';
@@ -279,7 +360,7 @@ ga('send', 'pageview');
     if (script.readyState) { //IE
       script.onreadystatechange = function() {
         if (script.readyState == 'loaded' ||
-                script.readyState == 'complete') {
+          script.readyState == 'complete') {
           script.onreadystatechange = null;
           callback();
         }
@@ -300,6 +381,7 @@ ga('send', 'pageview');
     });
   }
 </script>
+
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
