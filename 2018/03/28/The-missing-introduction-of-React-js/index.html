@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>The missing introduction of React.js | Ankur Anand Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript,React,Reactjs," />
+  
+
+  <meta name="description" content="Why React?Recently I’ve started learning React.js with my limited knowledge of the front-end, I stumbled upon React.js official site, and it presented me like this.
+
+Followed the instruction and I was">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The missing introduction of React.js">
+<meta property="og:url" content="http://blog.ankuranand.com/post/2018/03/28/The-missing-introduction-of-React-js/index.html">
+<meta property="og:site_name" content="Ankur Anand Blog">
+<meta property="og:description" content="Why React?Recently I’ve started learning React.js with my limited knowledge of the front-end, I stumbled upon React.js official site, and it presented me like this.
+
+Followed the instruction and I was">
+<meta property="og:image" content="http://blog.ankuranand.com/post/reactjsHelloWorld.png">
+<meta property="og:image" content="http://blog.ankuranand.com/post/upvoteandDownvote.png">
+<meta property="og:image" content="http://blog.ankuranand.com/post/missingIntoductiontoreact.jpeg">
+<meta property="og:updated_time" content="2019-02-28T15:37:47.893Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The missing introduction of React.js">
+<meta name="twitter:description" content="Why React?Recently I’ve started learning React.js with my limited knowledge of the front-end, I stumbled upon React.js official site, and it presented me like this.
+
+Followed the instruction and I was">
+<meta name="twitter:image" content="http://blog.ankuranand.com/post/reactjsHelloWorld.png">
+
+  
+
+  
+    <link rel="icon" href="/post/images/favicon.png">
+  
+
+  <link href="/post/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/post/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-76643336-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+
+
+  
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/blog/">
+      <span class="toolbox-entry-text">Blog</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="https://ankuranand.com"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            About
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/post/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/post/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-React"><span class="toc-text">Why React?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Building-Block-Components"><span class="toc-text">Building Block Components</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Why-Of-React-State"><span class="toc-text">The Why Of React State</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-Why-of-setState-Function"><span class="toc-text">The Why of setState Function</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Now-how-does-one-re-insert-new-DOM"><span class="toc-text">Now how does one re-insert new DOM ?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Getting-Further"><span class="toc-text">Getting Further</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-The-missing-introduction-of-React-js" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">The missing introduction of React.js</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.03.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Ankur Anand</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/post/categories/reactjs/">reactjs</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i>
+        <span id="busuanzi_container_page_pv">
+            &nbsp <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="Why-React"><a href="#Why-React" class="headerlink" title="Why React?"></a>Why React?</h1><p>Recently I’ve started learning <code>React.js</code> with my limited knowledge of the front-end, I stumbled upon <code>React.js</code> official site, and it presented me like this.</p>
+<p><img src="reactjsHelloWorld.png" alt="reactjs-helloworld"></p>
+<p>Followed the instruction and I was greeted with <code>“Hello, World!”</code>. Awesome isn’t that something we can do directly in HTML ? What react do ?</p>
+<p>I asked “Google” and here are few Terminology that were thrown at my face.</p>
+<blockquote>
+<p>reusable components, stateful components, virtual dom.</p>
+</blockquote>
+<p>Having limited knowledge of the front-end and not used any front-end framework or library before, I completed the official tutorial but all the rich information at the official documentation or any other great article out on Internet was more difficult to understand for me, and there was few questions that i kept asking myself again and again</p>
+<ol>
+<li>What led to the need for front-end pages to be componentized ?</li>
+<li>What kind of problems non component front-end code face and how the React.js solves these problems ?</li>
+</ol>
+<p>This post is my attempt to present that missing part of React.js with these two question in mind to novice like me in autodidact way.</p>
+<p>All of the engineering marvels has came out of need so to understand the use of react.js lets present our-self with an problem.</p>
+<p>How would we implement a simple upvote and downvote functionality like below.<br><img src="upvoteandDownvote.png" alt="upvote-downvote"></p>
+<p>Even with my limited knowledge i can write HTML for this. Check the Result tab.</p>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/ankuranand/6qz26n0k/embedded/result,js,html/light" frameborder="0" allowfullscreen></iframe>
+<p>How cool, <strong>But how would be go on and use this functionality inside different page ?</strong> Now we have a problem and to solve this we have to copy the whole button structure inside the another page. That what we have been doing traditionally.</p>
+<h1 id="Building-Block-Components"><a href="#Building-Block-Components" class="headerlink" title="Building Block Components"></a>Building Block Components</h1><p>Can we do a better job than copying the whole structure again and again. <strong>Lets try to rewrite it in a way to make it reusable.</strong> We can write a class that returns a string representation of the HTML structure, and using this class to build button instance and insert them into the DOM.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpVoteButton</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span><br><span class="line">  	&lt;button class='upvote-btn'&gt;</span><br><span class="line">    &lt;span class='upvote-text'&gt;Upvote&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;&lt;i class="fa fa-thumbs-up" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  `</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownVoteButton</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span><br><span class="line"> 	  &lt;button class="downvote-btn"&gt;</span><br><span class="line">      &lt;span class="downvote-text"&gt;Downvote&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;&lt;i class="fa fa-thumbs-down" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// using this class to build the upVote and DownVote button and inserting them</span></span><br><span class="line"><span class="comment">// into the dom</span></span><br><span class="line"><span class="keyword">const</span> wrapper = <span class="built_in">document</span>.querySelector(<span class="string">".wrapper"</span>);</span><br><span class="line"><span class="keyword">const</span> upVoteButton = <span class="keyword">new</span> UpVoteButton();</span><br><span class="line">wrapper.innerHTML = upVoteButton.render();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> downVoteButton = <span class="keyword">new</span> DownVoteButton();</span><br><span class="line">wrapper.innerHTML += downVoteButton.render();</span><br></pre></td></tr></table></figure>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/ankuranand/4xpe8frq/embedded/result,html,js/light" frameborder="0" allowfullscreen></iframe>
+<p>But now our event listener to the button are dead, as our class <code>UpVoteButton</code> and <code>DownVoteButton</code> are simply a string, and we can’t add events to a string. <strong>To add event we need DOM structure.</strong> Lets modify our class to create a DOM structure from string using the <strong>DOM API</strong>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createDOMFromSring = domstring =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">  div.innerHTML = domstring;</span><br><span class="line">  <span class="keyword">return</span> div;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpVoteButton</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elem = createDOMFromSring(<span class="string">`</span><br><span class="line">  	&lt;button class='upvote-btn'&gt;</span><br><span class="line">    &lt;span class='upvote-text'&gt;Upvote&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;&lt;i class="fa fa-thumbs-up" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  `</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.elem;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownVoteButton</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elem = createDOMFromSring(<span class="string">`</span><br><span class="line">    &lt;button class="downvote-btn"&gt;</span><br><span class="line">    &lt;span class="downvote-text"&gt;Downvote&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;&lt;i class="fa fa-thumbs-down" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">    `</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.elem;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// as render() method now returns an Object of HTMLDivElement</span></span><br><span class="line"><span class="comment">// it cannot be appended like innerHTML, instead use DOM</span></span><br><span class="line"><span class="comment">// API to append it</span></span><br><span class="line"><span class="keyword">const</span> wrapper = <span class="built_in">document</span>.querySelector(<span class="string">".wrapper"</span>);</span><br><span class="line"><span class="keyword">const</span> upVoteButton = <span class="keyword">new</span> UpVoteButton();</span><br><span class="line">wrapper.appendChild(upVoteButton.render());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> downVoteButton = <span class="keyword">new</span> DownVoteButton();</span><br><span class="line">wrapper.appendChild(downVoteButton.render());</span><br></pre></td></tr></table></figure>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/ankuranand/g48qv6q8/embedded/result,html,js/light" frameborder="0" allowfullscreen></iframe>
+<h1 id="The-Why-Of-React-State"><a href="#The-Why-Of-React-State" class="headerlink" title="The Why Of React State"></a>The Why Of React State</h1><p>Now we can add event Listener, to our custom class at the time of instantiation of our classes. But after the instantiation <strong>we have to track if the button has been <code>upvoted</code> or <code>downvoted</code>, and for that we need state in our class that keeps track of all the state variable that our class instance depends upon</strong>, and a method that can update the state based on the event when the button has been clicked.</p>
+<blockquote>
+<p>let’s put that state in our constructor to be accessible to all method and a method named <code>changeUpVotedText</code> to update the state based on events.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpVoteButton</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; isUpVoted: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  changeUpVotedText() &#123;</span><br><span class="line">    <span class="keyword">const</span> upVotedText = <span class="keyword">this</span>.elem.querySelector(<span class="string">".upvote-text"</span>);</span><br><span class="line">    <span class="keyword">this</span>.state.isUpVoted = !<span class="keyword">this</span>.state.isUpVoted;</span><br><span class="line">    upVotedText.innerHTML = <span class="keyword">this</span>.state.isUpVoted ? <span class="string">"Upvote"</span> : <span class="string">"Cancel"</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elem = createDOMFromSring(<span class="string">`</span><br><span class="line">  	&lt;button class='upvote-btn'&gt;</span><br><span class="line">    &lt;span class='upvote-text'&gt;Upvote&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;&lt;i class="fa fa-thumbs-up" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  `</span>);</span><br><span class="line">    <span class="keyword">this</span>.elem.addEventListener(<span class="string">"click"</span>, <span class="keyword">this</span>.changeUpVotedText.bind(<span class="keyword">this</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.elem;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/ankuranand/Lfe7csp0/embedded/result,html,js/light" frameborder="0" allowfullscreen></iframe>
+<h1 id="The-Why-of-setState-Function"><a href="#The-Why-of-setState-Function" class="headerlink" title="The Why of setState Function"></a>The Why of setState Function</h1><p>If we carefully look at our two method <code>changeUpVotedText</code> and <code>changeDownVotedText</code> containing the DOM operations. Right now these DOM operations are done on the one state, and with the change of state these methods are directly manipulating the DOM to update new content on the page.</p>
+<p>Imagine if our components depends on a lot of state, this manual managing the relationship between data and DOM can lead to poor maintainability and error-prone code. <a href="https://stackoverflow.com/questions/6817093/but-whys-the-browser-dom-still-so-slow-after-10-years-of-effort" target="_blank" rel="external">As The full implications of element.innerHTML=x are enormous. Rough overview:</a></p>
+<ol>
+<li>parse x as HTML</li>
+<li>ask browser extensions for permission</li>
+<li>destroy existing child nodes of element</li>
+<li>create child nodes</li>
+<li>recompute styles which are defined in terms of parent-child relationships</li>
+<li>recompute physical dimensions of page elements</li>
+<li>notify browser extensions of the change</li>
+<li>update Javascript variables which are handles to real DOM nodes</li>
+</ol>
+<p>So we can imagine why doing this could be a performance disaster if the element we’re updating happens to have a few thousand children. <strong>And also we don’t have any single place that manages the response to change in state and then apply this change back to DOM</strong>.</p>
+<blockquote>
+<p>If we need another function that also responds to event and manipulate the DOM directly, their is high percentage of chance that we could have a race condition or our DOM becomes out of sync.</p>
+</blockquote>
+<p>Can we do better ? Let’s Think this way</p>
+<blockquote>
+<p>Once the state is changed, build a new DOM element by calling render method again and Update the Page. This way we don’t have to maintain the relationship manually, and we get a single piece of code in our application, that deals with DOM API based on state.</p>
+</blockquote>
+<p>In our case we name this method <code>setState</code> that is <strong>solely responsible for changing the state of the object and re-rendering the DOM element again.</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpVoteButton</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; isUpVoted: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// `setState` method is responsible for changing the state of the object</span></span><br><span class="line">  <span class="comment">// and re-rendering the DOM element again</span></span><br><span class="line">  setState(state) &#123;</span><br><span class="line">    <span class="keyword">this</span>.state = state;</span><br><span class="line">    <span class="keyword">this</span>.elem = <span class="keyword">this</span>.render();</span><br><span class="line">  &#125;</span><br><span class="line">  changeUpVotedText() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      isUpVoted: !<span class="keyword">this</span>.state.isUpVoted</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elem = createDOMFromSring(<span class="string">`</span><br><span class="line">      &lt;button class='upvote-btn'&gt;</span><br><span class="line">      &lt;span class='upvote-text'&gt;<span class="subst">$&#123;</span><br><span class="line">        this.state.isUpVoted ? "Cancel" : "UpVote"</span><br><span class="line">      &#125;</span>&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;&lt;i class="fa fa-thumbs-up" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    `</span>);</span><br><span class="line">    <span class="keyword">this</span>.elem.addEventListener(<span class="string">"click"</span>, <span class="keyword">this</span>.changeUpVotedText.bind(<span class="keyword">this</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.elem;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So <code>setState</code> method will be called whenever <strong>user clicks on the button</strong> an <code>click event</code> will fire up and that in turn will call <code>changeUpVotedText</code> and <strong>it will build a new state objects, through call to the setState method that in turn will build the new DOM Object based on the new State.</strong></p>
+<h2 id="Now-how-does-one-re-insert-new-DOM"><a href="#Now-how-does-one-re-insert-new-DOM" class="headerlink" title="Now how does one re-insert new DOM ?"></a>Now how does one re-insert new DOM ?</h2><p>Because the new element that we have created(<code>this.elem</code>) in the <code>setState</code> method is a instance of DOM element, but <code>setState</code> doesn’t have any way to communicate with the “Top Level API of DOM” which actually instructs our document (HTML Page) to make the necessary change in place. <em>We have to somehow communicate from our setState method to DOM API (outside our Component) and tell them to re-insert new DOM, in place of old DOM.</em></p>
+<p>As here we are dealing with the DOM API directly with wrapper object representing the first element in the document that matches the specified set of CSS selectors.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wrapper = <span class="built_in">document</span>.querySelector(<span class="string">".wrapper"</span>);</span><br><span class="line"><span class="keyword">const</span> upVoteButton = <span class="keyword">new</span> UpVoteButton();</span><br><span class="line">wrapper.appendChild(upVoteButton.render());</span><br></pre></td></tr></table></figure>
+<p>As our wrapper element is handling the DOM API, we can <strong>attach a function to <code>upVoteButton</code> instance that is aware of the DOM element</strong> where our new DOM element created in the setState method needs to be updated and calls the respective DOM API. All we have to do is call that function from our setState method.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">upVoteButton.onStateChange = (oldElem, newElem) =&gt; &#123;</span><br><span class="line">  wrapper.insertBefore(newElem, oldElem);</span><br><span class="line">  wrapper.removeChild(oldElem);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">setState(state) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldElem = <span class="keyword">this</span>.elem;</span><br><span class="line">    <span class="keyword">this</span>.state = state;</span><br><span class="line">    <span class="keyword">this</span>.elem = <span class="keyword">this</span>.render();</span><br><span class="line">    <span class="comment">// calling the instance method</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.onStateChange) <span class="keyword">this</span>.onStateChange(oldElem, <span class="keyword">this</span>.elem)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Our working model.</p>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/ankuranand/8tvu5pye/embedded/result,html,js/light" frameborder="0" allowfullscreen></iframe>
+<p>It’s seems so clear that our setState right now add and delete DOM elements, causing the browser to do a lot of rearrangement, that seriously affect the performance.</p>
+<blockquote>
+<p>This is where the React.js uses their strategy called Virtual-DOM.</p>
+</blockquote>
+<p>But setting a method <code>onStateChange</code> like this on every instance that we have created is troublesome process. Let’s <em>write a function called componentMount that will help us to automate this process of ours</em>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> componentMount = (component, container) =&gt; &#123;</span><br><span class="line">  container.appendChild(component.render());</span><br><span class="line">  component.onStateChange = (oldElem, newElem) =&gt; &#123;</span><br><span class="line">    container.insertBefore(newElem, oldElem);</span><br><span class="line">    container.removeChild(oldElem);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Now all we have to do is pass the created component and container to the DOM.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wrapper = <span class="built_in">document</span>.querySelector(<span class="string">".wrapper"</span>);</span><br><span class="line"><span class="keyword">const</span> upVoteButton = <span class="keyword">new</span> UpVoteButton();</span><br><span class="line"><span class="keyword">const</span> downVoteButton = <span class="keyword">new</span> DownVoteButton();</span><br><span class="line">componentMount(upVoteButton, wrapper);</span><br><span class="line">componentMount(downVoteButton, wrapper);</span><br></pre></td></tr></table></figure>
+<h1 id="Getting-Further"><a href="#Getting-Further" class="headerlink" title="Getting Further"></a>Getting Further</h1><p>Improving further we can abstract few things into a Component class that our custom component can inherits and make our life simpler.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  setState(state) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldElem = <span class="keyword">this</span>.elem;</span><br><span class="line">    <span class="keyword">this</span>.state = state;</span><br><span class="line">    <span class="keyword">this</span>._renderDOM();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.onStateChange) <span class="keyword">this</span>.onStateChange(oldElem, <span class="keyword">this</span>.elem);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _renderDOM() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elem = createDOMFromString(<span class="keyword">this</span>.render());</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.onClick) &#123;</span><br><span class="line">      <span class="keyword">this</span>.elem.addEventListener(<span class="string">"click"</span>, <span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.elem;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here we are tracking just <code>onClick</code> event-handler, but we get the idea <strong>we can add method for different kind of event handler</strong>.</p>
+<p>Let’s refactor our UpVoteButton</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpVoteButton</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; isUpVoted: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onClick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      isUpVoted: !<span class="keyword">this</span>.state.isUpVoted</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span><br><span class="line">      &lt;button class='upvote-btn'&gt;</span><br><span class="line">      &lt;span class='upvote-text'&gt;<span class="subst">$&#123;</span><br><span class="line">        this.state.isUpVoted ? "Cancel" : "UpVote"</span><br><span class="line">      &#125;</span>&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;&lt;i class="fa fa-thumbs-up" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    `</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>What if we want to pass some custom configuration data to our custom class. We can add props as configuration parameter in Component class and subclass so that when extended we get access to props using <code>this.props</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createDOMFromString = domstring =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">  div.innerHTML = domstring;</span><br><span class="line">  <span class="keyword">return</span> div;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">this</span>.props = props;</span><br><span class="line">  &#125;</span><br><span class="line">  setState(state) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldElem = <span class="keyword">this</span>.elem;</span><br><span class="line">    <span class="keyword">this</span>.state = state;</span><br><span class="line">    <span class="keyword">this</span>._renderDOM();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.onStateChange) <span class="keyword">this</span>.onStateChange(oldElem, <span class="keyword">this</span>.elem);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _renderDOM() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elem = createDOMFromString(<span class="keyword">this</span>.render());</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.onClick) &#123;</span><br><span class="line">      <span class="keyword">this</span>.elem.addEventListener(<span class="string">"click"</span>, <span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.elem;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpVoteButton</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; isUpVoted: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onClick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      isUpVoted: !<span class="keyword">this</span>.state.isUpVoted</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span><br><span class="line">      &lt;button class='upvote-btn' style="background: <span class="subst">$&#123;this.props.bgColor&#125;</span>"&gt;</span><br><span class="line">      &lt;span class='upvote-text'&gt;<span class="subst">$&#123;</span><br><span class="line">        this.state.isUpVoted ? "Cancel" : "UpVote"</span><br><span class="line">      &#125;</span>&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;&lt;i class="fa fa-thumbs-up" aria-hidden="true"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    `</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> componentMount = (component, container) =&gt; &#123;</span><br><span class="line">  container.appendChild(component._renderDOM());</span><br><span class="line">  component.onStateChange = (oldElem, newElem) =&gt; &#123;</span><br><span class="line">    container.insertBefore(newElem, oldElem);</span><br><span class="line">    container.removeChild(oldElem);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> wrapper = <span class="built_in">document</span>.querySelector(<span class="string">".wrapper"</span>);</span><br><span class="line"><span class="keyword">const</span> upVoteButton = <span class="keyword">new</span> UpVoteButton(&#123; bgColor: <span class="string">"green"</span> &#125;);</span><br><span class="line">componentMount(upVoteButton, wrapper);</span><br></pre></td></tr></table></figure>
+<p>Our working model.</p>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/ankuranand/8Lgqjoru/embedded/result,html,js/light" frameborder="0" allowfullscreen></iframe>
+<p>With that we have created our very own component system and learn’t how with Component based system we have solved some of the problem of re-usability in front-end. Every Component has its own DOM structure and its behavior and display style is determined by its own state and props. So when data changes the Component will automatically re-render the new Content.</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Well, with that hopefully you now have an answer to questions and a good overview of what kind of problem React.js component is fundamentally trying to solve, but in an extreme efficient way.</p>
+<hr>
+<p>Disclaimer: This post is a summary of my knowledge that about React.js behavior that has came through my own learning, and must not be mistaken for “Oh so this is how React.js works under the hood”<br>There may inevitably be many error, here, and hope that everyone who find the error can help me with it. You can find the entire source code here.</p>
+<p><a href="https://github.com/ankur-anand/missing-intro-to-react" target="_blank" rel="external"><img src="missingIntoductiontoreact.jpeg" alt="ankur-anand/missing-intro-to-react"></a></p>
+<p>Please Send me Pull request if you feel the source needs to be or can still be improved, both in term of explanation and structure.</p>
+<p>Time for me to head over to reactjs.org and learn React again with new enlightenment. 😅</p>
+<hr>
+
+    
+  </div>
+
+</article>
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/post/2017/12/28/Learning-Notes-JavaScript-Prototype/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/post/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="https://ankuranand.com"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              About
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/post/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/post/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Search
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '6e027625688767870366',
+  clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
+  repo: 'blog',
+  owner: 'ankur-anand',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['ankur-anand'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/post/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

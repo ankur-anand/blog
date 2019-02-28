@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ankur Anand Blog</title>
   <subtitle>Ankur Anand Technical Blog</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/post/atom.xml" rel="self"/>
   
-  <link href="http://ankuranand.com/blog/"/>
-  <updated>2019-02-25T18:21:23.224Z</updated>
-  <id>http://ankuranand.com/blog/</id>
+  <link href="http://blog.ankuranand.com/post/"/>
+  <updated>2019-02-28T15:37:47.893Z</updated>
+  <id>http://blog.ankuranand.com/post/</id>
   
   <author>
     <name>Ankur Anand</name>
@@ -16,9 +16,120 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>The missing introduction of React.js</title>
+    <link href="http://blog.ankuranand.com/post/2018/03/28/The-missing-introduction-of-React-js/"/>
+    <id>http://blog.ankuranand.com/post/2018/03/28/The-missing-introduction-of-React-js/</id>
+    <published>2018-03-28T14:15:47.000Z</published>
+    <updated>2019-02-28T15:37:47.893Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Why-React&quot;&gt;&lt;a href=&quot;#Why-React&quot; class=&quot;headerlink&quot; title=&quot;Why React?&quot;&gt;&lt;/a&gt;Why React?&lt;/h1&gt;&lt;p&gt;Recently I’ve started learning &lt;code&gt;React.js&lt;/code&gt; with my limited knowledge of the front-end, I stumbled upon &lt;code&gt;React.js&lt;/code&gt; official site, and it presented me like this.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;reactjsHelloWorld.png&quot; alt=&quot;reactjs-helloworld&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Followed the instruction and I was greeted with &lt;code&gt;“Hello, World!”&lt;/code&gt;. Awesome isn’t that something we can do directly in HTML ? What react do ?&lt;/p&gt;
+&lt;p&gt;I asked “Google” and here are few Terminology that were thrown at my face.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;reusable components, stateful components, virtual dom.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Having limited knowledge of the front-end and not used any front-end framework or library before, I completed the official tutorial but all the rich information at the official documentation or any other great article out on Internet was more difficult to understand for me, and there was few questions that i kept asking myself again and again&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What led to the need for front-end pages to be componentized ?&lt;/li&gt;
+&lt;li&gt;What kind of problems non component front-end code face and how the React.js solves these problems ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This post is my attempt to present that missing part of React.js with these two question in mind to novice like me in autodidact way.&lt;/p&gt;
+&lt;p&gt;All of the engineering marvels has came out of need so to understand the use of react.js lets present our-self with an problem.&lt;/p&gt;
+&lt;p&gt;How would we implement a simple upvote and downvote functionality like below.&lt;br&gt;&lt;img src=&quot;upvoteandDownvote.png&quot; alt=&quot;upvote-downvote&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Even with my limited knowledge i can write HTML for this. Check the Result tab.&lt;/p&gt;
+&lt;iframe scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/ankuranand/6qz26n0k/embedded/result,js,html/light&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;How cool, &lt;strong&gt;But how would be go on and use this functionality inside different page ?&lt;/strong&gt; Now we have a problem and to solve this we have to copy the whole button structure inside the another page. That what we have been doing traditionally.&lt;/p&gt;
+&lt;h1 id=&quot;Building-Block-Components&quot;&gt;&lt;a href=&quot;#Building-Block-Components&quot; class=&quot;headerlink&quot; title=&quot;Building Block Components&quot;&gt;&lt;/a&gt;Building Block Components&lt;/h1&gt;&lt;p&gt;Can we do a better job than copying the whole structure again and again. &lt;strong&gt;Lets try to rewrite it in a way to make it reusable.&lt;/strong&gt; We can write a class that returns a string representation of the HTML structure, and using this class to build button instance and insert them into the DOM.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UpVoteButton&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&amp;lt;button class=&#39;upvote-btn&#39;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span class=&#39;upvote-text&#39;&amp;gt;Upvote&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-up&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DownVoteButton&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 	  &amp;lt;button class=&quot;downvote-btn&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span class=&quot;downvote-text&quot;&amp;gt;Downvote&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-down&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;`&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// using this class to build the upVote and DownVote button and inserting them&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// into the dom&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; wrapper = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;.wrapper&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; upVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; UpVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wrapper.innerHTML = upVoteButton.render();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; downVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DownVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wrapper.innerHTML += downVoteButton.render();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;iframe scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/ankuranand/4xpe8frq/embedded/result,html,js/light&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;But now our event listener to the button are dead, as our class &lt;code&gt;UpVoteButton&lt;/code&gt; and &lt;code&gt;DownVoteButton&lt;/code&gt; are simply a string, and we can’t add events to a string. &lt;strong&gt;To add event we need DOM structure.&lt;/strong&gt; Lets modify our class to create a DOM structure from string using the &lt;strong&gt;DOM API&lt;/strong&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; createDOMFromSring = domstring =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; div = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  div.innerHTML = domstring;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; div;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UpVoteButton&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = createDOMFromSring(&lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&amp;lt;button class=&#39;upvote-btn&#39;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span class=&#39;upvote-text&#39;&amp;gt;Upvote&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-up&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DownVoteButton&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = createDOMFromSring(&lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;button class=&quot;downvote-btn&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span class=&quot;downvote-text&quot;&amp;gt;Downvote&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-down&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    `&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// as render() method now returns an Object of HTMLDivElement&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// it cannot be appended like innerHTML, instead use DOM&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// API to append it&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; wrapper = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;.wrapper&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; upVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; UpVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wrapper.appendChild(upVoteButton.render());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; downVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DownVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wrapper.appendChild(downVoteButton.render());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;iframe scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/ankuranand/g48qv6q8/embedded/result,html,js/light&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h1 id=&quot;The-Why-Of-React-State&quot;&gt;&lt;a href=&quot;#The-Why-Of-React-State&quot; class=&quot;headerlink&quot; title=&quot;The Why Of React State&quot;&gt;&lt;/a&gt;The Why Of React State&lt;/h1&gt;&lt;p&gt;Now we can add event Listener, to our custom class at the time of instantiation of our classes. But after the instantiation &lt;strong&gt;we have to track if the button has been &lt;code&gt;upvoted&lt;/code&gt; or &lt;code&gt;downvoted&lt;/code&gt;, and for that we need state in our class that keeps track of all the state variable that our class instance depends upon&lt;/strong&gt;, and a method that can update the state based on the event when the button has been clicked.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;let’s put that state in our constructor to be accessible to all method and a method named &lt;code&gt;changeUpVotedText&lt;/code&gt; to update the state based on events.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UpVoteButton&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = &amp;#123; isUpVoted: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  changeUpVotedText() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; upVotedText = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;.upvote-text&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state.isUpVoted = !&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state.isUpVoted;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    upVotedText.innerHTML = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state.isUpVoted ? &lt;span class=&quot;string&quot;&gt;&quot;Upvote&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;Cancel&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = createDOMFromSring(&lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  	&amp;lt;button class=&#39;upvote-btn&#39;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span class=&#39;upvote-text&#39;&amp;gt;Upvote&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-up&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;click&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.changeUpVotedText.bind(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;iframe scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/ankuranand/Lfe7csp0/embedded/result,html,js/light&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h1 id=&quot;The-Why-of-setState-Function&quot;&gt;&lt;a href=&quot;#The-Why-of-setState-Function&quot; class=&quot;headerlink&quot; title=&quot;The Why of setState Function&quot;&gt;&lt;/a&gt;The Why of setState Function&lt;/h1&gt;&lt;p&gt;If we carefully look at our two method &lt;code&gt;changeUpVotedText&lt;/code&gt; and &lt;code&gt;changeDownVotedText&lt;/code&gt; containing the DOM operations. Right now these DOM operations are done on the one state, and with the change of state these methods are directly manipulating the DOM to update new content on the page.&lt;/p&gt;
+&lt;p&gt;Imagine if our components depends on a lot of state, this manual managing the relationship between data and DOM can lead to poor maintainability and error-prone code. &lt;a href=&quot;https://stackoverflow.com/questions/6817093/but-whys-the-browser-dom-still-so-slow-after-10-years-of-effort&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;As The full implications of element.innerHTML=x are enormous. Rough overview:&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;parse x as HTML&lt;/li&gt;
+&lt;li&gt;ask browser extensions for permission&lt;/li&gt;
+&lt;li&gt;destroy existing child nodes of element&lt;/li&gt;
+&lt;li&gt;create child nodes&lt;/li&gt;
+&lt;li&gt;recompute styles which are defined in terms of parent-child relationships&lt;/li&gt;
+&lt;li&gt;recompute physical dimensions of page elements&lt;/li&gt;
+&lt;li&gt;notify browser extensions of the change&lt;/li&gt;
+&lt;li&gt;update Javascript variables which are handles to real DOM nodes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So we can imagine why doing this could be a performance disaster if the element we’re updating happens to have a few thousand children. &lt;strong&gt;And also we don’t have any single place that manages the response to change in state and then apply this change back to DOM&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If we need another function that also responds to event and manipulate the DOM directly, their is high percentage of chance that we could have a race condition or our DOM becomes out of sync.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Can we do better ? Let’s Think this way&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Once the state is changed, build a new DOM element by calling render method again and Update the Page. This way we don’t have to maintain the relationship manually, and we get a single piece of code in our application, that deals with DOM API based on state.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In our case we name this method &lt;code&gt;setState&lt;/code&gt; that is &lt;strong&gt;solely responsible for changing the state of the object and re-rendering the DOM element again.&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UpVoteButton&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = &amp;#123; isUpVoted: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// `setState` method is responsible for changing the state of the object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// and re-rendering the DOM element again&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  setState(state) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = state;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.render();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  changeUpVotedText() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.setState(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      isUpVoted: !&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state.isUpVoted&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = createDOMFromSring(&lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;button class=&#39;upvote-btn&#39;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span class=&#39;upvote-text&#39;&amp;gt;&lt;span class=&quot;subst&quot;&gt;$&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        this.state.isUpVoted ? &quot;Cancel&quot; : &quot;UpVote&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-up&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    `&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;click&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.changeUpVotedText.bind(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;So &lt;code&gt;setState&lt;/code&gt; method will be called whenever &lt;strong&gt;user clicks on the button&lt;/strong&gt; an &lt;code&gt;click event&lt;/code&gt; will fire up and that in turn will call &lt;code&gt;changeUpVotedText&lt;/code&gt; and &lt;strong&gt;it will build a new state objects, through call to the setState method that in turn will build the new DOM Object based on the new State.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Now-how-does-one-re-insert-new-DOM&quot;&gt;&lt;a href=&quot;#Now-how-does-one-re-insert-new-DOM&quot; class=&quot;headerlink&quot; title=&quot;Now how does one re-insert new DOM ?&quot;&gt;&lt;/a&gt;Now how does one re-insert new DOM ?&lt;/h2&gt;&lt;p&gt;Because the new element that we have created(&lt;code&gt;this.elem&lt;/code&gt;) in the &lt;code&gt;setState&lt;/code&gt; method is a instance of DOM element, but &lt;code&gt;setState&lt;/code&gt; doesn’t have any way to communicate with the “Top Level API of DOM” which actually instructs our document (HTML Page) to make the necessary change in place. &lt;em&gt;We have to somehow communicate from our setState method to DOM API (outside our Component) and tell them to re-insert new DOM, in place of old DOM.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As here we are dealing with the DOM API directly with wrapper object representing the first element in the document that matches the specified set of CSS selectors.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; wrapper = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;.wrapper&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; upVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; UpVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wrapper.appendChild(upVoteButton.render());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;As our wrapper element is handling the DOM API, we can &lt;strong&gt;attach a function to &lt;code&gt;upVoteButton&lt;/code&gt; instance that is aware of the DOM element&lt;/strong&gt; where our new DOM element created in the setState method needs to be updated and calls the respective DOM API. All we have to do is call that function from our setState method.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;upVoteButton.onStateChange = (oldElem, newElem) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  wrapper.insertBefore(newElem, oldElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  wrapper.removeChild(oldElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setState(state) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; oldElem = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = state;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.render();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// calling the instance method&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onStateChange) &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onStateChange(oldElem, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Our working model.&lt;/p&gt;
+&lt;iframe scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/ankuranand/8tvu5pye/embedded/result,html,js/light&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;It’s seems so clear that our setState right now add and delete DOM elements, causing the browser to do a lot of rearrangement, that seriously affect the performance.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is where the React.js uses their strategy called Virtual-DOM.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But setting a method &lt;code&gt;onStateChange&lt;/code&gt; like this on every instance that we have created is troublesome process. Let’s &lt;em&gt;write a function called componentMount that will help us to automate this process of ours&lt;/em&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; componentMount = (component, container) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  container.appendChild(component.render());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  component.onStateChange = (oldElem, newElem) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    container.insertBefore(newElem, oldElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    container.removeChild(oldElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Now all we have to do is pass the created component and container to the DOM.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; wrapper = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;.wrapper&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; upVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; UpVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; downVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DownVoteButton();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;componentMount(upVoteButton, wrapper);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;componentMount(downVoteButton, wrapper);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;Getting-Further&quot;&gt;&lt;a href=&quot;#Getting-Further&quot; class=&quot;headerlink&quot; title=&quot;Getting Further&quot;&gt;&lt;/a&gt;Getting Further&lt;/h1&gt;&lt;p&gt;Improving further we can abstract few things into a Component class that our custom component can inherits and make our life simpler.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  setState(state) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; oldElem = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = state;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._renderDOM();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onStateChange) &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onStateChange(oldElem, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  _renderDOM() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = createDOMFromString(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.render());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onClick) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;click&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onClick.bind(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Here we are tracking just &lt;code&gt;onClick&lt;/code&gt; event-handler, but we get the idea &lt;strong&gt;we can add method for different kind of event handler&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s refactor our UpVoteButton&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UpVoteButton&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = &amp;#123; isUpVoted: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  onClick() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.setState(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      isUpVoted: !&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state.isUpVoted&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;button class=&#39;upvote-btn&#39;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span class=&#39;upvote-text&#39;&amp;gt;&lt;span class=&quot;subst&quot;&gt;$&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        this.state.isUpVoted ? &quot;Cancel&quot; : &quot;UpVote&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-up&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    `&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;What if we want to pass some custom configuration data to our custom class. We can add props as configuration parameter in Component class and subclass so that when extended we get access to props using &lt;code&gt;this.props&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; createDOMFromString = domstring =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; div = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  div.innerHTML = domstring;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; div;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;(props) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.props = props;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  setState(state) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; oldElem = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = state;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._renderDOM();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onStateChange) &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onStateChange(oldElem, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  _renderDOM() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem = createDOMFromString(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.render());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onClick) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;click&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onClick.bind(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.elem;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;UpVoteButton&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;(props) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;(props);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = &amp;#123; isUpVoted: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  onClick() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.setState(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      isUpVoted: !&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state.isUpVoted&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;button class=&#39;upvote-btn&#39; style=&quot;background: &lt;span class=&quot;subst&quot;&gt;$&amp;#123;this.props.bgColor&amp;#125;&lt;/span&gt;&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span class=&#39;upvote-text&#39;&amp;gt;&lt;span class=&quot;subst&quot;&gt;$&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        this.state.isUpVoted ? &quot;Cancel&quot; : &quot;UpVote&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;span&amp;gt;&amp;lt;i class=&quot;fa fa-thumbs-up&quot; aria-hidden=&quot;true&quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    `&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; componentMount = (component, container) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  container.appendChild(component._renderDOM());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  component.onStateChange = (oldElem, newElem) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    container.insertBefore(newElem, oldElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    container.removeChild(oldElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; wrapper = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelector(&lt;span class=&quot;string&quot;&gt;&quot;.wrapper&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; upVoteButton = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; UpVoteButton(&amp;#123; bgColor: &lt;span class=&quot;string&quot;&gt;&quot;green&quot;&lt;/span&gt; &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;componentMount(upVoteButton, wrapper);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Our working model.&lt;/p&gt;
+&lt;iframe scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/ankuranand/8Lgqjoru/embedded/result,html,js/light&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;With that we have created our very own component system and learn’t how with Component based system we have solved some of the problem of re-usability in front-end. Every Component has its own DOM structure and its behavior and display style is determined by its own state and props. So when data changes the Component will automatically re-render the new Content.&lt;/p&gt;
+&lt;h1 id=&quot;Conclusion&quot;&gt;&lt;a href=&quot;#Conclusion&quot; class=&quot;headerlink&quot; title=&quot;Conclusion&quot;&gt;&lt;/a&gt;Conclusion&lt;/h1&gt;&lt;p&gt;Well, with that hopefully you now have an answer to questions and a good overview of what kind of problem React.js component is fundamentally trying to solve, but in an extreme efficient way.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Disclaimer: This post is a summary of my knowledge that about React.js behavior that has came through my own learning, and must not be mistaken for “Oh so this is how React.js works under the hood”&lt;br&gt;There may inevitably be many error, here, and hope that everyone who find the error can help me with it. You can find the entire source code here.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ankur-anand/missing-intro-to-react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;img src=&quot;missingIntoductiontoreact.jpeg&quot; alt=&quot;ankur-anand/missing-intro-to-react&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Please Send me Pull request if you feel the source needs to be or can still be improved, both in term of explanation and structure.&lt;/p&gt;
+&lt;p&gt;Time for me to head over to reactjs.org and learn React again with new enlightenment. 😅&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Why-React&quot;&gt;&lt;a href=&quot;#Why-React&quot; class=&quot;headerlink&quot; title=&quot;Why React?&quot;&gt;&lt;/a&gt;Why React?&lt;/h1&gt;&lt;p&gt;Recently I’ve started learning &lt;code&gt;Rea
+    
+    </summary>
+    
+      <category term="reactjs" scheme="http://blog.ankuranand.com/post/categories/reactjs/"/>
+    
+    
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
+    
+      <category term="React" scheme="http://blog.ankuranand.com/post/tags/React/"/>
+    
+      <category term="Reactjs" scheme="http://blog.ankuranand.com/post/tags/Reactjs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Learning Notes: JavaScript Prototype</title>
-    <link href="http://ankuranand.com/blog/2017/12/28/Learning-Notes-JavaScript-Prototype/"/>
-    <id>http://ankuranand.com/blog/2017/12/28/Learning-Notes-JavaScript-Prototype/</id>
+    <link href="http://blog.ankuranand.com/post/2017/12/28/Learning-Notes-JavaScript-Prototype/"/>
+    <id>http://blog.ankuranand.com/post/2017/12/28/Learning-Notes-JavaScript-Prototype/</id>
     <published>2017-12-28T13:57:07.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -60,21 +171,21 @@
     
     </summary>
     
-      <category term="JavaScript, Node.js," scheme="http://ankuranand.com/blog/categories/JavaScript-Node-js/"/>
+      <category term="JavaScript, Node.js," scheme="http://blog.ankuranand.com/post/categories/JavaScript-Node-js/"/>
     
     
-      <category term="JavaScript" scheme="http://ankuranand.com/blog/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
     
-      <category term="Prototype" scheme="http://ankuranand.com/blog/tags/Prototype/"/>
+      <category term="Prototype" scheme="http://blog.ankuranand.com/post/tags/Prototype/"/>
     
-      <category term="self-notes" scheme="http://ankuranand.com/blog/tags/self-notes/"/>
+      <category term="self-notes" scheme="http://blog.ankuranand.com/post/tags/self-notes/"/>
     
   </entry>
   
   <entry>
     <title>Learning Notes: Node.js-Buffer</title>
-    <link href="http://ankuranand.com/blog/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
-    <id>http://ankuranand.com/blog/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
+    <link href="http://blog.ankuranand.com/post/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
+    <id>http://blog.ankuranand.com/post/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
     <published>2017-08-30T18:44:58.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -139,25 +250,25 @@
     
     </summary>
     
-      <category term="Nodejs" scheme="http://ankuranand.com/blog/categories/Nodejs/"/>
+      <category term="Nodejs" scheme="http://blog.ankuranand.com/post/categories/Nodejs/"/>
     
     
-      <category term="JavaScript" scheme="http://ankuranand.com/blog/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
     
-      <category term="self-notes" scheme="http://ankuranand.com/blog/tags/self-notes/"/>
+      <category term="self-notes" scheme="http://blog.ankuranand.com/post/tags/self-notes/"/>
     
-      <category term="Buffer" scheme="http://ankuranand.com/blog/tags/Buffer/"/>
+      <category term="Buffer" scheme="http://blog.ankuranand.com/post/tags/Buffer/"/>
     
-      <category term="nodejs" scheme="http://ankuranand.com/blog/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://blog.ankuranand.com/post/tags/nodejs/"/>
     
-      <category term="8k-pool" scheme="http://ankuranand.com/blog/tags/8k-pool/"/>
+      <category term="8k-pool" scheme="http://blog.ankuranand.com/post/tags/8k-pool/"/>
     
   </entry>
   
   <entry>
     <title>Understanding Non-deterministic order of execution of setTimeout vs setImmediate in node.js event-loop</title>
-    <link href="http://ankuranand.com/blog/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
-    <id>http://ankuranand.com/blog/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
+    <link href="http://blog.ankuranand.com/post/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
+    <id>http://blog.ankuranand.com/post/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
     <published>2017-06-03T11:08:34.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -199,27 +310,27 @@
     
     </summary>
     
-      <category term="Nodejs" scheme="http://ankuranand.com/blog/categories/Nodejs/"/>
+      <category term="Nodejs" scheme="http://blog.ankuranand.com/post/categories/Nodejs/"/>
     
     
-      <category term="JavaScript" scheme="http://ankuranand.com/blog/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
     
-      <category term="nodejs" scheme="http://ankuranand.com/blog/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://blog.ankuranand.com/post/tags/nodejs/"/>
     
-      <category term="event-loop" scheme="http://ankuranand.com/blog/tags/event-loop/"/>
+      <category term="event-loop" scheme="http://blog.ankuranand.com/post/tags/event-loop/"/>
     
-      <category term="libuv" scheme="http://ankuranand.com/blog/tags/libuv/"/>
+      <category term="libuv" scheme="http://blog.ankuranand.com/post/tags/libuv/"/>
     
-      <category term="setImmediate" scheme="http://ankuranand.com/blog/tags/setImmediate/"/>
+      <category term="setImmediate" scheme="http://blog.ankuranand.com/post/tags/setImmediate/"/>
     
-      <category term="setTimeout" scheme="http://ankuranand.com/blog/tags/setTimeout/"/>
+      <category term="setTimeout" scheme="http://blog.ankuranand.com/post/tags/setTimeout/"/>
     
   </entry>
   
   <entry>
     <title>The Basic Mathematics of SQL</title>
-    <link href="http://ankuranand.com/blog/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
-    <id>http://ankuranand.com/blog/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
+    <link href="http://blog.ankuranand.com/post/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
+    <id>http://blog.ankuranand.com/post/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
     <published>2016-06-18T09:54:59.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -266,21 +377,21 @@
     
     </summary>
     
-      <category term="Programming Paradigms" scheme="http://ankuranand.com/blog/categories/Programming-Paradigms/"/>
+      <category term="Programming Paradigms" scheme="http://blog.ankuranand.com/post/categories/Programming-Paradigms/"/>
     
     
-      <category term="SQL" scheme="http://ankuranand.com/blog/tags/SQL/"/>
+      <category term="SQL" scheme="http://blog.ankuranand.com/post/tags/SQL/"/>
     
-      <category term="Mathematics" scheme="http://ankuranand.com/blog/tags/Mathematics/"/>
+      <category term="Mathematics" scheme="http://blog.ankuranand.com/post/tags/Mathematics/"/>
     
-      <category term="Self Note" scheme="http://ankuranand.com/blog/tags/Self-Note/"/>
+      <category term="Self Note" scheme="http://blog.ankuranand.com/post/tags/Self-Note/"/>
     
   </entry>
   
   <entry>
     <title>Call By Sharing</title>
-    <link href="http://ankuranand.com/blog/2016/05/10/Understanding-Call-By-Sharing/"/>
-    <id>http://ankuranand.com/blog/2016/05/10/Understanding-Call-By-Sharing/</id>
+    <link href="http://blog.ankuranand.com/post/2016/05/10/Understanding-Call-By-Sharing/"/>
+    <id>http://blog.ankuranand.com/post/2016/05/10/Understanding-Call-By-Sharing/</id>
     <published>2016-05-10T13:22:39.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -336,21 +447,21 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Programming Paradigms" scheme="http://ankuranand.com/blog/categories/Programming-Paradigms/"/>
+      <category term="Programming Paradigms" scheme="http://blog.ankuranand.com/post/categories/Programming-Paradigms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/blog/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
     
-      <category term="Java" scheme="http://ankuranand.com/blog/tags/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/post/tags/Java/"/>
     
-      <category term="JavaScript" scheme="http://ankuranand.com/blog/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>Don&#39;t use Mutable as default Parameter in Python functions</title>
-    <link href="http://ankuranand.com/blog/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
-    <id>http://ankuranand.com/blog/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
+    <link href="http://blog.ankuranand.com/post/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
+    <id>http://blog.ankuranand.com/post/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
     <published>2016-04-24T06:36:04.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -380,23 +491,23 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Fundamental" scheme="http://ankuranand.com/blog/categories/Python-Fundamental/"/>
+      <category term="Python Fundamental" scheme="http://blog.ankuranand.com/post/categories/Python-Fundamental/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/blog/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
     
-      <category term="Function" scheme="http://ankuranand.com/blog/tags/Function/"/>
+      <category term="Function" scheme="http://blog.ankuranand.com/post/tags/Function/"/>
     
-      <category term="First-Class Function" scheme="http://ankuranand.com/blog/tags/First-Class-Function/"/>
+      <category term="First-Class Function" scheme="http://blog.ankuranand.com/post/tags/First-Class-Function/"/>
     
-      <category term="Python Basic" scheme="http://ankuranand.com/blog/tags/Python-Basic/"/>
+      <category term="Python Basic" scheme="http://blog.ankuranand.com/post/tags/Python-Basic/"/>
     
   </entry>
   
   <entry>
     <title>Understanding First Class Function in Python</title>
-    <link href="http://ankuranand.com/blog/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
-    <id>http://ankuranand.com/blog/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
+    <link href="http://blog.ankuranand.com/post/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
+    <id>http://blog.ankuranand.com/post/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
     <published>2016-04-24T04:13:22.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -430,23 +541,23 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Fundamental" scheme="http://ankuranand.com/blog/categories/Python-Fundamental/"/>
+      <category term="Python Fundamental" scheme="http://blog.ankuranand.com/post/categories/Python-Fundamental/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/blog/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
     
-      <category term="Function" scheme="http://ankuranand.com/blog/tags/Function/"/>
+      <category term="Function" scheme="http://blog.ankuranand.com/post/tags/Function/"/>
     
-      <category term="First-Class Function" scheme="http://ankuranand.com/blog/tags/First-Class-Function/"/>
+      <category term="First-Class Function" scheme="http://blog.ankuranand.com/post/tags/First-Class-Function/"/>
     
-      <category term="Python Basic" scheme="http://ankuranand.com/blog/tags/Python-Basic/"/>
+      <category term="Python Basic" scheme="http://blog.ankuranand.com/post/tags/Python-Basic/"/>
     
   </entry>
   
   <entry>
     <title>Understanding Object Mechanism in Python. Part - 1</title>
-    <link href="http://ankuranand.com/blog/2016/04/23/Object-Mechanism-in-Python-part1/"/>
-    <id>http://ankuranand.com/blog/2016/04/23/Object-Mechanism-in-Python-part1/</id>
+    <link href="http://blog.ankuranand.com/post/2016/04/23/Object-Mechanism-in-Python-part1/"/>
+    <id>http://blog.ankuranand.com/post/2016/04/23/Object-Mechanism-in-Python-part1/</id>
     <published>2016-04-23T11:34:45.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -480,19 +591,19 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Object Mechanism" scheme="http://ankuranand.com/blog/categories/Python-Object-Mechanism/"/>
+      <category term="Python Object Mechanism" scheme="http://blog.ankuranand.com/post/categories/Python-Object-Mechanism/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/blog/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
     
-      <category term="Object" scheme="http://ankuranand.com/blog/tags/Object/"/>
+      <category term="Object" scheme="http://blog.ankuranand.com/post/tags/Object/"/>
     
   </entry>
   
   <entry>
     <title>Private members are not private to instance in Java</title>
-    <link href="http://ankuranand.com/blog/2016/04/23/private-access-in-java/"/>
-    <id>http://ankuranand.com/blog/2016/04/23/private-access-in-java/</id>
+    <link href="http://blog.ankuranand.com/post/2016/04/23/private-access-in-java/"/>
+    <id>http://blog.ankuranand.com/post/2016/04/23/private-access-in-java/</id>
     <published>2016-04-23T10:49:54.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -514,21 +625,21 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Java" scheme="http://ankuranand.com/blog/categories/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/post/categories/Java/"/>
     
     
-      <category term="Java" scheme="http://ankuranand.com/blog/tags/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/post/tags/Java/"/>
     
-      <category term="OOP" scheme="http://ankuranand.com/blog/tags/OOP/"/>
+      <category term="OOP" scheme="http://blog.ankuranand.com/post/tags/OOP/"/>
     
-      <category term="Encapsulation" scheme="http://ankuranand.com/blog/tags/Encapsulation/"/>
+      <category term="Encapsulation" scheme="http://blog.ankuranand.com/post/tags/Encapsulation/"/>
     
   </entry>
   
   <entry>
     <title>Self Note on Eulerian Path</title>
-    <link href="http://ankuranand.com/blog/2016/04/21/eulerian-path/"/>
-    <id>http://ankuranand.com/blog/2016/04/21/eulerian-path/</id>
+    <link href="http://blog.ankuranand.com/post/2016/04/21/eulerian-path/"/>
+    <id>http://blog.ankuranand.com/post/2016/04/21/eulerian-path/</id>
     <published>2016-04-21T15:51:19.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -568,19 +679,19 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Algorithms" scheme="http://ankuranand.com/blog/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://blog.ankuranand.com/post/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/blog/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
     
-      <category term="graph" scheme="http://ankuranand.com/blog/tags/graph/"/>
+      <category term="graph" scheme="http://blog.ankuranand.com/post/tags/graph/"/>
     
   </entry>
   
   <entry>
     <title>Efficient Factorial Algorithm</title>
-    <link href="http://ankuranand.com/blog/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
-    <id>http://ankuranand.com/blog/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
+    <link href="http://blog.ankuranand.com/post/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
+    <id>http://blog.ankuranand.com/post/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
     <published>2016-04-19T18:15:39.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -611,16 +722,16 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Algorithms" scheme="http://ankuranand.com/blog/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://blog.ankuranand.com/post/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://ankuranand.com/blog/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
     
-      <category term="Factorial" scheme="http://ankuranand.com/blog/tags/Factorial/"/>
+      <category term="Factorial" scheme="http://blog.ankuranand.com/post/tags/Factorial/"/>
     
-      <category term="Efficiency" scheme="http://ankuranand.com/blog/tags/Efficiency/"/>
+      <category term="Efficiency" scheme="http://blog.ankuranand.com/post/tags/Efficiency/"/>
     
-      <category term="Java" scheme="http://ankuranand.com/blog/tags/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/post/tags/Java/"/>
     
   </entry>
   
