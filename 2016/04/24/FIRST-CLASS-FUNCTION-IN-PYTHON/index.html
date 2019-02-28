@@ -6,14 +6,14 @@
 
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  
+
   <title>Understanding First Class Function in Python | Ankur Anand Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+
     <meta name="keywords" content="Python,Function,First-Class Function,Python Basic," />
-  
+
 
   <meta name="description" content="IntroductionFunction in Python are First- Class Objects. This means that they can be passed around and used just like any other data types. In Shorthand it’s also known as “First-class function”
 
@@ -32,20 +32,20 @@ Some">
 
 Some">
 
-  
 
-  
+
+
     <link rel="icon" href="/blog/images/favicon.png">
-  
+
 
   <link href="/blog/css/styles.css?v=c114cbeddx" rel="stylesheet">
 
 
-  
-    <link rel="stylesheet" href="/blog/css/personal-style.css">
-  
 
-  
+    <link rel="stylesheet" href="/blog/css/personal-style.css">
+
+
+
 <!-- Google Analytics -->
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,27 +60,27 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  
-
-  
 
 
-  
+
+
+
+
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
+
 
 </head>
 
 <body>
 
 
-  
+
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
-  
+
 
   <div class="post-header CENTER">
-   
+
   <div class="toolbox">
     <a class="toolbox-entry" href="/blog/">
       <span class="toolbox-entry-text">Blog</span>
@@ -88,7 +88,7 @@ ga('send', 'pageview');
       <i class="icon-home"></i>
     </a>
     <ul class="list-toolbox">
-      
+
         <li class="item-toolbox">
           <a
             class="CIRCLE"
@@ -99,7 +99,7 @@ ga('send', 'pageview');
             About
           </a>
         </li>
-      
+
         <li class="item-toolbox">
           <a
             class="CIRCLE"
@@ -110,7 +110,7 @@ ga('send', 'pageview');
             RSS
           </a>
         </li>
-      
+
         <li class="item-toolbox">
           <a
             class="CIRCLE"
@@ -121,7 +121,7 @@ ga('send', 'pageview');
             Search
           </a>
         </li>
-      
+
     </ul>
   </div>
 
@@ -147,14 +147,14 @@ ga('send', 'pageview');
         <span>2016.04.24</span>
       </span>
 
-      
+
         <span class="article-author">
           <i class="icon-user"></i>
           <span>Ankur Anand</span>
         </span>
-      
 
-      
+
+
   <span class="article-category">
     <i class="icon-list"></i>
     <a class="article-category-link" href="/blog/categories/Python-Fundamental/">Python Fundamental</a>
@@ -162,21 +162,21 @@ ga('send', 'pageview');
 
 
 
-      
 
-      
+
+
       <i class="fa fa-eye"></i>
         <span id="busuanzi_container_page_pv">
             &nbsp <span id="busuanzi_value_page_pv">
            <i class="fa fa-spinner fa-spin"></i></span>
         </span>
-      
+
 
     </div>
   </header>
 
   <div class="article-content">
-    
+
       <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Function in Python are First- Class Objects. This means that they can be passed around and used just like any other data types. In Shorthand it’s also known as “First-class function”</p>
 <blockquote>
 <p>Some of the characteristics of First Class Object Objects ?</p>
@@ -200,12 +200,12 @@ ga('send', 'pageview');
 <p>Custom Reverse Function used for Sorting.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">reverse_sort</span><span class="params">(word)</span>:</span></span><br><span class="line"><span class="meta">... </span> <span class="string">''' reverse the word '''</span></span><br><span class="line"><span class="meta">... </span> <span class="keyword">return</span> word[::<span class="number">-1</span>]</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>reverse_sort(<span class="string">'Ankur'</span>)</span><br><span class="line"><span class="string">'ruknA'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(name, key=reverse_sort)</span><br><span class="line">[<span class="string">'I'</span>, <span class="string">'KK'</span>, <span class="string">'Anand'</span>, <span class="string">'Sam'</span>, <span class="string">'John'</span>, <span class="string">'Ankur'</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 
-    
+
   </div>
 
 </article>
 
-   
+
   <div class="box-prev-next clearfix">
     <a class="show pull-left" href="/blog/2016/04/23/Object-Mechanism-in-Python-part1/">
         <i class="icon icon-angle-left"></i>
@@ -237,7 +237,7 @@ ga('send', 'pageview');
     <hr>
     <div class="modal-body">
       <ul class="list-toolbox">
-        
+
           <li class="item-toolbox">
             <a
               class="CIRCLE"
@@ -248,7 +248,7 @@ ga('send', 'pageview');
               About
             </a>
           </li>
-        
+
           <li class="item-toolbox">
             <a
               class="CIRCLE"
@@ -259,7 +259,7 @@ ga('send', 'pageview');
               RSS
             </a>
           </li>
-        
+
           <li class="item-toolbox">
             <a
               class="CIRCLE"
@@ -270,7 +270,7 @@ ga('send', 'pageview');
               Search
             </a>
           </li>
-        
+
       </ul>
 
     </div>
@@ -279,21 +279,21 @@ ga('send', 'pageview');
 
 
 
-  
+
       <div class="fexo-comments comments-post">
-    
 
-    
 
-    
-    
 
-    
 
-    
-    
 
-    
+
+
+
+
+
+
+
+
 
 <!-- Gitalk评论插件通用代码 -->
 <div id="gitalk-container"></div>
@@ -322,7 +322,7 @@ gitalk.render('gitalk-container')
 
   </div>
 
-  
+
 
   <script type="text/javascript">
   function loadScript(url, callback) {
@@ -368,7 +368,7 @@ gitalk.render('gitalk-container')
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>

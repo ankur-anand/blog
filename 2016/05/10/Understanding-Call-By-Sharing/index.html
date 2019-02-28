@@ -6,14 +6,14 @@
 
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  
+
   <title>Call By Sharing | Ankur Anand Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+
     <meta name="keywords" content="Python,Java,JavaScript," />
-  
+
 
   <meta name="description" content="IntroductionWe all are familiar with the pass by value or call by value and pass by reference or call by reference and how does one programming language evaluates this depends upon the  Evaluation Str">
 <meta property="og:type" content="article">
@@ -26,20 +26,20 @@
 <meta name="twitter:title" content="Call By Sharing">
 <meta name="twitter:description" content="IntroductionWe all are familiar with the pass by value or call by value and pass by reference or call by reference and how does one programming language evaluates this depends upon the  Evaluation Str">
 
-  
 
-  
+
+
     <link rel="icon" href="/blog/images/favicon.png">
-  
+
 
   <link href="/blog/css/styles.css?v=c114cbeddx" rel="stylesheet">
 
 
-  
-    <link rel="stylesheet" href="/blog/css/personal-style.css">
-  
 
-  
+    <link rel="stylesheet" href="/blog/css/personal-style.css">
+
+
+
 <!-- Google Analytics -->
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -54,27 +54,27 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  
-
-  
 
 
-  
+
+
+
+
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
+
 
 </head>
 
 <body>
 
 
-  
+
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
-  
+
 
   <div class="post-header CENTER">
-   
+
   <div class="toolbox">
     <a class="toolbox-entry" href="/blog/">
       <span class="toolbox-entry-text">Blog</span>
@@ -82,7 +82,7 @@ ga('send', 'pageview');
       <i class="icon-home"></i>
     </a>
     <ul class="list-toolbox">
-      
+
         <li class="item-toolbox">
           <a
             class="CIRCLE"
@@ -93,7 +93,7 @@ ga('send', 'pageview');
             About
           </a>
         </li>
-      
+
         <li class="item-toolbox">
           <a
             class="CIRCLE"
@@ -104,7 +104,7 @@ ga('send', 'pageview');
             RSS
           </a>
         </li>
-      
+
         <li class="item-toolbox">
           <a
             class="CIRCLE"
@@ -115,7 +115,7 @@ ga('send', 'pageview');
             Search
           </a>
         </li>
-      
+
     </ul>
   </div>
 
@@ -141,14 +141,14 @@ ga('send', 'pageview');
         <span>2016.05.10</span>
       </span>
 
-      
+
         <span class="article-author">
           <i class="icon-user"></i>
           <span>Ankur Anand</span>
         </span>
-      
 
-      
+
+
   <span class="article-category">
     <i class="icon-list"></i>
     <a class="article-category-link" href="/blog/categories/Programming-Paradigms/">Programming Paradigms</a>
@@ -156,21 +156,21 @@ ga('send', 'pageview');
 
 
 
-      
 
-      
+
+
       <i class="fa fa-eye"></i>
         <span id="busuanzi_container_page_pv">
             &nbsp <span id="busuanzi_value_page_pv">
            <i class="fa fa-spinner fa-spin"></i></span>
         </span>
-      
+
 
     </div>
   </header>
 
   <div class="article-content">
-    
+
       <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>We all are familiar with the <code>pass by value or call by value</code> and <code>pass by reference or call by reference</code> and how does one programming language evaluates this depends upon the  <a href="https://en.wikipedia.org/wiki/Evaluation_strategy" target="_blank" rel="external">Evaluation Strategy</a> specified by that programming language. But in the mist of these two terms we have missed an important aspect of this strategy what is known as <code>call by sharing</code>.</p>
 <h2 id="Understanding-Call-By-Sharing"><a href="#Understanding-Call-By-Sharing" class="headerlink" title="Understanding Call By Sharing"></a>Understanding <code>Call By Sharing</code></h2><p>Let’s see what is.</p>
 <h3 id="Call-by-Value"><a href="#Call-by-Value" class="headerlink" title="Call by Value"></a>Call by Value</h3><p>We all have seen code like this in <code>C</code>.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fuc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a );</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> b = <span class="number">30</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;b);</span><br><span class="line">  fuc(a,b);</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -216,12 +216,12 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">chanageColor</span>(<span class="params">col</span>)</span>&#123;</span><br><span class="line">... col = <span class="string">'red'</span>;</span><br><span class="line">... &#125;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; <span class="keyword">var</span> colr = <span class="string">'green'</span>;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; chanageColor(colr)</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; colr</span><br><span class="line"><span class="string">'green'</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="The-Curious-Case-of-Java"><a href="#The-Curious-Case-of-Java" class="headerlink" title="The Curious Case of Java"></a>The Curious Case of <code>Java</code></h2><p>Java is also <code>Call by Sharing</code>. May be <code>pass by value where value is the reference copy</code> describes the Evaluation Strategy better in <code>Java</code> than simply saying <code>Java</code> is always pass by value.</p>
 
-    
+
   </div>
 
 </article>
 
-   
+
   <div class="box-prev-next clearfix">
     <a class="show pull-left" href="/blog/2016/04/24/Dont-use-mutable-as-defualt-parameter/">
         <i class="icon icon-angle-left"></i>
@@ -253,7 +253,7 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
     <hr>
     <div class="modal-body">
       <ul class="list-toolbox">
-        
+
           <li class="item-toolbox">
             <a
               class="CIRCLE"
@@ -264,7 +264,7 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
               About
             </a>
           </li>
-        
+
           <li class="item-toolbox">
             <a
               class="CIRCLE"
@@ -275,7 +275,7 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
               RSS
             </a>
           </li>
-        
+
           <li class="item-toolbox">
             <a
               class="CIRCLE"
@@ -286,7 +286,7 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
               Search
             </a>
           </li>
-        
+
       </ul>
 
     </div>
@@ -295,21 +295,21 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
 
 
 
-  
+
       <div class="fexo-comments comments-post">
-    
 
-    
 
-    
-    
 
-    
 
-    
-    
 
-    
+
+
+
+
+
+
+
+
 
 <!-- Gitalk评论插件通用代码 -->
 <div id="gitalk-container"></div>
@@ -338,7 +338,7 @@ gitalk.render('gitalk-container')
 
   </div>
 
-  
+
 
   <script type="text/javascript">
   function loadScript(url, callback) {
@@ -384,7 +384,7 @@ gitalk.render('gitalk-container')
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
