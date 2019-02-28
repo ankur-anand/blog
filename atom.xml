@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://ankuranand.com/blog/"/>
-  <updated>2017-12-28T14:02:51.000Z</updated>
+  <updated>2019-02-25T18:21:23.224Z</updated>
   <id>http://ankuranand.com/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ankuranand.com/blog/2017/12/28/Learning-Notes-JavaScript-Prototype/"/>
     <id>http://ankuranand.com/blog/2017/12/28/Learning-Notes-JavaScript-Prototype/</id>
     <published>2017-12-28T13:57:07.000Z</published>
-    <updated>2017-12-28T14:02:51.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Prototype&quot;&gt;&lt;a href=&quot;#Prototype&quot; class=&quot;headerlink&quot; title=&quot;Prototype&quot;&gt;&lt;/a&gt;Prototype&lt;/h2&gt;&lt;p&gt;Prototype is a regular object from which other objects inherit properties. Each Objects contains an internal &lt;code&gt;prototype&lt;/code&gt; property which points to a prototype object from which it inherits all members.&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// A person constructor function&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; Person = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// With a property called name with a default value Ankur&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Person.prototype = &amp;#123;name: &lt;span class=&quot;string&quot;&gt;&quot;Ankur&quot;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Two instance of Person&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; p1 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; p2 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// The name property is shared through prototypal inheritance&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(p1.name); &lt;span class=&quot;comment&quot;&gt;// Ankur&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(p2.name); &lt;span class=&quot;comment&quot;&gt;// Ankur&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Lets change the p1 name&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p1.name = &lt;span class=&quot;string&quot;&gt;&quot;Anand&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(p1.name); &lt;span class=&quot;comment&quot;&gt;// Anand&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(p2.name); &lt;span class=&quot;comment&quot;&gt;// Ankur&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -76,7 +76,7 @@
     <link href="http://ankuranand.com/blog/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
     <id>http://ankuranand.com/blog/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
     <published>2017-08-30T18:44:58.000Z</published>
-    <updated>2017-08-30T21:09:13.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In &lt;code&gt;Node.js&lt;/code&gt; Buffer class is the core library. It brings a way for &lt;code&gt;Node.js&lt;/code&gt; to store raw data, allowing &lt;code&gt;Node.js&lt;/code&gt; to handle binary data. The raw data is stored in the instance of the buffer class. A buffer is similar to an array of integers, but it corresponds to a piece of raw memory other than the v8 heap memory.&lt;/p&gt;
 &lt;h2 id=&quot;Way-to-create-a-new-Buffer&quot;&gt;&lt;a href=&quot;#Way-to-create-a-new-Buffer&quot; class=&quot;headerlink&quot; title=&quot;Way to create a new Buffer&quot;&gt;&lt;/a&gt;Way to create a new Buffer&lt;/h2&gt;&lt;p&gt;At the start of the Node process &lt;code&gt;Buffer&lt;/code&gt; is put into the global object, so doesn’t need explicit require.&lt;/p&gt;
@@ -159,7 +159,7 @@
     <link href="http://ankuranand.com/blog/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
     <id>http://ankuranand.com/blog/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
     <published>2017-06-03T11:08:34.000Z</published>
-    <updated>2017-08-30T18:13:39.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;The Nodejs docs on &lt;a href=&quot;https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The Node.js Event Loop, Timers, and process.nextTick&lt;/a&gt; explains the concept well on the&lt;br&gt;event loop.&lt;/p&gt;
 &lt;p&gt;But at the end of the doc while explaning  &lt;a href=&quot;https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;setImmediate() vs setTimeout()&lt;/a&gt; it gave an example code, &lt;/p&gt;
@@ -221,7 +221,7 @@
     <link href="http://ankuranand.com/blog/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
     <id>http://ankuranand.com/blog/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
     <published>2016-06-18T09:54:59.000Z</published>
-    <updated>2016-06-18T11:34:56.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Formally, we know a &lt;strong&gt;relation&lt;/strong&gt; is a subset of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Cartesian_product&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cartesian Products&lt;/a&gt; of sets. i.e $ R \in ( A X B ) $&lt;br&gt;For Example.&lt;br&gt;$$ A = \{ 1, 3 \} , B = \{ 2, 5 \} $$&lt;br&gt;Cartesian Product of set A and B will be&lt;br&gt;$$ P = \{ (1,2),(3,2),(1,5),(3,5)\} $$&lt;/p&gt;
 &lt;p&gt;Out of that there are three pair that observe the $ &amp;lt; $ relationship&lt;br&gt;$$ R = \{ (1,2), (1,5), (3,5)\} $$&lt;br&gt;Or we can 1 is related to 5 by relation R ($&amp;lt;$)&lt;/p&gt;
@@ -282,7 +282,7 @@
     <link href="http://ankuranand.com/blog/2016/05/10/Understanding-Call-By-Sharing/"/>
     <id>http://ankuranand.com/blog/2016/05/10/Understanding-Call-By-Sharing/</id>
     <published>2016-05-10T13:22:39.000Z</published>
-    <updated>2016-05-10T18:47:57.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;We all are familiar with the &lt;code&gt;pass by value or call by value&lt;/code&gt; and &lt;code&gt;pass by reference or call by reference&lt;/code&gt; and how does one programming language evaluates this depends upon the  &lt;a href=&quot;https://en.wikipedia.org/wiki/Evaluation_strategy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Evaluation Strategy&lt;/a&gt; specified by that programming language. But in the mist of these two terms we have missed an important aspect of this strategy what is known as &lt;code&gt;call by sharing&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;Understanding-Call-By-Sharing&quot;&gt;&lt;a href=&quot;#Understanding-Call-By-Sharing&quot; class=&quot;headerlink&quot; title=&quot;Understanding Call By Sharing&quot;&gt;&lt;/a&gt;Understanding &lt;code&gt;Call By Sharing&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;Let’s see what is.&lt;/p&gt;
@@ -352,7 +352,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.com/blog/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
     <id>http://ankuranand.com/blog/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
     <published>2016-04-24T06:36:04.000Z</published>
-    <updated>2016-04-24T07:53:17.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Examples use &lt;code&gt;python3&lt;/code&gt; for &lt;code&gt;python2&lt;/code&gt; use &lt;code&gt;func_defaults&lt;/code&gt;&lt;/p&gt;
@@ -398,7 +398,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.com/blog/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
     <id>http://ankuranand.com/blog/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
     <published>2016-04-24T04:13:22.000Z</published>
-    <updated>2016-04-24T04:23:24.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Function in Python are First- Class Objects. This means that they can be passed around and used just like any other data types. In Shorthand it’s also known as “First-class function”&lt;/p&gt;
 &lt;blockquote&gt;
@@ -448,7 +448,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.com/blog/2016/04/23/Object-Mechanism-in-Python-part1/"/>
     <id>http://ankuranand.com/blog/2016/04/23/Object-Mechanism-in-Python-part1/</id>
     <published>2016-04-23T11:34:45.000Z</published>
-    <updated>2016-04-23T16:27:11.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;This is first part in the series of &lt;a href=&quot;/categories/Python-Object-Mechanism/&quot;&gt;object mechanism in python&lt;/a&gt; and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code&lt;/p&gt;
@@ -494,7 +494,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.com/blog/2016/04/23/private-access-in-java/"/>
     <id>http://ankuranand.com/blog/2016/04/23/private-access-in-java/</id>
     <published>2016-04-23T10:49:54.000Z</published>
-    <updated>2016-04-23T11:23:21.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;p&gt;We all know to access the private member variable of a class we need an public helper function in Java.&lt;/p&gt;
 &lt;h3 id=&quot;The-Unforeseen&quot;&gt;&lt;a href=&quot;#The-Unforeseen&quot; class=&quot;headerlink&quot; title=&quot;The Unforeseen&quot;&gt;&lt;/a&gt;The Unforeseen&lt;/h3&gt;&lt;p&gt;But seems One Object can access a private variable of another object of the same class.&lt;/p&gt;
@@ -530,7 +530,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.com/blog/2016/04/21/eulerian-path/"/>
     <id>http://ankuranand.com/blog/2016/04/21/eulerian-path/</id>
     <published>2016-04-21T15:51:19.000Z</published>
-    <updated>2016-04-23T10:48:34.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;p&gt;Eulerian Path are paths that&lt;/p&gt;
 &lt;ol&gt;
@@ -582,7 +582,7 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     <link href="http://ankuranand.com/blog/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
     <id>http://ankuranand.com/blog/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
     <published>2016-04-19T18:15:39.000Z</published>
-    <updated>2016-06-18T10:10:32.000Z</updated>
+    <updated>2019-02-25T18:21:23.224Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Factorial&quot;&gt;&lt;a href=&quot;#Factorial&quot; class=&quot;headerlink&quot; title=&quot;Factorial -&quot;&gt;&lt;/a&gt;Factorial -&lt;/h2&gt;&lt;p&gt;In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers&lt;br&gt;less than or equal to n. For example,&lt;/p&gt;
 &lt;p&gt;$$ 5! = 5 \ast 4 \ast 3 \ast 2 \ast 1 = 120 $$&lt;/p&gt;
