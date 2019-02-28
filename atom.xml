@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ankur Anand Blog</title>
   <subtitle>Ankur Anand Technical Blog</subtitle>
-  <link href="/post/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.ankuranand.com/post/"/>
+  <link href="http://blog.ankuranand.com/"/>
   <updated>2019-02-28T15:37:47.893Z</updated>
-  <id>http://blog.ankuranand.com/post/</id>
+  <id>http://blog.ankuranand.com/</id>
   
   <author>
     <name>Ankur Anand</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>The missing introduction of React.js</title>
-    <link href="http://blog.ankuranand.com/post/2018/03/28/The-missing-introduction-of-React-js/"/>
-    <id>http://blog.ankuranand.com/post/2018/03/28/The-missing-introduction-of-React-js/</id>
+    <link href="http://blog.ankuranand.com/2018/03/28/The-missing-introduction-of-React-js/"/>
+    <id>http://blog.ankuranand.com/2018/03/28/The-missing-introduction-of-React-js/</id>
     <published>2018-03-28T14:15:47.000Z</published>
     <updated>2019-02-28T15:37:47.893Z</updated>
     
@@ -115,21 +115,21 @@
     
     </summary>
     
-      <category term="reactjs" scheme="http://blog.ankuranand.com/post/categories/reactjs/"/>
+      <category term="reactjs" scheme="http://blog.ankuranand.com/categories/reactjs/"/>
     
     
-      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/tags/JavaScript/"/>
     
-      <category term="React" scheme="http://blog.ankuranand.com/post/tags/React/"/>
+      <category term="React" scheme="http://blog.ankuranand.com/tags/React/"/>
     
-      <category term="Reactjs" scheme="http://blog.ankuranand.com/post/tags/Reactjs/"/>
+      <category term="Reactjs" scheme="http://blog.ankuranand.com/tags/Reactjs/"/>
     
   </entry>
   
   <entry>
     <title>Learning Notes: JavaScript Prototype</title>
-    <link href="http://blog.ankuranand.com/post/2017/12/28/Learning-Notes-JavaScript-Prototype/"/>
-    <id>http://blog.ankuranand.com/post/2017/12/28/Learning-Notes-JavaScript-Prototype/</id>
+    <link href="http://blog.ankuranand.com/2017/12/28/Learning-Notes-JavaScript-Prototype/"/>
+    <id>http://blog.ankuranand.com/2017/12/28/Learning-Notes-JavaScript-Prototype/</id>
     <published>2017-12-28T13:57:07.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -171,21 +171,21 @@
     
     </summary>
     
-      <category term="JavaScript, Node.js," scheme="http://blog.ankuranand.com/post/categories/JavaScript-Node-js/"/>
+      <category term="JavaScript, Node.js," scheme="http://blog.ankuranand.com/categories/JavaScript-Node-js/"/>
     
     
-      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/tags/JavaScript/"/>
     
-      <category term="Prototype" scheme="http://blog.ankuranand.com/post/tags/Prototype/"/>
+      <category term="Prototype" scheme="http://blog.ankuranand.com/tags/Prototype/"/>
     
-      <category term="self-notes" scheme="http://blog.ankuranand.com/post/tags/self-notes/"/>
+      <category term="self-notes" scheme="http://blog.ankuranand.com/tags/self-notes/"/>
     
   </entry>
   
   <entry>
     <title>Learning Notes: Node.js-Buffer</title>
-    <link href="http://blog.ankuranand.com/post/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
-    <id>http://blog.ankuranand.com/post/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
+    <link href="http://blog.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/"/>
+    <id>http://blog.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/</id>
     <published>2017-08-30T18:44:58.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -250,25 +250,25 @@
     
     </summary>
     
-      <category term="Nodejs" scheme="http://blog.ankuranand.com/post/categories/Nodejs/"/>
+      <category term="Nodejs" scheme="http://blog.ankuranand.com/categories/Nodejs/"/>
     
     
-      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/tags/JavaScript/"/>
     
-      <category term="self-notes" scheme="http://blog.ankuranand.com/post/tags/self-notes/"/>
+      <category term="self-notes" scheme="http://blog.ankuranand.com/tags/self-notes/"/>
     
-      <category term="Buffer" scheme="http://blog.ankuranand.com/post/tags/Buffer/"/>
+      <category term="Buffer" scheme="http://blog.ankuranand.com/tags/Buffer/"/>
     
-      <category term="nodejs" scheme="http://blog.ankuranand.com/post/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://blog.ankuranand.com/tags/nodejs/"/>
     
-      <category term="8k-pool" scheme="http://blog.ankuranand.com/post/tags/8k-pool/"/>
+      <category term="8k-pool" scheme="http://blog.ankuranand.com/tags/8k-pool/"/>
     
   </entry>
   
   <entry>
     <title>Understanding Non-deterministic order of execution of setTimeout vs setImmediate in node.js event-loop</title>
-    <link href="http://blog.ankuranand.com/post/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
-    <id>http://blog.ankuranand.com/post/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
+    <link href="http://blog.ankuranand.com/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/"/>
+    <id>http://blog.ankuranand.com/2017/06/03/Understanding-Non-deterministic-order-of-execution-of-setTimeout-vs-setImmediate-in-node-js-event-loop/</id>
     <published>2017-06-03T11:08:34.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -310,27 +310,27 @@
     
     </summary>
     
-      <category term="Nodejs" scheme="http://blog.ankuranand.com/post/categories/Nodejs/"/>
+      <category term="Nodejs" scheme="http://blog.ankuranand.com/categories/Nodejs/"/>
     
     
-      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/tags/JavaScript/"/>
     
-      <category term="nodejs" scheme="http://blog.ankuranand.com/post/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://blog.ankuranand.com/tags/nodejs/"/>
     
-      <category term="event-loop" scheme="http://blog.ankuranand.com/post/tags/event-loop/"/>
+      <category term="event-loop" scheme="http://blog.ankuranand.com/tags/event-loop/"/>
     
-      <category term="libuv" scheme="http://blog.ankuranand.com/post/tags/libuv/"/>
+      <category term="libuv" scheme="http://blog.ankuranand.com/tags/libuv/"/>
     
-      <category term="setImmediate" scheme="http://blog.ankuranand.com/post/tags/setImmediate/"/>
+      <category term="setImmediate" scheme="http://blog.ankuranand.com/tags/setImmediate/"/>
     
-      <category term="setTimeout" scheme="http://blog.ankuranand.com/post/tags/setTimeout/"/>
+      <category term="setTimeout" scheme="http://blog.ankuranand.com/tags/setTimeout/"/>
     
   </entry>
   
   <entry>
     <title>The Basic Mathematics of SQL</title>
-    <link href="http://blog.ankuranand.com/post/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
-    <id>http://blog.ankuranand.com/post/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
+    <link href="http://blog.ankuranand.com/2016/06/18/The-Basic-Mathematics-of-SQL/"/>
+    <id>http://blog.ankuranand.com/2016/06/18/The-Basic-Mathematics-of-SQL/</id>
     <published>2016-06-18T09:54:59.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -377,21 +377,21 @@
     
     </summary>
     
-      <category term="Programming Paradigms" scheme="http://blog.ankuranand.com/post/categories/Programming-Paradigms/"/>
+      <category term="Programming Paradigms" scheme="http://blog.ankuranand.com/categories/Programming-Paradigms/"/>
     
     
-      <category term="SQL" scheme="http://blog.ankuranand.com/post/tags/SQL/"/>
+      <category term="SQL" scheme="http://blog.ankuranand.com/tags/SQL/"/>
     
-      <category term="Mathematics" scheme="http://blog.ankuranand.com/post/tags/Mathematics/"/>
+      <category term="Mathematics" scheme="http://blog.ankuranand.com/tags/Mathematics/"/>
     
-      <category term="Self Note" scheme="http://blog.ankuranand.com/post/tags/Self-Note/"/>
+      <category term="Self Note" scheme="http://blog.ankuranand.com/tags/Self-Note/"/>
     
   </entry>
   
   <entry>
     <title>Call By Sharing</title>
-    <link href="http://blog.ankuranand.com/post/2016/05/10/Understanding-Call-By-Sharing/"/>
-    <id>http://blog.ankuranand.com/post/2016/05/10/Understanding-Call-By-Sharing/</id>
+    <link href="http://blog.ankuranand.com/2016/05/10/Understanding-Call-By-Sharing/"/>
+    <id>http://blog.ankuranand.com/2016/05/10/Understanding-Call-By-Sharing/</id>
     <published>2016-05-10T13:22:39.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -447,21 +447,21 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Programming Paradigms" scheme="http://blog.ankuranand.com/post/categories/Programming-Paradigms/"/>
+      <category term="Programming Paradigms" scheme="http://blog.ankuranand.com/categories/Programming-Paradigms/"/>
     
     
-      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/tags/Python/"/>
     
-      <category term="Java" scheme="http://blog.ankuranand.com/post/tags/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/tags/Java/"/>
     
-      <category term="JavaScript" scheme="http://blog.ankuranand.com/post/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.ankuranand.com/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>Don&#39;t use Mutable as default Parameter in Python functions</title>
-    <link href="http://blog.ankuranand.com/post/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
-    <id>http://blog.ankuranand.com/post/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
+    <link href="http://blog.ankuranand.com/2016/04/24/Dont-use-mutable-as-defualt-parameter/"/>
+    <id>http://blog.ankuranand.com/2016/04/24/Dont-use-mutable-as-defualt-parameter/</id>
     <published>2016-04-24T06:36:04.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -491,23 +491,23 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Fundamental" scheme="http://blog.ankuranand.com/post/categories/Python-Fundamental/"/>
+      <category term="Python Fundamental" scheme="http://blog.ankuranand.com/categories/Python-Fundamental/"/>
     
     
-      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/tags/Python/"/>
     
-      <category term="Function" scheme="http://blog.ankuranand.com/post/tags/Function/"/>
+      <category term="Function" scheme="http://blog.ankuranand.com/tags/Function/"/>
     
-      <category term="First-Class Function" scheme="http://blog.ankuranand.com/post/tags/First-Class-Function/"/>
+      <category term="First-Class Function" scheme="http://blog.ankuranand.com/tags/First-Class-Function/"/>
     
-      <category term="Python Basic" scheme="http://blog.ankuranand.com/post/tags/Python-Basic/"/>
+      <category term="Python Basic" scheme="http://blog.ankuranand.com/tags/Python-Basic/"/>
     
   </entry>
   
   <entry>
     <title>Understanding First Class Function in Python</title>
-    <link href="http://blog.ankuranand.com/post/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
-    <id>http://blog.ankuranand.com/post/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
+    <link href="http://blog.ankuranand.com/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/"/>
+    <id>http://blog.ankuranand.com/2016/04/24/FIRST-CLASS-FUNCTION-IN-PYTHON/</id>
     <published>2016-04-24T04:13:22.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -541,23 +541,23 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Fundamental" scheme="http://blog.ankuranand.com/post/categories/Python-Fundamental/"/>
+      <category term="Python Fundamental" scheme="http://blog.ankuranand.com/categories/Python-Fundamental/"/>
     
     
-      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/tags/Python/"/>
     
-      <category term="Function" scheme="http://blog.ankuranand.com/post/tags/Function/"/>
+      <category term="Function" scheme="http://blog.ankuranand.com/tags/Function/"/>
     
-      <category term="First-Class Function" scheme="http://blog.ankuranand.com/post/tags/First-Class-Function/"/>
+      <category term="First-Class Function" scheme="http://blog.ankuranand.com/tags/First-Class-Function/"/>
     
-      <category term="Python Basic" scheme="http://blog.ankuranand.com/post/tags/Python-Basic/"/>
+      <category term="Python Basic" scheme="http://blog.ankuranand.com/tags/Python-Basic/"/>
     
   </entry>
   
   <entry>
     <title>Understanding Object Mechanism in Python. Part - 1</title>
-    <link href="http://blog.ankuranand.com/post/2016/04/23/Object-Mechanism-in-Python-part1/"/>
-    <id>http://blog.ankuranand.com/post/2016/04/23/Object-Mechanism-in-Python-part1/</id>
+    <link href="http://blog.ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/"/>
+    <id>http://blog.ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/</id>
     <published>2016-04-23T11:34:45.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -591,19 +591,19 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Python Object Mechanism" scheme="http://blog.ankuranand.com/post/categories/Python-Object-Mechanism/"/>
+      <category term="Python Object Mechanism" scheme="http://blog.ankuranand.com/categories/Python-Object-Mechanism/"/>
     
     
-      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/tags/Python/"/>
     
-      <category term="Object" scheme="http://blog.ankuranand.com/post/tags/Object/"/>
+      <category term="Object" scheme="http://blog.ankuranand.com/tags/Object/"/>
     
   </entry>
   
   <entry>
     <title>Private members are not private to instance in Java</title>
-    <link href="http://blog.ankuranand.com/post/2016/04/23/private-access-in-java/"/>
-    <id>http://blog.ankuranand.com/post/2016/04/23/private-access-in-java/</id>
+    <link href="http://blog.ankuranand.com/2016/04/23/private-access-in-java/"/>
+    <id>http://blog.ankuranand.com/2016/04/23/private-access-in-java/</id>
     <published>2016-04-23T10:49:54.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -625,21 +625,21 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Java" scheme="http://blog.ankuranand.com/post/categories/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/categories/Java/"/>
     
     
-      <category term="Java" scheme="http://blog.ankuranand.com/post/tags/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/tags/Java/"/>
     
-      <category term="OOP" scheme="http://blog.ankuranand.com/post/tags/OOP/"/>
+      <category term="OOP" scheme="http://blog.ankuranand.com/tags/OOP/"/>
     
-      <category term="Encapsulation" scheme="http://blog.ankuranand.com/post/tags/Encapsulation/"/>
+      <category term="Encapsulation" scheme="http://blog.ankuranand.com/tags/Encapsulation/"/>
     
   </entry>
   
   <entry>
     <title>Self Note on Eulerian Path</title>
-    <link href="http://blog.ankuranand.com/post/2016/04/21/eulerian-path/"/>
-    <id>http://blog.ankuranand.com/post/2016/04/21/eulerian-path/</id>
+    <link href="http://blog.ankuranand.com/2016/04/21/eulerian-path/"/>
+    <id>http://blog.ankuranand.com/2016/04/21/eulerian-path/</id>
     <published>2016-04-21T15:51:19.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -679,19 +679,19 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Algorithms" scheme="http://blog.ankuranand.com/post/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://blog.ankuranand.com/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/tags/Python/"/>
     
-      <category term="graph" scheme="http://blog.ankuranand.com/post/tags/graph/"/>
+      <category term="graph" scheme="http://blog.ankuranand.com/tags/graph/"/>
     
   </entry>
   
   <entry>
     <title>Efficient Factorial Algorithm</title>
-    <link href="http://blog.ankuranand.com/post/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
-    <id>http://blog.ankuranand.com/post/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
+    <link href="http://blog.ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/"/>
+    <id>http://blog.ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/</id>
     <published>2016-04-19T18:15:39.000Z</published>
     <updated>2019-02-25T18:21:23.224Z</updated>
     
@@ -722,16 +722,16 @@ arguments&lt;/code&gt;, temporarily bumping up the object’s reference count.&l
     
     </summary>
     
-      <category term="Algorithms" scheme="http://blog.ankuranand.com/post/categories/Algorithms/"/>
+      <category term="Algorithms" scheme="http://blog.ankuranand.com/categories/Algorithms/"/>
     
     
-      <category term="Python" scheme="http://blog.ankuranand.com/post/tags/Python/"/>
+      <category term="Python" scheme="http://blog.ankuranand.com/tags/Python/"/>
     
-      <category term="Factorial" scheme="http://blog.ankuranand.com/post/tags/Factorial/"/>
+      <category term="Factorial" scheme="http://blog.ankuranand.com/tags/Factorial/"/>
     
-      <category term="Efficiency" scheme="http://blog.ankuranand.com/post/tags/Efficiency/"/>
+      <category term="Efficiency" scheme="http://blog.ankuranand.com/tags/Efficiency/"/>
     
-      <category term="Java" scheme="http://blog.ankuranand.com/post/tags/Java/"/>
+      <category term="Java" scheme="http://blog.ankuranand.com/tags/Java/"/>
     
   </entry>
   
