@@ -20,6 +20,7 @@
     "hexo-renderer-mathjax": "^0.6.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-search": "^1.0.1",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.0",
+    "hexo-httpsjsfiddle": "1.0.0"
   }
 }
