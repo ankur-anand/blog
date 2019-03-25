@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ankuranand.com/"/>
-  <updated>2019-02-28T19:59:15.269Z</updated>
+  <updated>2019-03-25T19:07:12.641Z</updated>
   <id>http://blog.ankuranand.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.ankuranand.com/2018/03/28/The-missing-introduction-of-React-js/"/>
     <id>http://blog.ankuranand.com/2018/03/28/The-missing-introduction-of-React-js/</id>
     <published>2018-03-28T14:15:47.000Z</published>
-    <updated>2019-02-28T19:59:15.269Z</updated>
+    <updated>2019-03-25T19:07:12.641Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Why-React&quot;&gt;&lt;a href=&quot;#Why-React&quot; class=&quot;headerlink&quot; title=&quot;Why React?&quot;&gt;&lt;/a&gt;Why React?&lt;/h1&gt;&lt;p&gt;Recently I’ve started learning &lt;code&gt;React.js&lt;/code&gt; with my limited knowledge of the front-end, I stumbled upon &lt;code&gt;React.js&lt;/code&gt; official site, and it presented me like this.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;reactjsHelloWorld.png&quot; alt=&quot;reactjs-helloworld&quot;&gt;&lt;/p&gt;
