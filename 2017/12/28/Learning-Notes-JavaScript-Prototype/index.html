@@ -4,23 +4,25 @@
   <html class="light page-post">
 
 
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
   
-  <title>Learning Notes: JavaScript Prototype | Ankur Anand Blog</title>
+  <title>Learning Notes: JavaScript Prototype | Ankur Anand</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="JavaScript,Prototype,self-notes," />
+    <meta name="keywords" content="JavaScript,Prototype,self-notes,">
   
 
   <meta name="description" content="PrototypePrototype is a regular object from which other objects inherit properties. Each Objects contains an internal prototype property which points to a prototype object from which it inherits all m">
+<meta name="keywords" content="JavaScript,Prototype,self-notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning Notes: JavaScript Prototype">
 <meta property="og:url" content="http://blog.ankuranand.com/2017/12/28/Learning-Notes-JavaScript-Prototype/index.html">
-<meta property="og:site_name" content="Ankur Anand Blog">
+<meta property="og:site_name" content="Ankur Anand">
 <meta property="og:description" content="PrototypePrototype is a regular object from which other objects inherit properties. Each Objects contains an internal prototype property which points to a prototype object from which it inherits all m">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-02-25T18:21:23.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning Notes: JavaScript Prototype">
@@ -61,16 +63,16 @@ ga('send', 'pageview');
 
   
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
 </head>
-
+</html>
 <body>
 
 
   
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+    <span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
   
 
   <div class="post-header CENTER">
@@ -84,34 +86,19 @@ ga('send', 'pageview');
     <ul class="list-toolbox">
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="https://ankuranand.com"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
             About
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
             RSS
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
             Search
           </a>
         </li>
@@ -124,7 +111,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prototype"><span class="toc-text">Prototype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prototype-Object"><span class="toc-text">Prototype Object</span></a></li></ol>
   </div>
 
@@ -172,7 +159,7 @@ ga('send', 'pageview');
   <div class="article-content">
     
       <h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><p>Prototype is a regular object from which other objects inherit properties. Each Objects contains an internal <code>prototype</code> property which points to a prototype object from which it inherits all members.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A person constructor function</span></span><br><span class="line"><span class="keyword">const</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// With a property called name with a default value Ankur</span></span><br><span class="line">Person.prototype = &#123;name: <span class="string">"Ankur"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Two instance of Person</span></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="comment">// The name property is shared through prototypal inheritance</span></span><br><span class="line"><span class="built_in">console</span>.log(p1.name); <span class="comment">// Ankur</span></span><br><span class="line"><span class="built_in">console</span>.log(p2.name); <span class="comment">// Ankur</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Lets change the p1 name</span></span><br><span class="line">p1.name = <span class="string">"Anand"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p1.name); <span class="comment">// Anand</span></span><br><span class="line"><span class="built_in">console</span>.log(p2.name); <span class="comment">// Ankur</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A person constructor function</span></span><br><span class="line"><span class="keyword">const</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// With a property called name with a default value Ankur</span></span><br><span class="line">Person.prototype = &#123;<span class="attr">name</span>: <span class="string">"Ankur"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Two instance of Person</span></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="comment">// The name property is shared through prototypal inheritance</span></span><br><span class="line"><span class="built_in">console</span>.log(p1.name); <span class="comment">// Ankur</span></span><br><span class="line"><span class="built_in">console</span>.log(p2.name); <span class="comment">// Ankur</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Lets change the p1 name</span></span><br><span class="line">p1.name = <span class="string">"Anand"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p1.name); <span class="comment">// Anand</span></span><br><span class="line"><span class="built_in">console</span>.log(p2.name); <span class="comment">// Ankur</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>JavaScript only follows the prototype chain when getting a value not while setting the value. When setting the value if the property doesn’t exist on the object itself, it simply creates the property</p>
 </blockquote>
@@ -241,34 +228,19 @@ ga('send', 'pageview');
       <ul class="list-toolbox">
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="https://ankuranand.com"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
               About
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
               RSS
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
               Search
             </a>
           </li>
@@ -304,7 +276,7 @@ ga('send', 'pageview');
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 const gitalk = new Gitalk({
-  clientID: '6e027625688767870366',
+  clientID: 'Infinity',
   clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
   repo: 'blog',
   owner: 'ankur-anand',
@@ -356,37 +328,5 @@ gitalk.render('gitalk-container')
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>

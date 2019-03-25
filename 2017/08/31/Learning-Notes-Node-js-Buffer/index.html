@@ -4,30 +4,32 @@
   <html class="light page-post">
 
 
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
   
-  <title>Learning Notes: Node.js-Buffer | Ankur Anand Blog</title>
+  <title>Learning Notes: Node.js-Buffer | Ankur Anand</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="JavaScript,self-notes,Buffer,nodejs,8k-pool," />
+    <meta name="keywords" content="JavaScript,self-notes,Buffer,nodejs,8k-pool,">
   
 
   <meta name="description" content="IntroductionIn Node.js Buffer class is the core library. It brings a way for Node.js to store raw data, allowing Node.js to handle binary data. The raw data is stored in the instance of the buffer cla">
+<meta name="keywords" content="JavaScript,self-notes,Buffer,nodejs,8k-pool">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning Notes: Node.js-Buffer">
 <meta property="og:url" content="http://blog.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/index.html">
-<meta property="og:site_name" content="Ankur Anand Blog">
+<meta property="og:site_name" content="Ankur Anand">
 <meta property="og:description" content="IntroductionIn Node.js Buffer class is the core library. It brings a way for Node.js to store raw data, allowing Node.js to handle binary data. The raw data is stored in the instance of the buffer cla">
-<meta property="og:image" content="http://blog.ankuranand.com/StringAbTest.png">
-<meta property="og:image" content="http://blog.ankuranand.com/BufferABTest.png">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blog.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/StringAbTest.png">
+<meta property="og:image" content="http://blog.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/BufferABTest.png">
 <meta property="og:updated_time" content="2019-02-25T18:21:23.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning Notes: Node.js-Buffer">
 <meta name="twitter:description" content="IntroductionIn Node.js Buffer class is the core library. It brings a way for Node.js to store raw data, allowing Node.js to handle binary data. The raw data is stored in the instance of the buffer cla">
-<meta name="twitter:image" content="http://blog.ankuranand.com/StringAbTest.png">
+<meta name="twitter:image" content="http://blog.ankuranand.com/2017/08/31/Learning-Notes-Node-js-Buffer/StringAbTest.png">
 
   
 
@@ -64,16 +66,16 @@ ga('send', 'pageview');
 
   
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
 </head>
-
+</html>
 <body>
 
 
   
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+    <span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
   
 
   <div class="post-header CENTER">
@@ -87,34 +89,19 @@ ga('send', 'pageview');
     <ul class="list-toolbox">
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="https://ankuranand.com"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
             About
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
             RSS
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
             Search
           </a>
         </li>
@@ -127,8 +114,8 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Way-to-create-a-new-Buffer"><span class="toc-text">Way to create a new Buffer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer-from"><span class="toc-text">Buffer.from</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer-alloc"><span class="toc-text">Buffer.alloc</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-we-need-buffer"><span class="toc-text">Why we need buffer ?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Using-the-large-string-to-send-as-response"><span class="toc-text">1. Using the large string to send as response</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Using-the-buffer-transmission"><span class="toc-text">2. Using the buffer transmission</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer-8k-Pool-slab"><span class="toc-text">Buffer 8k Pool slab</span></a></li></ol>
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Way-to-create-a-new-Buffer"><span class="toc-text">Way to create a new Buffer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer-from"><span class="toc-text">Buffer.from</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Buffer-alloc"><span class="toc-text">Buffer.alloc</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-we-need-buffer"><span class="toc-text">Why we need buffer ?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Using-the-large-string-to-send-as-response"><span class="toc-text">1. Using the large string to send as response</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Using-the-buffer-transmission"><span class="toc-text">2. Using the buffer transmission</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer-8k-Pool-slab"><span class="toc-text">Buffer 8k Pool slab</span></a></li>
   </div>
 
 
@@ -186,16 +173,16 @@ ga('send', 'pageview');
 <li><code>Buffer.allocUnsafe()</code></li>
 </ol>
 <p><code>Buffer.from()</code> and <code>Buffer.alloc()</code> get the original buffer, replace the data so they are safe.</p>
-<h4 id="Buffer-from"><a href="#Buffer-from" class="headerlink" title="Buffer.from"></a>Buffer.from</h4><p><a href="https://github.com/nodejs/node/blob/master/lib/buffer.js" target="_blank" rel="external">lib/buffer.js</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Functionally equivalent to Buffer(arg, encoding) but throws a TypeError</span><br><span class="line"> * if value is a number.</span><br><span class="line"> * Buffer.from(str[, encoding])</span><br><span class="line"> * Buffer.from(array)</span><br><span class="line"> * Buffer.from(buffer)</span><br><span class="line"> * Buffer.from(arrayBuffer[, byteOffset[, length]])</span><br><span class="line"> **/</span></span><br><span class="line">Buffer.from = <span class="function"><span class="keyword">function</span> <span class="title">from</span>(<span class="params">value, encodingOrOffset, length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'string'</span>)</span><br><span class="line">    <span class="keyword">return</span> fromString(value, encodingOrOffset);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isAnyArrayBuffer(value))</span><br><span class="line">    <span class="keyword">return</span> fromArrayBuffer(value, encodingOrOffset, length);</span><br><span class="line"></span><br><span class="line">  ......</span><br><span class="line"></span><br><span class="line">  const valueOf = value.valueOf &amp;&amp; value.valueOf();</span><br><span class="line">  <span class="keyword">if</span> (valueOf != <span class="literal">null</span> &amp;&amp; valueOf !== value)</span><br><span class="line">    <span class="keyword">return</span> Buffer.from(valueOf, encodingOrOffset, length);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> b = fromObject(value);</span><br><span class="line">  <span class="keyword">if</span> (b)</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line"></span><br><span class="line">  ....</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Buffer-from"><a href="#Buffer-from" class="headerlink" title="Buffer.from"></a>Buffer.from</h4><p><a href="https://github.com/nodejs/node/blob/master/lib/buffer.js" target="_blank" rel="noopener">lib/buffer.js</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Functionally equivalent to Buffer(arg, encoding) but throws a TypeError</span></span><br><span class="line"><span class="comment"> * if value is a number.</span></span><br><span class="line"><span class="comment"> * Buffer.from(str[, encoding])</span></span><br><span class="line"><span class="comment"> * Buffer.from(array)</span></span><br><span class="line"><span class="comment"> * Buffer.from(buffer)</span></span><br><span class="line"><span class="comment"> * Buffer.from(arrayBuffer[, byteOffset[, length]])</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line">Buffer.from = <span class="function"><span class="keyword">function</span> <span class="title">from</span>(<span class="params">value, encodingOrOffset, length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'string'</span>)</span><br><span class="line">    <span class="keyword">return</span> fromString(value, encodingOrOffset);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isAnyArrayBuffer(value))</span><br><span class="line">    <span class="keyword">return</span> fromArrayBuffer(value, encodingOrOffset, length);</span><br><span class="line"></span><br><span class="line">  ......</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> valueOf = value.valueOf &amp;&amp; value.valueOf();</span><br><span class="line">  <span class="keyword">if</span> (valueOf != <span class="literal">null</span> &amp;&amp; valueOf !== value)</span><br><span class="line">    <span class="keyword">return</span> Buffer.from(valueOf, encodingOrOffset, length);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> b = fromObject(value);</span><br><span class="line">  <span class="keyword">if</span> (b)</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line"></span><br><span class="line">  ....</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><code>ArrayBuffer</code>: Create FasterBuffer directly using ArrayBuffer</li>
 <li><code>String</code>: Less than 4k use 8k pool, more than 4k call <code>binding.createFromString()</code></li>
 <li><code>Object</code>: Less than 4k use 8k pool, more than 4k call <code>createUnsafeBuffer()</code></li>
 <li><code>Buffer.allocUnsafe()</code>: Less than 4k use 8k pool, more than 4k call <code>createUnsafeBuffer()</code></li>
 </ul>
-<p>Important Read from offical documentaion <a href="https://nodejs.org/api/buffer.html#buffer_buffer_from_buffer_alloc_and_buffer_allocunsafe" target="_blank" rel="external">Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()</a></p>
-<h4 id="Buffer-alloc"><a href="#Buffer-alloc" class="headerlink" title="Buffer.alloc"></a>Buffer.alloc</h4><p><a href="https://github.com/nodejs/node/blob/master/lib/buffer.js" target="_blank" rel="external">lib/buffer.js</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Creates a new filled Buffer instance.</span><br><span class="line"> * alloc(size[, fill[, encoding]])</span><br><span class="line"> **/</span></span><br><span class="line">Buffer.alloc = <span class="function"><span class="keyword">function</span> <span class="title">alloc</span>(<span class="params">size, fill, encoding</span>) </span>&#123;</span><br><span class="line">  assertSize(size);</span><br><span class="line">  <span class="keyword">if</span> (size &gt; <span class="number">0</span> &amp;&amp; fill !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="comment">// Since we are filling anyway, don't zero fill initially.</span></span><br><span class="line">    <span class="comment">// Only pay attention to encoding if it's a string. This</span></span><br><span class="line">    <span class="comment">// prevents accidentally sending in a number that would</span></span><br><span class="line">    <span class="comment">// be interpreted as a start offset.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> encoding !== <span class="string">'string'</span>)</span><br><span class="line">      encoding = <span class="literal">undefined</span>;</span><br><span class="line">    <span class="keyword">return</span> createUnsafeBuffer(size).fill(fill, encoding);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> FastBuffer(size);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Important Read from offical documentaion <a href="https://nodejs.org/api/buffer.html#buffer_buffer_from_buffer_alloc_and_buffer_allocunsafe" target="_blank" rel="noopener">Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()</a></p>
+<h4 id="Buffer-alloc"><a href="#Buffer-alloc" class="headerlink" title="Buffer.alloc"></a>Buffer.alloc</h4><p><a href="https://github.com/nodejs/node/blob/master/lib/buffer.js" target="_blank" rel="noopener">lib/buffer.js</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Creates a new filled Buffer instance.</span></span><br><span class="line"><span class="comment"> * alloc(size[, fill[, encoding]])</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line">Buffer.alloc = <span class="function"><span class="keyword">function</span> <span class="title">alloc</span>(<span class="params">size, fill, encoding</span>) </span>&#123;</span><br><span class="line">  assertSize(size);</span><br><span class="line">  <span class="keyword">if</span> (size &gt; <span class="number">0</span> &amp;&amp; fill !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="comment">// Since we are filling anyway, don't zero fill initially.</span></span><br><span class="line">    <span class="comment">// Only pay attention to encoding if it's a string. This</span></span><br><span class="line">    <span class="comment">// prevents accidentally sending in a number that would</span></span><br><span class="line">    <span class="comment">// be interpreted as a start offset.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> encoding !== <span class="string">'string'</span>)</span><br><span class="line">      encoding = <span class="literal">undefined</span>;</span><br><span class="line">    <span class="keyword">return</span> createUnsafeBuffer(size).fill(fill, encoding);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> FastBuffer(size);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="Why-we-need-buffer"><a href="#Why-we-need-buffer" class="headerlink" title="Why we need buffer ?"></a>Why we need buffer ?</h2><p>Consider the following two case:</p>
 <h4 id="1-Using-the-large-string-to-send-as-response"><a href="#1-Using-the-large-string-to-send-as-response" class="headerlink" title="1. Using the large string to send as response"></a>1. Using the large string to send as response</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">let</span> hello = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">  hello += <span class="string">'h'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http</span><br><span class="line">  .createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    res.end(hello);</span><br><span class="line">  &#125;)</span><br><span class="line">  .listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
 <p>Doing <code>ab</code> test on the above<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab  -n 50000 -c 200 http://localhost:8080/</span><br></pre></td></tr></table></figure></p>
@@ -213,8 +200,8 @@ ga('send', 'pageview');
 <li>32bit - 512MB</li>
 <li>64bit - 1.4GB</li>
 </ul>
-<h2 id="Buffer-8k-Pool-slab"><a href="#Buffer-8k-Pool-slab" class="headerlink" title="Buffer 8k Pool slab"></a>Buffer 8k Pool slab</h2><p><a href="https://github.com/nodejs/node/blob/master/lib/buffer.js" target="_blank" rel="external">lib/buffer.js</a> the buffer slab size is <code>Buffer.poolSize = 8 * 1024;</code> 8k. When the user calls for new Buffer,</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">allocate</span>(<span class="params">size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FastBuffer();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (size &lt; (Buffer.poolSize &gt;&gt;&gt; <span class="number">1</span>)) &#123; <span class="comment">//&lt;4k</span></span><br><span class="line">    <span class="keyword">if</span> (size &gt; (poolSize - poolOffset))</span><br><span class="line">      createPool();</span><br><span class="line">    <span class="keyword">var</span> b = <span class="keyword">new</span> FastBuffer(allocPool, poolOffset, size);</span><br><span class="line">    poolOffset += size;</span><br><span class="line">    alignPool();</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> createUnsafeBuffer(size);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fromString</span>(<span class="params">string, encoding</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> length;</span><br><span class="line">  ...</span><br><span class="line">  if (length &gt;= (Buffer.poolSize &gt;&gt;&gt; <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> createFromString(string, encoding);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (length &gt; (poolSize - poolOffset))</span><br><span class="line">    createPool();</span><br><span class="line">  <span class="keyword">var</span> b = <span class="keyword">new</span> FastBuffer(allocPool, poolOffset, length);</span><br><span class="line">  <span class="keyword">const</span> actual = b.write(string, encoding);</span><br><span class="line">  <span class="keyword">if</span> (actual !== length) &#123;</span><br><span class="line">    <span class="comment">// byteLength() may overestimate. That's a rare case, though.</span></span><br><span class="line">    b = <span class="keyword">new</span> FastBuffer(allocPool, poolOffset, actual);</span><br><span class="line">  &#125;</span><br><span class="line">  poolOffset += actual;</span><br><span class="line">  alignPool();</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Buffer-8k-Pool-slab"><a href="#Buffer-8k-Pool-slab" class="headerlink" title="Buffer 8k Pool slab"></a>Buffer 8k Pool slab</h2><p><a href="https://github.com/nodejs/node/blob/master/lib/buffer.js" target="_blank" rel="noopener">lib/buffer.js</a> the buffer slab size is <code>Buffer.poolSize = 8 * 1024;</code> 8k. When the user calls for new Buffer,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">allocate</span>(<span class="params">size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FastBuffer();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (size &lt; (Buffer.poolSize &gt;&gt;&gt; <span class="number">1</span>)) &#123; <span class="comment">//&lt;4k</span></span><br><span class="line">    <span class="keyword">if</span> (size &gt; (poolSize - poolOffset))</span><br><span class="line">      createPool();</span><br><span class="line">    <span class="keyword">var</span> b = <span class="keyword">new</span> FastBuffer(allocPool, poolOffset, size);</span><br><span class="line">    poolOffset += size;</span><br><span class="line">    alignPool();</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> createUnsafeBuffer(size);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fromString</span>(<span class="params">string, encoding</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> length;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">if</span> (length &gt;= (Buffer.poolSize &gt;&gt;&gt; <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> createFromString(string, encoding);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (length &gt; (poolSize - poolOffset))</span><br><span class="line">    createPool();</span><br><span class="line">  <span class="keyword">var</span> b = <span class="keyword">new</span> FastBuffer(allocPool, poolOffset, length);</span><br><span class="line">  <span class="keyword">const</span> actual = b.write(string, encoding);</span><br><span class="line">  <span class="keyword">if</span> (actual !== length) &#123;</span><br><span class="line">    <span class="comment">// byteLength() may overestimate. That's a rare case, though.</span></span><br><span class="line">    b = <span class="keyword">new</span> FastBuffer(allocPool, poolOffset, actual);</span><br><span class="line">  &#125;</span><br><span class="line">  poolOffset += actual;</span><br><span class="line">  alignPool();</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>allocate()</code> and <code>fromString()</code> check for two cases</p>
 <ul>
 <li>Less than <code>4k</code> - check <code>8k</code> pool slab remaning capacity.</li>
@@ -226,7 +213,7 @@ ga('send', 'pageview');
 <p>fixed-length raw binary data buffer</p>
 </blockquote>
 <p>it’s insecure, and there is danger of leakage of sensitive information in memory.</p>
-<p><a href="https://github.com/nodejs/node-v0.x-archive/issues/2035" target="_blank" rel="external">Side Notes: There is larger stream read-buffer in libuv unix/stream.c 64K with a slab Size of around 1MB</a></p>
+<p><a href="https://github.com/nodejs/node-v0.x-archive/issues/2035" target="_blank" rel="noopener">Side Notes: There is larger stream read-buffer in libuv unix/stream.c 64K with a slab Size of around 1MB</a></p>
 
     
   </div>
@@ -267,34 +254,19 @@ ga('send', 'pageview');
       <ul class="list-toolbox">
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="https://ankuranand.com"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
               About
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
               RSS
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
               Search
             </a>
           </li>
@@ -330,7 +302,7 @@ ga('send', 'pageview');
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 const gitalk = new Gitalk({
-  clientID: '6e027625688767870366',
+  clientID: 'Infinity',
   clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
   repo: 'blog',
   owner: 'ankur-anand',
@@ -382,37 +354,5 @@ gitalk.render('gitalk-container')
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>

@@ -4,30 +4,29 @@
   <html class="light page-post">
 
 
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
   
-  <title>Private members are not private to instance in Java | Ankur Anand Blog</title>
+  <title>Private members are not private to instance in Java | Ankur Anand</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Java,OOP,Encapsulation," />
+    <meta name="keywords" content="Java,OOP,Encapsulation,">
   
 
-  <meta name="description" content="IntroductionWe all know to access the private member variable of a class we need an public helper function in Java.
-The UnforeseenBut seems One Object can access a private variable of another object o">
+  <meta name="description" content="IntroductionWe all know to access the private member variable of a class we need an public helper function in Java. The UnforeseenBut seems One Object can access a private variable of another object o">
+<meta name="keywords" content="Java,OOP,Encapsulation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Private members are not private to instance in Java">
 <meta property="og:url" content="http://blog.ankuranand.com/2016/04/23/private-access-in-java/index.html">
-<meta property="og:site_name" content="Ankur Anand Blog">
-<meta property="og:description" content="IntroductionWe all know to access the private member variable of a class we need an public helper function in Java.
-The UnforeseenBut seems One Object can access a private variable of another object o">
+<meta property="og:site_name" content="Ankur Anand">
+<meta property="og:description" content="IntroductionWe all know to access the private member variable of a class we need an public helper function in Java. The UnforeseenBut seems One Object can access a private variable of another object o">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-02-25T18:21:23.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Private members are not private to instance in Java">
-<meta name="twitter:description" content="IntroductionWe all know to access the private member variable of a class we need an public helper function in Java.
-The UnforeseenBut seems One Object can access a private variable of another object o">
+<meta name="twitter:description" content="IntroductionWe all know to access the private member variable of a class we need an public helper function in Java. The UnforeseenBut seems One Object can access a private variable of another object o">
 
   
 
@@ -64,16 +63,16 @@ ga('send', 'pageview');
 
   
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
 </head>
-
+</html>
 <body>
 
 
   
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+    <span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
   
 
   <div class="post-header CENTER">
@@ -87,34 +86,19 @@ ga('send', 'pageview');
     <ul class="list-toolbox">
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="https://ankuranand.com"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
             About
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
             RSS
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
             Search
           </a>
         </li>
@@ -127,7 +111,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Unforeseen"><span class="toc-text">The Unforeseen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-we-should-know-this"><span class="toc-text">Why we should know this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-code-for-equals"><span class="toc-text">Example code for equals</span></a></li></ol>
   </div>
 
@@ -182,7 +166,7 @@ ga('send', 'pageview');
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstClass</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> privateNum;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">FirstClass</span><span class="params">(<span class="keyword">int</span> privateNum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.privateNum = privateNum;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// a method that will change the private variable</span></span><br><span class="line">  <span class="comment">// of the object that is passed as parameter</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeNum</span><span class="params">(FirstClass Obj)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    Obj.privateNum = <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// A working Example</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String...strings)</span></span>&#123;</span><br><span class="line">    <span class="comment">// Creating a first class object</span></span><br><span class="line">    FirstClass fc1 = <span class="keyword">new</span> FirstClass(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// as we are inside the same class we can</span></span><br><span class="line">    <span class="comment">// access the private variable</span></span><br><span class="line">    System.out.println(fc1.privateNum);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// lets create a new Obect of the First class</span></span><br><span class="line">    FirstClass fc2 = <span class="keyword">new</span> FirstClass(<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// changing the value of the privateNum in the fc1 instance</span></span><br><span class="line">    <span class="comment">// from the fc2 instance</span></span><br><span class="line">    </span><br><span class="line">    fc2.changeNum(fc1);</span><br><span class="line">    System.out.println(fc1.privateNum);</span><br><span class="line">    <span class="comment">// Hola the output is 100</span></span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Why-we-should-know-this"><a href="#Why-we-should-know-this" class="headerlink" title="Why we should know this"></a>Why we should know this</h3><p>So Java private access modifier means only private for a class. The instance of this class can access the private members of another instance of that class without any helper method and this features allow us to write methods that accept an instance of the class as an arguments for <code>equals(Object other)</code>, <code>compareTo(Object other)</code> without relying on the class having non private getters for all the  private properties that need to be accessed.</p>
 <h3 id="Example-code-for-equals"><a href="#Example-code-for-equals" class="headerlink" title="Example code for equals"></a>Example code for equals</h3><p>We often write code like this while overriding the <code>equals</code> methods in Java Class</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Overriding equals() to compare two FirstClass object based on the value of </span></span><br><span class="line"><span class="comment">// privateNum</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// If the object is compared with itself then return true  </span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">/* Check if o is an instance of FirstClass or not</span><br><span class="line">          "null instanceof [type]" also returns false */</span></span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> FirstClass)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// typecast o to FirstClass so that we can compare data members </span></span><br><span class="line">        FirstClass c = (FirstClass) o;</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// Compare the data members and return accordingly </span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.privateNum == c.privateNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Overriding equals() to compare two FirstClass object based on the value of </span></span><br><span class="line"><span class="comment">// privateNum</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// If the object is compared with itself then return true  </span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">/* Check if o is an instance of FirstClass or not</span></span><br><span class="line"><span class="comment">          "null instanceof [type]" also returns false */</span></span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> FirstClass)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// typecast o to FirstClass so that we can compare data members </span></span><br><span class="line">        FirstClass c = (FirstClass) o;</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// Compare the data members and return accordingly </span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.privateNum == c.privateNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>So remember <strong>private means private to class not to instance of that class</strong></p>
 
     
@@ -224,34 +208,19 @@ ga('send', 'pageview');
       <ul class="list-toolbox">
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="https://ankuranand.com"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
               About
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
               RSS
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
               Search
             </a>
           </li>
@@ -287,7 +256,7 @@ ga('send', 'pageview');
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 const gitalk = new Gitalk({
-  clientID: '6e027625688767870366',
+  clientID: 'Infinity',
   clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
   repo: 'blog',
   owner: 'ankur-anand',
@@ -339,37 +308,5 @@ gitalk.render('gitalk-container')
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>

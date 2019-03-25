@@ -4,23 +4,25 @@
   <html class="light page-post">
 
 
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
   
-  <title>Call By Sharing | Ankur Anand Blog</title>
+  <title>Call By Sharing | Ankur Anand</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Python,Java,JavaScript," />
+    <meta name="keywords" content="Python,Java,JavaScript,">
   
 
   <meta name="description" content="IntroductionWe all are familiar with the pass by value or call by value and pass by reference or call by reference and how does one programming language evaluates this depends upon the  Evaluation Str">
+<meta name="keywords" content="Python,Java,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Call By Sharing">
 <meta property="og:url" content="http://blog.ankuranand.com/2016/05/10/Understanding-Call-By-Sharing/index.html">
-<meta property="og:site_name" content="Ankur Anand Blog">
+<meta property="og:site_name" content="Ankur Anand">
 <meta property="og:description" content="IntroductionWe all are familiar with the pass by value or call by value and pass by reference or call by reference and how does one programming language evaluates this depends upon the  Evaluation Str">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-02-25T18:21:23.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Call By Sharing">
@@ -61,16 +63,16 @@ ga('send', 'pageview');
 
   
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
 </head>
-
+</html>
 <body>
 
 
   
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+    <span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
   
 
   <div class="post-header CENTER">
@@ -84,34 +86,19 @@ ga('send', 'pageview');
     <ul class="list-toolbox">
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="https://ankuranand.com"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
             About
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
             RSS
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
             Search
           </a>
         </li>
@@ -124,7 +111,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Understanding-Call-By-Sharing"><span class="toc-text">Understanding Call By Sharing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Call-by-Value"><span class="toc-text">Call by Value</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Call-by-Reference"><span class="toc-text">Call by Reference</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Call-By-Sharing"><span class="toc-text">Call By Sharing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Curious-Case-of-Java"><span class="toc-text">The Curious Case of Java</span></a></li></ol>
   </div>
 
@@ -171,18 +158,18 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>We all are familiar with the <code>pass by value or call by value</code> and <code>pass by reference or call by reference</code> and how does one programming language evaluates this depends upon the  <a href="https://en.wikipedia.org/wiki/Evaluation_strategy" target="_blank" rel="external">Evaluation Strategy</a> specified by that programming language. But in the mist of these two terms we have missed an important aspect of this strategy what is known as <code>call by sharing</code>.</p>
+      <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>We all are familiar with the <code>pass by value or call by value</code> and <code>pass by reference or call by reference</code> and how does one programming language evaluates this depends upon the  <a href="https://en.wikipedia.org/wiki/Evaluation_strategy" target="_blank" rel="noopener">Evaluation Strategy</a> specified by that programming language. But in the mist of these two terms we have missed an important aspect of this strategy what is known as <code>call by sharing</code>.</p>
 <h2 id="Understanding-Call-By-Sharing"><a href="#Understanding-Call-By-Sharing" class="headerlink" title="Understanding Call By Sharing"></a>Understanding <code>Call By Sharing</code></h2><p>Let’s see what is.</p>
-<h3 id="Call-by-Value"><a href="#Call-by-Value" class="headerlink" title="Call by Value"></a>Call by Value</h3><p>We all have seen code like this in <code>C</code>.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fuc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a );</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> b = <span class="number">30</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;b);</span><br><span class="line">  fuc(a,b);</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Call-by-Value"><a href="#Call-by-Value" class="headerlink" title="Call by Value"></a>Call by Value</h3><p>We all have seen code like this in <code>C</code>.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fuc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a );</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> b = <span class="number">30</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;b);</span><br><span class="line">  fuc(a,b);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>The Output on my machine:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3441025176</span><br><span class="line">3441025180</span><br><span class="line">3441025148</span><br><span class="line">3441025144</span><br></pre></td></tr></table></figure>
 <p>As you can see that in <code>call by value</code> the value gets copied(new address for new location of value). <strong>But this approach becomes a bit problematic in term of performance issue when function arguments is not primitive value, but a complex structure like <code>struct</code></strong></p>
 <p>Example:<br>For People who are not familiar with <code>C</code> Think <code>struct</code> as a class of <code>OOP</code> without any method in it.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> point3D</span><br><span class="line">&#123;</span><br><span class="line"> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="keyword">int</span> y;</span><br><span class="line"> <span class="keyword">int</span> z;</span><br><span class="line">&#125;point_3D;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fuc</span><span class="params">(Struct a)</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  point_3D point = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;point); <span class="comment">// get the address of the very first element</span></span><br><span class="line">  fuc(point);</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">point3D</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="keyword">int</span> y;</span><br><span class="line"> <span class="keyword">int</span> z;</span><br><span class="line">&#125;point_3D;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fuc</span><span class="params">(Struct a)</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;a );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  point_3D point = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, &amp;point); <span class="comment">// get the address of the very first element</span></span><br><span class="line">  fuc(point);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The Output is as follow<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1197172472</span><br><span class="line">1197172440</span><br></pre></td></tr></table></figure></p>
 <p>As you can see each individual members gets a new memory address, which can lead to serious performance issue in term of memory while using large number of structure.</p>
 <h3 id="Call-by-Reference"><a href="#Call-by-Reference" class="headerlink" title="Call by Reference"></a>Call by Reference</h3><p>In turn the <code>pass by reference</code> receives not a value copy, but the address directly related with object from the outside. Any Change of parameter inside the function <strong>even assignment of new value</strong> is affected on object outside. As the exact address of this object is related with formal parameter.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span>* b)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> temp = *a;</span><br><span class="line">*a = *b;</span><br><span class="line">*b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">  swap(&amp;a, &amp;b);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,a, b );</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span>* b)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> temp = *a;</span><br><span class="line">*a = *b;</span><br><span class="line">*b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">  swap(&amp;a, &amp;b);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,a, b );</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20 10</span><br></pre></td></tr></table></figure></p>
 <p>We can see that the a and b outside the swap function gets affected.</p>
 <h3 id="Call-By-Sharing"><a href="#Call-By-Sharing" class="headerlink" title="Call By Sharing"></a>Call By Sharing</h3><p>We often hear a common phrase that</p>
@@ -195,10 +182,10 @@ ga('send', 'pageview');
 <p>Ok How about this behavior in case of <code>assignment</code>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">reref</span><span class="params">(alist)</span>:</span></span><br><span class="line"><span class="meta">... </span>  alist=&#123;<span class="string">'a'</span>:<span class="number">65</span>&#125;</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>reref(x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">[<span class="string">'Python List is Mutable'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>Even Though we modified the <code>mutable</code> list object into a <code>dictionary</code> but the <code>x</code> is still a <code>list</code> object. (If it would have been call by reference the x should now point to a dictionary) Why so ?</p>
 <p>Lets Dig a little bit.</p>
-<p>As Python Implements a <a href="http://localhost:4000/2016/04/23/Object-Mechanism-in-Python-part1/#Reference-Counting-Mechanism" target="_blank" rel="external">Reference Counting Mechanism</a> which count the number of times an Object has been referred.</p>
+<p>As Python Implements a <a href="http://localhost:4000/2016/04/23/Object-Mechanism-in-Python-part1/#Reference-Counting-Mechanism" target="_blank" rel="noopener">Reference Counting Mechanism</a> which count the number of times an Object has been referred.</p>
 <p>For Example<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=<span class="number">0x1234</span> <span class="comment"># large value as small value gets pooled</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getrefcount(a)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b=a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getrefcount(a)</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c=b</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getrefcount(a)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">4660</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">4660</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">4660</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>When we write <code>a=0x1234</code> an <code>Integer Object</code> is created and <code>a</code> gets reference to it(precisely bind it to name ‘a’). But do you see that for each other assignment the reference count of the <code>Integer object</code> gets bumped up.</p>
-<p><strong>Understanding Why we get ref count more than 1 initially.</strong><br>Here is the what  <a href="https://docs.python.org/2/library/sys.html#sys.getrefcount" target="_blank" rel="external">Python Doc</a></p>
+<p><strong>Understanding Why we get ref count more than 1 initially.</strong><br>Here is the what  <a href="https://docs.python.org/2/library/sys.html#sys.getrefcount" target="_blank" rel="noopener">Python Doc</a></p>
 <blockquote>
 <p>The count returned is generally one higher than you might expect, because it includes the (temporary) reference as an argument to  getrefcount().</p>
 </blockquote>
@@ -211,7 +198,7 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
 <p>As you can see below<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">[]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">mutateX</span><span class="params">(alist)</span>:</span></span><br><span class="line"><span class="meta">... </span>  alist.append(<span class="string">"Python List is Mutable"</span>)</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mutateX(x)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">[<span class="string">'Python List is Mutable'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getrefcount(x)</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure></p>
 <p>The <code>x</code> reference count becomes <code>3</code> one higher than what expected because the <code>alist</code> gets a copied reference,like <code>alist=x=[]</code>.<br>But what happens in the case of <code>assignment</code> we detached the from <code>alist=[]</code> to <code>alist={&#39;a&#39;:65}</code>. Due to this the x i.e <code>list []</code> never got modified.</p>
 <p>Sample JavaScript Code</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">mutate</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">... obj.name = <span class="string">'Mutated'</span>;</span><br><span class="line">... &#125;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; <span class="keyword">var</span> my_color = &#123;</span><br><span class="line">... name : <span class="string">'Blue'</span>&#125;;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; my_color</span><br><span class="line">&#123; name: <span class="string">'Blue'</span> &#125;</span><br><span class="line">&gt; mutate(my_color)</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; my_color</span><br><span class="line">&#123; name: <span class="string">'Mutated'</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">mutate</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">... obj.name = <span class="string">'Mutated'</span>;</span><br><span class="line">... &#125;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; <span class="keyword">var</span> my_color = &#123;</span><br><span class="line">... name : <span class="string">'Blue'</span>&#125;;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; my_color</span><br><span class="line">&#123; <span class="attr">name</span>: <span class="string">'Blue'</span> &#125;</span><br><span class="line">&gt; mutate(my_color)</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; my_color</span><br><span class="line">&#123; <span class="attr">name</span>: <span class="string">'Mutated'</span> &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 <p>Since We passed the mutable object the JavaScript will mutate it in the above.<br>But in the case of assignment and immutable object the changes won’t reflect to the caller as in below case.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">chanageColor</span>(<span class="params">col</span>)</span>&#123;</span><br><span class="line">... col = <span class="string">'red'</span>;</span><br><span class="line">... &#125;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; <span class="keyword">var</span> colr = <span class="string">'green'</span>;</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; chanageColor(colr)</span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line">&gt; colr</span><br><span class="line"><span class="string">'green'</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="The-Curious-Case-of-Java"><a href="#The-Curious-Case-of-Java" class="headerlink" title="The Curious Case of Java"></a>The Curious Case of <code>Java</code></h2><p>Java is also <code>Call by Sharing</code>. May be <code>pass by value where value is the reference copy</code> describes the Evaluation Strategy better in <code>Java</code> than simply saying <code>Java</code> is always pass by value.</p>
@@ -255,34 +242,19 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
       <ul class="list-toolbox">
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="https://ankuranand.com"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
               About
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
               RSS
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
               Search
             </a>
           </li>
@@ -318,7 +290,7 @@ arguments</code>, temporarily bumping up the object’s reference count.</p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 const gitalk = new Gitalk({
-  clientID: '6e027625688767870366',
+  clientID: 'Infinity',
   clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
   repo: 'blog',
   owner: 'ankur-anand',
@@ -370,37 +342,5 @@ gitalk.render('gitalk-container')
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>

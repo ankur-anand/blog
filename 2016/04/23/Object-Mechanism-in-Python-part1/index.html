@@ -4,36 +4,29 @@
   <html class="light page-post">
 
 
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
   
-  <title>Understanding Object Mechanism in Python. Part - 1 | Ankur Anand Blog</title>
+  <title>Understanding Object Mechanism in Python. Part - 1 | Ankur Anand</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Python,Object," />
+    <meta name="keywords" content="Python,Object,">
   
 
-  <meta name="description" content="Introduction
-This is first part in the series of object mechanism in python and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code
-
-When we s">
+  <meta name="description" content="Introduction This is first part in the series of object mechanism in python and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code  When we s">
+<meta name="keywords" content="Python,Object">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding Object Mechanism in Python. Part - 1">
 <meta property="og:url" content="http://blog.ankuranand.com/2016/04/23/Object-Mechanism-in-Python-part1/index.html">
-<meta property="og:site_name" content="Ankur Anand Blog">
-<meta property="og:description" content="Introduction
-This is first part in the series of object mechanism in python and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code
-
-When we s">
+<meta property="og:site_name" content="Ankur Anand">
+<meta property="og:description" content="Introduction This is first part in the series of object mechanism in python and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code  When we s">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-02-25T18:21:23.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding Object Mechanism in Python. Part - 1">
-<meta name="twitter:description" content="Introduction
-This is first part in the series of object mechanism in python and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code
-
-When we s">
+<meta name="twitter:description" content="Introduction This is first part in the series of object mechanism in python and assumes that people reading this are familiar with the basic python and is comfortable in reading some C code  When we s">
 
   
 
@@ -70,16 +63,16 @@ ga('send', 'pageview');
 
   
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
 </head>
-
+</html>
 <body>
 
 
   
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+    <span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
   
 
   <div class="post-header CENTER">
@@ -93,34 +86,19 @@ ga('send', 'pageview');
     <ul class="list-toolbox">
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="https://ankuranand.com"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
             About
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
             RSS
           </a>
         </li>
       
         <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
             Search
           </a>
         </li>
@@ -133,7 +111,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PyObject"><span class="toc-text">PyObject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Understanding-PyObject"><span class="toc-text">Understanding PyObject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference-Counting-Mechanism"><span class="toc-text">Reference Counting Mechanism</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PYObject-VAR-HEAD"><span class="toc-text">PYObject_VAR_HEAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Going-Further"><span class="toc-text">Going Further</span></a></li></ol>
   </div>
 
@@ -191,16 +169,16 @@ ga('send', 'pageview');
 </blockquote>
 <p>objects do not float around in memory; once created and allocated the size and address of the object doesn’t change, so object that need to accommodate variable length data can only maintain a pointer to a variable-size memory region within the object as it makes the object maintenance work very simple</p>
 <h2 id="Understanding-PyObject"><a href="#Understanding-PyObject" class="headerlink" title="Understanding PyObject"></a>Understanding PyObject</h2><p>Here the structure of the <code>PyObject</code> that forms the core foundation of Python Object Mechanism. It’s defined in the <code>object.h</code> file of Python Core Library</p>
-<p><strong>For objects that does not contain variable length data</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _object &#123;</span><br><span class="line">    PyObject_HEAD</span><br><span class="line">&#125; PyObject;</span><br></pre></td></tr></table></figure></p>
-<p><strong>For objects that contain variable length data</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    PyObject_VAR_HEAD</span><br><span class="line">&#125; PyVarObject;</span><br></pre></td></tr></table></figure></p>
-<p>And the macros definition of <code>PyObject_HEAD</code> and <code>PyObject_VAR_HEAD</code><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* PyObject_HEAD defines the initial segment of every PyObject. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PyObject_HEAD           /</span></span><br><span class="line">  _PyObject_HEAD_EXTRA        /</span><br><span class="line">  <span class="keyword">int</span> ob_refcnt;          /</span><br><span class="line">  <span class="keyword">struct</span> _typeobject *ob_type;</span><br></pre></td></tr></table></figure></p>
+<p><strong>For objects that does not contain variable length data</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">object</span> &#123;</span></span><br><span class="line">    PyObject_HEAD</span><br><span class="line">&#125; PyObject;</span><br></pre></td></tr></table></figure></p>
+<p><strong>For objects that contain variable length data</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    PyObject_VAR_HEAD</span><br><span class="line">&#125; PyVarObject;</span><br></pre></td></tr></table></figure></p>
+<p>And the macros definition of <code>PyObject_HEAD</code> and <code>PyObject_VAR_HEAD</code><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* PyObject_HEAD defines the initial segment of every PyObject. */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PyObject_HEAD           /</span></span><br><span class="line">  _PyObject_HEAD_EXTRA        /</span><br><span class="line">  <span class="keyword">int</span> ob_refcnt;          /</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> _<span class="title">typeobject</span> *<span class="title">ob_type</span>;</span></span><br></pre></td></tr></table></figure></p>
  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PyObject_VAR_HEAD       /</span></span><br><span class="line">  PyObject_HEAD           /</span><br><span class="line">  <span class="keyword">int</span> ob_size; <span class="comment">/* Number of items in variable part */</span></span><br></pre></td></tr></table></figure>
 <p>As it can be seen, whether it’s a variable size Python Object (<code>PyVarObject</code>) or or fixed size Python Object (<code>PyObject</code>), the <code>PyObject_HEAD</code> remains the same, and this makes the reference to objects very unified, We only need a <code>PyObject*</code> and we can reference any object.</p>
 <h2 id="Reference-Counting-Mechanism"><a href="#Reference-Counting-Mechanism" class="headerlink" title="Reference Counting Mechanism"></a>Reference Counting Mechanism</h2><p>The Integer variable <code>int ob_refcnt</code> implements the reference counting mechanism. For an object A, Whenever there is new <code>PyObject*</code> reference the reference count of A is increased, and whenever it’s is reduced the reference count should be decreased. If count reaches 0, A can be removed from the heap.</p>
 <p>For Example when we write <code>a = b = c = []</code> we create one list and give it three different names. I.e we have bounded the newly instantiated list object to three different identifiers and binding is one of the way to increase the referent’s reference count.</p>
-<p>Let’s us demonstrate this.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> ctypes</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">get_reference_count</span><span class="params">(obj)</span>:</span></span><br><span class="line"><span class="meta">... </span>  <span class="string">""" Function takes the object as input and returns the </span><br><span class="line"><span class="meta">... </span>  total number of reference count to it """</span></span><br><span class="line"><span class="meta">... </span>  <span class="keyword">return</span> ctypes.c_size_t.from_address(id(obj))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l = [<span class="number">234</span>,<span class="number">567</span>,<span class="number">99999</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count= get_ref(l)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count</span><br><span class="line">c_ulong(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l1 = l</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count</span><br><span class="line">c_ulong(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> l</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count</span><br><span class="line">c_ulong(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>Let’s us demonstrate this.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> ctypes</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">get_reference_count</span><span class="params">(obj)</span>:</span></span><br><span class="line"><span class="meta">... </span>  <span class="string">""" Function takes the object as input and returns the </span></span><br><span class="line"><span class="string"><span class="meta">... </span>  total number of reference count to it """</span></span><br><span class="line"><span class="meta">... </span>  <span class="keyword">return</span> ctypes.c_size_t.from_address(id(obj))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l = [<span class="number">234</span>,<span class="number">567</span>,<span class="number">99999</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count= get_ref(l)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count</span><br><span class="line">c_ulong(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l1 = l</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count</span><br><span class="line">c_ulong(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> l</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>l_ref_count</span><br><span class="line">c_ulong(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
 <h2 id="PYObject-VAR-HEAD"><a href="#PYObject-VAR-HEAD" class="headerlink" title="PYObject_VAR_HEAD"></a>PYObject_VAR_HEAD</h2><p>For the variable length Object, the PyObject are usually container which holds the total number of elements that the container is going to contain in the <code>ob_size</code> variable</p>
-<h2 id="Going-Further"><a href="#Going-Further" class="headerlink" title="Going Further"></a>Going Further</h2><p>In Part 2<br>The Type of Object Mechanism of the PyObject_HEAD<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> _typeobject *ob_type</span><br></pre></td></tr></table></figure></p>
+<h2 id="Going-Further"><a href="#Going-Further" class="headerlink" title="Going Further"></a>Going Further</h2><p>In Part 2<br>The Type of Object Mechanism of the PyObject_HEAD<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">typeobject</span> *<span class="title">ob_type</span></span></span><br></pre></td></tr></table></figure></p>
 
     
   </div>
@@ -241,34 +219,19 @@ ga('send', 'pageview');
       <ul class="list-toolbox">
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="https://ankuranand.com"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
               About
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
               RSS
             </a>
           </li>
         
           <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
               Search
             </a>
           </li>
@@ -304,7 +267,7 @@ ga('send', 'pageview');
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 const gitalk = new Gitalk({
-  clientID: '6e027625688767870366',
+  clientID: 'Infinity',
   clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
   repo: 'blog',
   owner: 'ankur-anand',
@@ -356,37 +319,5 @@ gitalk.render('gitalk-container')
   }
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>
