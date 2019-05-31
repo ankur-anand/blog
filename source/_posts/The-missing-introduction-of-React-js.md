@@ -33,7 +33,7 @@ How would we implement a simple upvote and downvote functionality like below.
 
 Even with my limited knowledge i can write HTML for this. Check the Result tab.
 
-{% jsdiddlehttps ankuranand/6qz26n0k result,js,html light  %}
+{% jsfiddle ankuranand/6qz26n0k result,js,html light  %}
 
 How cool, **But how would be go on and use this functionality inside different page ?** Now we have a problem and to solve this we have to copy the whole button structure inside the another page. That what we have been doing traditionally.
 
@@ -74,7 +74,7 @@ const downVoteButton = new DownVoteButton();
 wrapper.innerHTML += downVoteButton.render();
 ```
 
-{% jsdiddlehttps ankuranand/4xpe8frq result,html,js light  %}
+{% jsfiddle ankuranand/4xpe8frq result,html,js light  %}
 
 But now our event listener to the button are dead, as our class `UpVoteButton` and `DownVoteButton` are simply a string, and we can’t add events to a string. **To add event we need DOM structure.** Lets modify our class to create a DOM structure from string using the **DOM API**.
 
@@ -120,7 +120,7 @@ const downVoteButton = new DownVoteButton();
 wrapper.appendChild(downVoteButton.render());
 ```
 
-{% jsdiddlehttps ankuranand/g48qv6q8 result,html,js light  %}
+{% jsfiddle ankuranand/g48qv6q8 result,html,js light  %}
 
 # The Why Of React State
 
@@ -153,7 +153,7 @@ class UpVoteButton {
 }
 ```
 
-{% jsdiddlehttps ankuranand/Lfe7csp0 result,html,js light  %}
+{% jsfiddle ankuranand/Lfe7csp0 result,html,js light  %}
 
 # The Why of setState Function
 
@@ -247,7 +247,7 @@ setState(state) {
 
 Our working model.
 
-{% jsdiddlehttps ankuranand/8tvu5pye result,html,js light  %}
+{% jsfiddle ankuranand/8tvu5pye result,html,js light  %}
 
 It’s seems so clear that our setState right now add and delete DOM elements, causing the browser to do a lot of rearrangement, that seriously affect the performance.
 
@@ -396,7 +396,7 @@ componentMount(upVoteButton, wrapper);
 
 Our working model.
 
-{% jsdiddlehttps ankuranand/8Lgqjoru result,html,js light  %}
+{% jsfiddle ankuranand/8Lgqjoru result,html,js light  %}
 
 With that we have created our very own component system and learn’t how with Component based system we have solved some of the problem of re-usability in front-end. Every Component has its own DOM structure and its behavior and display style is determined by its own state and props. So when data changes the Component will automatically re-render the new Content.
 
