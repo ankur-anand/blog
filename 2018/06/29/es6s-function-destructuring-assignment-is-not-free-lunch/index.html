@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>ES6’s Function Destructuring Assignment Is Not A Free Lunch. | Ankur Anand</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript,">
+  
+
+  <meta name="description" content="I completely agree with the fact that “premature optimization is the root of all evil (or at least most of it) in programming”. But it makes no harm sometimes to know the bits of your code that you wr">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6’s Function Destructuring Assignment Is Not A Free Lunch.">
+<meta property="og:url" content="http://blog.ankuranand.com/2018/06/29/es6s-function-destructuring-assignment-is-not-free-lunch/index.html">
+<meta property="og:site_name" content="Ankur Anand">
+<meta property="og:description" content="I completely agree with the fact that “premature optimization is the root of all evil (or at least most of it) in programming”. But it makes no harm sometimes to know the bits of your code that you wr">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*mRrsOe5Amw2b0do42y9Oww.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*04yjvLJeNoC4p7AHmzwSww.png">
+<meta property="og:updated_time" content="2019-05-31T19:09:18.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6’s Function Destructuring Assignment Is Not A Free Lunch.">
+<meta name="twitter:description" content="I completely agree with the fact that “premature optimization is the root of all evil (or at least most of it) in programming”. But it makes no harm sometimes to know the bits of your code that you wr">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*mRrsOe5Amw2b0do42y9Oww.png">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-76643336-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">Blog</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">Blog</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
+            About
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dissecting-the-performance-from-the-V8-bytecode"><span class="toc-text">Dissecting the performance from the V8 bytecode.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dissecting-the-performance-w-r-t-the-memory"><span class="toc-text">Dissecting the performance w.r.t the memory.</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-es6s-function-destructuring-assignment-is-not-free-lunch" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">ES6’s Function Destructuring Assignment Is Not A Free Lunch.</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.06.29</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Ankur Anand</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i>
+        <span id="busuanzi_container_page_pv">
+            &nbsp <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>
+        </span>
+      
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>I completely agree with the fact that “premature optimization is the root of all evil (or at least most of it) in programming”. But it makes no harm sometimes to know the bits of your code that you write and how it affects the environment for which you are writing your code.</p>
+<p>This post is more about learning some of these bits of JavaScript, especially in Node.js environment with v8 core not to favour this micro-optimization because business code is still more concerned about readability and maintainability.</p>
+<p>So what exactly we are looking at?. For the legibility of the remaining article, we are comparing the ES6 way of destructing assignment and traditional way of passing parameters inside a function, from a perspective of its impact on performance CPU/Memory.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*mRrsOe5Amw2b0do42y9Oww.png" alt="ES6’s Function Destructuring vs function parameters Syntax"></p>
+<h2 id="Dissecting-the-performance-from-the-V8-bytecode"><a href="#Dissecting-the-performance-from-the-V8-bytecode" class="headerlink" title="Dissecting the performance from the V8 bytecode."></a>Dissecting the performance from the V8 bytecode.</h2><p>Let’s look at the byte code of <em>function parameters</em> of the below sample code.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">number1, number2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> number1 + number2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = add(<span class="number">1</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>ByteCode:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[generating bytecode <span class="keyword">for</span> <span class="keyword">function</span>: add]</span><br><span class="line">Parameter count 3</span><br><span class="line">Frame size 0</span><br><span class="line">   74 E&gt; 0x2a2a0affd2a2 @    0 : 91                StackCheck</span><br><span class="line">   96 S&gt; 0x2a2a0affd2a3 @    1 : 1d 02             Ldar a1</span><br><span class="line">  111 E&gt; 0x2a2a0affd2a5 @    3 : 2b 03 00          Add a0, [0]</span><br><span class="line">  121 S&gt; 0x2a2a0affd2a8 @    6 : 95                Return</span><br><span class="line">Constant pool (size = 0)</span><br><span class="line">Handler Table (size = 16)</span><br></pre></td></tr></table></figure>
+<p>So in the case of V8 have only 2 core instruction to execute <code>Ldar a1</code> and <code>Add a0,[0]</code>.</p>
+<p>Let’s us rewrite the above <code>add</code> function using the <em>ES6’s Function Destructuring Assignment.</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">&#123; number1, number2 &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> number1 + number2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> result = add(&#123; <span class="attr">number1</span>: <span class="number">1</span>, <span class="attr">number2</span>: <span class="number">5</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>ByteCode:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[generating bytecode for function: add]</span><br><span class="line">Parameter count 2</span><br><span class="line">Frame size 40</span><br><span class="line">   74 E&gt; 0x2c1d63b7d312 @    0 : 91                StackCheck</span><br><span class="line">         0x2c1d63b7d313 @    1 : 1f 02 fb          Mov a0, r0</span><br><span class="line">         0x2c1d63b7d316 @    4 : 1d fb             Ldar r0</span><br><span class="line">         0x2c1d63b7d318 @    6 : 89 06             JumpIfUndefined [6] (0x2c1d63b7d31e @ 12)</span><br><span class="line">         0x2c1d63b7d31a @    8 : 1d fb             Ldar r0</span><br><span class="line">         0x2c1d63b7d31c @   10 : 88 10             JumpIfNotNull [16] (0x2c1d63b7d32c @ 26)</span><br><span class="line">         0x2c1d63b7d31e @   12 : 03 3f             LdaSmi [63]</span><br><span class="line">         0x2c1d63b7d320 @   14 : 1e f8             Star r3</span><br><span class="line">         0x2c1d63b7d322 @   16 : 09 00             LdaConstant [0]</span><br><span class="line">         0x2c1d63b7d324 @   18 : 1e f7             Star r4</span><br><span class="line">         0x2c1d63b7d326 @   20 : 53 e8 00 f8 02    CallRuntime [NewTypeError], r3-r4</span><br><span class="line">   76 E&gt; 0x2c1d63b7d32b @   25 : 93                Throw</span><br><span class="line">   76 S&gt; 0x2c1d63b7d32c @   26 : 20 fb 00 02       LdaNamedProperty r0, [0], [2]</span><br><span class="line">         0x2c1d63b7d330 @   30 : 1e fa             Star r1</span><br><span class="line">   85 S&gt; 0x2c1d63b7d332 @   32 : 20 fb 01 04       LdaNamedProperty r0, [1], [4]</span><br><span class="line">         0x2c1d63b7d336 @   36 : 1e f9             Star r2</span><br><span class="line">   98 S&gt; 0x2c1d63b7d338 @   38 : 1d f9             Ldar r2</span><br><span class="line">  113 E&gt; 0x2c1d63b7d33a @   40 : 2b fa 06          Add r1, [6]</span><br><span class="line">  123 S&gt; 0x2c1d63b7d33d @   43 : 95                Return</span><br><span class="line">Constant pool (size = 2)</span><br><span class="line">Handler Table (size = 16)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>In the case of ES6’s Function Destructuring Assignment we can see that the byteCode has increased significantly from 4 to 19 where most of the them are <code>JumpIfUndefined</code>, <code>CallRuntime</code>, <code>Throw</code> instructions.</p>
+</blockquote>
+<h2 id="Dissecting-the-performance-w-r-t-the-memory"><a href="#Dissecting-the-performance-w-r-t-the-memory" class="headerlink" title="Dissecting the performance w.r.t the memory."></a>Dissecting the performance w.r.t the memory.</h2><p>Generating too many function call to trace the GC.</p>
+<p><em>function parameters</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1e8</span>; i++)&#123;</span><br><span class="line"> <span class="keyword">const</span> d = add(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(%GetHeapUsage())</span><br></pre></td></tr></table></figure>
+<p>Result of <strong><code>— trace-gc</code></strong></p>
+<p><code>[1841:0x2555580] 82 ms: Scavenge 3.4 (6.3) -&gt; 3.1 (7.3) MB, 1.9 / 0.0 ms allocation failure [1841:0x2555580] 102 ms: Scavenge 3.6 (7.3) -&gt; 3.5 (8.3) MB, 1.9 / 0.0 ms allocation failure **4919768**</code></p>
+<p><em>ES6’s Function Destructuring Assignment.</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">&#123;a,b&#125;</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1e8</span>; i++)&#123;</span><br><span class="line"> <span class="keyword">const</span> d = add(&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(%GetHeapUsage())</span><br></pre></td></tr></table></figure>
+<p>Result of <strong><code>— trace-gc</code></strong></p>
+<p><code>[5054:0x245d570] 60 ms: Scavenge 3.4 (6.3) -&gt; 3.1 (7.3) MB, 1.1 / 0.0 ms allocation failure [5054:0x245d570] 77 ms: Scavenge 3.6 (7.3) -&gt; 3.5 (8.3) MB, 1.3 / 0.0 ms allocation failure [5054:0x245d570] 109 ms: Scavenge 4.8 (8.3) -&gt; 4.6 (11.3) MB, 0.5 / 0.0 ms allocation failure **5762568**</code></p>
+<p>But does it means in <em>ES6’s Function Destructuring Assignment</em> we have more memory allocation, <strong>NO as here most of the memory difference is due to the object creation overhead in each loop.</strong></p>
+<p>Because if we try to test the <em>ES6’s Function Destructuring Assignment</em> with constant object outside the loop we would’t get much memory difference, from the <em>function parameters.</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ob = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1e8</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> d = add(ob);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>GC result when object was created only once.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[6607:0x2f5c570]       43 ms: Scavenge 3.4 (6.3) -&gt; 3.1 (7.3) MB, 0.8 / 0.0 ms  allocation failure</span><br><span class="line">[6607:0x2f5c570]       52 ms: Scavenge 3.6 (7.3) -&gt; 3.5 (8.3) MB, 0.8 / 0.0 ms  allocation failure</span><br><span class="line">**4921672**</span><br></pre></td></tr></table></figure>
+<p>So we have almost the same memory utilization as the functional parameter case.</p>
+<blockquote>
+<p>So in the case of <em>ES6’s Function Destructuring Assignment</em> the memory utilization difference is directly dependent upon how we are creating the object.</p>
+</blockquote>
+<p>Also if we see verbose GC detailed information in the case of <code>const d = add({a:1,b:2})</code>, we will see that most of these allocation happens in new space region, so the cost of these clean-up is still relatively small (&lt;1 ms), but this may impact the performance of the application (depending upon the application use case) because the Garbage Collector in V8 is <strong>generational, stop-the-world garbage collector.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[21108:0x3618540] Shrinking page 0x2197c4500000: end 0x2197c4580000 -&gt; 0x2197c454f000</span><br><span class="line">[21108:0x3618540] Shrinking page 0x7900a700000: end 0x7900a780000 -&gt; 0x7900a705000</span><br><span class="line">[21108:0x3618540] Fast promotion mode: false survival rate: 61%</span><br><span class="line">[21108:0x3618540]       32 ms: Scavenge 3.4 (6.3) -&gt; 3.1 (7.3) MB, 0.8 / 0.0 ms  allocation failure</span><br><span class="line">[21108:0x3618540] Memory allocator,   used:   7504 KB, available: 1458864 KB</span><br><span class="line">[21108:0x3618540] New space,          used:    652 KB, available:    354 KB, committed:   2048 KB</span><br><span class="line">[21108:0x3618540] Old space,          used:   1066 KB, available:     46 KB, committed:   1340 KB</span><br><span class="line">[21108:0x3618540] Code space,         used:   1191 KB, available:      0 KB, committed:   2048KB</span><br><span class="line">[21108:0x3618540] Map space,          used:    240 KB, available:      0 KB, committed:    532 KB</span><br><span class="line">[21108:0x3618540] Large object space, used:      0 KB, available: 1458343 KB, committed:      0 KB</span><br><span class="line">[21108:0x3618540] All spaces,         used:   3150 KB, available: 1458744 KB, committed:   5968KB</span><br><span class="line">[21108:0x3618540] External memory reported:      8 KB</span><br><span class="line">[21108:0x3618540] External memory global 0 KB</span><br><span class="line">[21108:0x3618540] Total time spent in GC  : 0.8 ms</span><br><span class="line">[21108:0x3618540] Fast promotion mode: false survival rate: 88%</span><br><span class="line">[21108:0x3618540]       42 ms: Scavenge 3.6 (7.3) -&gt; 3.5 (8.3) MB, 1.3 / 0.0 ms  allocation failure</span><br><span class="line">[21108:0x3618540] Memory allocator,   used:   8528 KB, available: 1457840 KB</span><br><span class="line">[21108:0x3618540] New space,          used:    273 KB, available:    733 KB, committed:   2048 KB</span><br><span class="line">[21108:0x3618540] Old space,          used:   1838 KB, available:    438 KB, committed:   2364 KB</span><br><span class="line">[21108:0x3618540] Code space,         used:   1191 KB, available:      0 KB, committed:   2048KB</span><br><span class="line">[21108:0x3618540] Map space,          used:    261 KB, available:      0 KB, committed:    532 KB</span><br><span class="line">[21108:0x3618540] Large object space, used:      0 KB, available: 1457319 KB, committed:      0 KB</span><br><span class="line">[21108:0x3618540] All spaces,         used:   3565 KB, available: 1458491 KB, committed:   6992KB</span><br><span class="line">[21108:0x3618540] External memory reported:      8 KB</span><br><span class="line">[21108:0x3618540] External memory global 0 KB</span><br><span class="line">[21108:0x3618540] Total time spent in GC  : 2.0 ms</span><br><span class="line">[21108:0x3618540] Fast promotion mode: false survival rate: 38%</span><br><span class="line">[21108:0x3618540]       65 ms: Scavenge 4.8 (8.3) -&gt; 4.6 (11.3) MB, 0.7 / 0.0 ms  allocation failure</span><br><span class="line">[21108:0x3618540] Memory allocator,   used:  11600 KB, available: 1454768 KB</span><br><span class="line">[21108:0x3618540] New space,          used:    549 KB, available:   1464 KB, committed:   4096 KB</span><br><span class="line">[21108:0x3618540] Old space,          used:   2580 KB, available:    736 KB, committed:   3388 KB</span><br><span class="line">[21108:0x3618540] Code space,         used:   1193 KB, available:      0 KB, committed:   2048KB</span><br><span class="line">[21108:0x3618540] Map space,          used:    361 KB, available:      0 KB, committed:    532 KB</span><br><span class="line">[21108:0x3618540] Large object space, used:      0 KB, available: 1454247 KB, committed:      0 KB</span><br><span class="line">[21108:0x3618540] All spaces,         used:   4684 KB, available: 1456448 KB, committed:  10064KB</span><br><span class="line">[21108:0x3618540] External memory reported:      8 KB</span><br><span class="line">[21108:0x3618540] External memory global 0 KB</span><br><span class="line">[21108:0x3618540] Total time spent in GC  : 2.7 ms</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*04yjvLJeNoC4p7AHmzwSww.png" alt>How to Read — trace_gc flag node.js</p>
+<blockquote>
+<p>Though we have a <strong>evident Computational penalty of using ES6’s Function Destructuring Assignment,</strong> the memory penalty depends upon the use case.</p>
+</blockquote>
+<p>At first glance, we might be tempted to do premature optimization but for business we should prefer the readability, and also in this case for the code sample above, we have seen the results, still there is a very high probability that final benchmark will differ from project to project in real world because V8 performs lots of optimization with different mechanism eg. <a href="https://v8project.blogspot.com/2017/09/disabling-escape-analysis.html" target="_blank" rel="noopener">escape analysis</a> on destructuring, and we might never have to worry about this in most of the cases.</p>
+<hr>
+
+    
+  </div>
+
+</article>
+
+   
+  <div class="box-prev-next clearfix" style="margin-top:10px;">
+    <a class="show pull-left" href="/2018/06/15/Implement-your-own-call-apply-and-bind-method-in-JavaScript/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="https://ankuranand.com" rel="noopener noreferrer" target="_self">
+              About
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              Search
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: 'Infinity',
+  clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
+  repo: 'blog',
+  owner: 'ankur-anand',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname,
+  admin: ['ankur-anand'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
