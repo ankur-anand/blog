@@ -19,7 +19,7 @@
 <meta name="keywords" content="Python,Factorial,Efficiency,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Efficient Factorial Algorithm">
-<meta property="og:url" content="http://blog.ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS/index.html">
+<meta property="og:url" content="http://blog.ankuranand.com/2016/04/19/EFFICIENT-FACTORIALS-ALGORITHMS">
 <meta property="og:site_name" content="Ankur Anand">
 <meta property="og:description" content="Factorial -In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integersless than or equal to n. For example, $$ 5! = 5 \ast 4 \ast 3 \ast 2 \ast 1">
 <meta property="og:locale" content="en">
@@ -188,7 +188,7 @@ ga('send', 'pageview');
     <a class="hide pull-left" href="/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2016/04/23/private-access-in-java/">
+    <a class="show pull-right" href="/2016/04/23/private-access-in-java">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -269,7 +269,7 @@ const gitalk = new Gitalk({
   clientSecret: '9ac2991775db990e81299dfa99a114395b58de3a',
   repo: 'blog',
   owner: 'ankur-anand',
-  id: location.pathname.split('/').pop().substring(0, 49),
+  id: location.pathname.split('/')[4].substring(0, 45),
   // id: location.pathname,
   admin: ['ankur-anand'],
   labels: ['gicomment'],
