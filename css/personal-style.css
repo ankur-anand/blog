@@ -27,6 +27,9 @@
 .article-content img {
   margin-top: 50px;
   margin-bottom: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 code {
