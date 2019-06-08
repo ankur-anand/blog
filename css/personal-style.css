@@ -1,0 +1,44 @@
+.content.content-post .article-header .post-title {
+  color: #d44375;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+.article-content p {
+  font-size: 16px;
+  letter-spacing: -0.063px;
+  line-height: 33.18px;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  text-decoration: underline;
+  text-decoration-color: purple;
+  margin-top: 50px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  line-height: 2em;
+}
+
+.article-content img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+code {
+  color: #555;
+}
+
+.item-post .post-title {
+  letter-spacing: -0.063px;
+  line-height: 33.18px;
+}
+
+.toc-article .toc-title {
+  font-size: 15px;
+  font-weight: 400;
+}
