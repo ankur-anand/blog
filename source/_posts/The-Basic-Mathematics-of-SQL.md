@@ -11,7 +11,7 @@ category:
 Formally, we know a **relation** is a subset of a [Cartesian Products](https://en.wikipedia.org/wiki/Cartesian_product) of sets. i.e $ R \\in ( A X B ) $
 For Example.
 $$ A = \\{ 1, 3 \\} , B = \\{ 2, 5 \\} $$
-Cartesian Product of set A and B will be 
+Cartesian Product of set A and B will be
 $$ P = \\{ (1,2),(3,2),(1,5),(3,5)\\} $$
 
 Out of that there are three pair that observe the $ < $ relationship
@@ -27,8 +27,8 @@ For Example for above set we have a relation of $ R (A,B) $ which we can write m
 In Real world we represent the relation in Table with attributes as column
 * Student(Id, FirstN, LastN)
 
-| ID  |  FirstN  | LastN |
-|-----|:--------:|----- :|
+| ID  | FirstN | LastN |
+| --- | :----: | ----- |:|
 | 101 |   John   |  Deo  |
 | 102 |   Jane   |  Deo  |
 | 103 |   Jhonny |  Deo  |

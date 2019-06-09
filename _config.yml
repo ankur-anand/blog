@@ -79,3 +79,5 @@ deploy:
   repo: https://github.com/ankur-anand/blog.git
   branch: master
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+
+all_minifier: true

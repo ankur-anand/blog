@@ -54,9 +54,7 @@ With that, we have achieved the first step of this, If you are wondering how tak
 
 `showProfileMessage.myOwnCall(obj, "welcome ");`
 
-What happens when we call something like above, `showProfileMessage` is an object (Function is also an object in JavaScript) on which we are calling the method `myOwnCall` inherited from prototype, so inside our `myOwnCall` method currently the `this` variable will be pointing to the object that is `showProfileMessage` and this is what our function reference is, so we added a function referencing to `showProfileMessage` to new passed `obj` or `this` value from the `myOwnCall` with
-
-`someOtherThis.fnName = this;` and then simply called the function in the next line.
+What happens when we call something like above, `showProfileMessage` is an object (Function is also an object in JavaScript) on which we are calling the method `myOwnCall` inherited from prototype, so inside our `myOwnCall` method currently the `this` variable will be pointing to the object that is `showProfileMessage` and this is what our function reference is, so we added a function referencing to `showProfileMessage` to new passed `obj` or `this` value from the `myOwnCall` with `someOtherThis.fnName = this;` and then simply called the function in the next line.
 
 Let’s now implement the second idea of `call`, to call the function with the passed parameters of variable length.
 
@@ -83,9 +81,7 @@ Function.prototype.myOwnCall = function(someOtherThis) {
 };
 ```
 
-Let’s get the third idea of the `call` method. “To not cause any side effect” and that exactly what we have violated till now in our implementation.
-
-`someOtherThis.fnName = this;`
+Let’s get the third idea of the `call` method. “To not cause any side effect” and that exactly what we have violated till now in our implementation. `someOtherThis.fnName = this;`
 
 We are adding `fnName` property to `someOtherThis` assuming that `someOtherThis` does not have a property named `fnName` in advance, we should avoid this. We can use a symbol of `es6` but we will avoid it as of now. We will use `Math.random` to create a unique property `id` for the object, and should delete this property after execution.
 
@@ -160,6 +156,7 @@ The general characteristic of the bind function is as follow from mdn.
 
 1.  The bind method creates and returns a `new function`, called a **bound function**. This **bound function** wraps the original function object.
 
+
 ```js
 Function.prototype.myOwnBind = function(newThis) {
   if (typeof this !== "function") {
@@ -171,6 +168,7 @@ Function.prototype.myOwnBind = function(newThis) {
   };
 };
 ```
+
 
 2. Look at this line, from mdn definition “**arguments to be prepended to the arguments provided to the bound function, when invoking the target function**”.
 
@@ -190,9 +188,7 @@ var bindFullName = fullName.bind(person, "Mr");
 bindFullName("Ankur");
 ```
 
-If we run the above code the output we get is
-
-`Mr Ankur Anand`
+If we run the above code the output we get is `Mr Ankur Anand`
 
 So If you look carefully the argument “_Mr_” was provided at the time of creating a **bound function** `bindFullName` while argument “_Ankur”_ was provided at the time of invoking the `bindFullName` which in turn invokes the target function. So the argument “_Mr_” was prepended to the arguments list when we called the `bindFullName` with an argument “_Ankur”._ This is what the definition at the MDN for `args1, args2, ...` means.
 
@@ -222,11 +218,7 @@ Are we done with bind? No, We have still missed one piece from the mdn definitio
 
 > The value is ignored if the bound function is constructed using the [new](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new "The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function.") operator.
 
-What it means to say is we need to ignore the passed in `this` value while creating the **bound function** when the bound function is called with a `new` operator. Taking the example given above
-
-`new bindFullName("Ankur")`
-
-will give us output as`Mr Ankur undefined`.
+What it means to say is we need to ignore the passed in `this` value while creating the **bound function** when the bound function is called with a `new` operator. Taking the example given above `new bindFullName("Ankur")` will give us output as`Mr Ankur undefined`.
 
 MDN has a nice polyfill of bind that takes care of the new operator scenario. What it basically does is set a transit constructor fNOP, so that the bound function and `bind()`the function call is on the same prototype chain, because calling the bound function with the new operator involves the passing of the prototype chain.
 
