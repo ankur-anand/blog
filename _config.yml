@@ -80,4 +80,7 @@ deploy:
   branch: master
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
 
+math:
+  enable: fasle
+
 all_minifier: true
