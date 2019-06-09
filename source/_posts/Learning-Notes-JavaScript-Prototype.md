@@ -1,5 +1,5 @@
 ---
-title: 'Learning Notes: JavaScript Prototype'
+title: 'A Gentle Introduction to JavaScript Prototype'
 date: 2017-12-28 19:27:07
 tags: [JavaScript, Prototype, self-notes]
 category:

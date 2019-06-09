@@ -22,6 +22,7 @@ I asked “Google” and here are few Terminology that were thrown at my face.
 Having limited knowledge of the front-end and not used any front-end framework or library before, I completed the official tutorial but all the rich information at the official documentation or any other great article out on Internet was more difficult to understand for me, and there was few questions that i kept asking myself again and again
 
 1. What led to the need for front-end pages to be componentized ?
+
 2. What kind of problems non component front-end code face and how the React.js solves these problems ?
 
 This post is my attempt to present that missing part of React.js with these two question in mind to novice like me in autodidact way.

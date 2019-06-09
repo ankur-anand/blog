@@ -1,5 +1,5 @@
 ---
-title: 'Learning Notes: Node.js-Buffer'
+title: 'Diving Deep into Node.js-Buffer'
 date: 2017-08-31 00:14:58
 tags: [JavaScript, Buffer, nodejs, 8k-pool, self-notes]
 category:
@@ -244,7 +244,7 @@ function alignPool() {
 }
 ```
 
-8k Slab are reclaimbed by the v8 if all other references have become null. `createPool()` interanally calls `createUnsafeArrayBuffer()` to get the corresponing instance of ArrayBuffer and because ArrayBuffer is 
+8k Slab are reclaimbed by the v8 if all other references have become null. `createPool()` interanally calls `createUnsafeArrayBuffer()` to get the corresponing instance of ArrayBuffer and because ArrayBuffer is
 >fixed-length raw binary data buffer
 
 it's insecure, and there is danger of leakage of sensitive information in memory.
