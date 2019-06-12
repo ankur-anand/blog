@@ -36,8 +36,6 @@ Going forward we are going to write the same for us, for learning perspective.
 
 At the Heart ❤️ of SSO we have a single independent authentication server, which can accept security information such as user’s email, username and password. Other systems do not provide login access and only accept indirect authorization from the authentication server. The indirect authorization is implemented using the token.
 
-{% githubCard user:ankur-anand repo:simple-sso %}
-
 I’m going to use node.js for the code, but you can use any technology the implement the basic principle of the SSO.
 
 **1.** The user accesses the protected resource of system “sso-consumer”. “sso-consumer” finds that the user is not logged in, jumps to the “sso-server”, using his own address as a parameter.
