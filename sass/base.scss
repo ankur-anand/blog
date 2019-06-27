@@ -1,0 +1,49 @@
+body,
+.smooth-container {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  width: 100%;
+}
+html {
+  overflow: hidden;
+  overflow-y: auto;
+}
+code,
+pre,
+samp {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 17px;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ul {
+  line-height: 1.8em;
+  padding: 0;
+  list-style: none;
+  li {
+    list-style: none;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
